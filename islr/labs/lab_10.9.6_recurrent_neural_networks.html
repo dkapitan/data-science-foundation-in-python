@@ -942,13 +942,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:23:53.279236: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-2023-11-11 11:23:53.316830: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-2023-11-11 11:23:53.317589: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:37:33.636314: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-11-11 11:37:33.673126: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-11-11 11:37:33.674244: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:23:54.067625: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:37:34.433712: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1072,7 @@ Dimension of X_train: (25000, 500)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13min 45s, sys: 1min 22s, total: 15min 8s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13min 44s, sys: 1min 24s, total: 15min 8s
 Wall time: 4min 54s
 </pre></div>
 </div>
@@ -1105,23 +1105,23 @@ Wall time: 4min 54s
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-6862cfd093244bf7a138bd4d73091863.vega-embed {
+  #altair-viz-805aefb11dc64e2b9fc502264b55ca63.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-6862cfd093244bf7a138bd4d73091863.vega-embed details,
-  #altair-viz-6862cfd093244bf7a138bd4d73091863.vega-embed details summary {
+  #altair-viz-805aefb11dc64e2b9fc502264b55ca63.vega-embed details,
+  #altair-viz-805aefb11dc64e2b9fc502264b55ca63.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-6862cfd093244bf7a138bd4d73091863"></div>
+<div id="altair-viz-805aefb11dc64e2b9fc502264b55ca63"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6862cfd093244bf7a138bd4d73091863") {
-      outputDiv = document.getElementById("altair-viz-6862cfd093244bf7a138bd4d73091863");
+    if (outputDiv.id !== "altair-viz-805aefb11dc64e2b9fc502264b55ca63") {
+      outputDiv = document.getElementById("altair-viz-805aefb11dc64e2b9fc502264b55ca63");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -1167,7 +1167,7 @@ Wall time: 4min 54s
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "loss", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "loss", "type": "quantitative"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "accuracy", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "accuracy", "type": "quantitative"}}}], "data": {"name": "data-9757c56894a95fc39d1697c5baf4c355"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-9757c56894a95fc39d1697c5baf4c355": [{"epoch": 1, "loss": 0.5734891891479492, "accuracy": 0.6889200210571289, "fold": "training"}, {"epoch": 2, "loss": 0.3358394205570221, "accuracy": 0.8650400042533875, "fold": "training"}, {"epoch": 3, "loss": 0.2597041130065918, "accuracy": 0.9005200266838074, "fold": "training"}, {"epoch": 4, "loss": 0.22372257709503174, "accuracy": 0.9143999814987183, "fold": "training"}, {"epoch": 5, "loss": 0.1962871253490448, "accuracy": 0.926639974117279, "fold": "training"}, {"epoch": 6, "loss": 0.17413242161273956, "accuracy": 0.9377999901771545, "fold": "training"}, {"epoch": 7, "loss": 0.16012358665466309, "accuracy": 0.9417200088500977, "fold": "training"}, {"epoch": 8, "loss": 0.14774926006793976, "accuracy": 0.9471200108528137, "fold": "training"}, {"epoch": 9, "loss": 0.1337362825870514, "accuracy": 0.9539600014686584, "fold": "training"}, {"epoch": 10, "loss": 0.12194817513227463, "accuracy": 0.9575200080871582, "fold": "training"}, {"epoch": 1, "loss": 0.4491676986217499, "accuracy": 0.7856000065803528, "fold": "validation"}, {"epoch": 2, "loss": 0.35013875365257263, "accuracy": 0.8534799814224243, "fold": "validation"}, {"epoch": 3, "loss": 0.3615233302116394, "accuracy": 0.8659600019454956, "fold": "validation"}, {"epoch": 4, "loss": 0.31647151708602905, "accuracy": 0.8685600161552429, "fold": "validation"}, {"epoch": 5, "loss": 0.3357618749141693, "accuracy": 0.8737999796867371, "fold": "validation"}, {"epoch": 6, "loss": 0.34444528818130493, "accuracy": 0.8674799799919128, "fold": "validation"}, {"epoch": 7, "loss": 0.3412955403327942, "accuracy": 0.8787199854850769, "fold": "validation"}, {"epoch": 8, "loss": 0.3977946937084198, "accuracy": 0.8731200098991394, "fold": "validation"}, {"epoch": 9, "loss": 0.35162433981895447, "accuracy": 0.8746799826622009, "fold": "validation"}, {"epoch": 10, "loss": 0.3635978102684021, "accuracy": 0.8744400143623352, "fold": "validation"}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "loss", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "loss", "type": "quantitative"}}}, {"mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "accuracy", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "accuracy", "type": "quantitative"}}}], "data": {"name": "data-e1c0fc0c69b3e75f2f3f9614580ec5e1"}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-e1c0fc0c69b3e75f2f3f9614580ec5e1": [{"epoch": 1, "loss": 0.5648924112319946, "accuracy": 0.694320023059845, "fold": "training"}, {"epoch": 2, "loss": 0.3379058539867401, "accuracy": 0.8614000082015991, "fold": "training"}, {"epoch": 3, "loss": 0.26495179533958435, "accuracy": 0.8966400027275085, "fold": "training"}, {"epoch": 4, "loss": 0.22962777316570282, "accuracy": 0.9154000282287598, "fold": "training"}, {"epoch": 5, "loss": 0.20568299293518066, "accuracy": 0.9237599968910217, "fold": "training"}, {"epoch": 6, "loss": 0.18699733912944794, "accuracy": 0.9337199926376343, "fold": "training"}, {"epoch": 7, "loss": 0.17240899801254272, "accuracy": 0.9378399848937988, "fold": "training"}, {"epoch": 8, "loss": 0.15930990874767303, "accuracy": 0.944599986076355, "fold": "training"}, {"epoch": 9, "loss": 0.15213650465011597, "accuracy": 0.9477199912071228, "fold": "training"}, {"epoch": 10, "loss": 0.1362181305885315, "accuracy": 0.9526399970054626, "fold": "training"}, {"epoch": 1, "loss": 0.4275950789451599, "accuracy": 0.8123199939727783, "fold": "validation"}, {"epoch": 2, "loss": 0.3069593608379364, "accuracy": 0.8725600242614746, "fold": "validation"}, {"epoch": 3, "loss": 0.4030667245388031, "accuracy": 0.8419600129127502, "fold": "validation"}, {"epoch": 4, "loss": 0.30154287815093994, "accuracy": 0.8721200227737427, "fold": "validation"}, {"epoch": 5, "loss": 0.31353020668029785, "accuracy": 0.8660399913787842, "fold": "validation"}, {"epoch": 6, "loss": 0.31646203994750977, "accuracy": 0.8684399724006653, "fold": "validation"}, {"epoch": 7, "loss": 0.3520374894142151, "accuracy": 0.870639979839325, "fold": "validation"}, {"epoch": 8, "loss": 0.3466140329837799, "accuracy": 0.8737999796867371, "fold": "validation"}, {"epoch": 9, "loss": 0.33716079592704773, "accuracy": 0.8757200241088867, "fold": "validation"}, {"epoch": 10, "loss": 0.42447519302368164, "accuracy": 0.8637599945068359, "fold": "validation"}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </section>

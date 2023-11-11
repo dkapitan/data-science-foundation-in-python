@@ -942,13 +942,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:21:54.805296: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-2023-11-11 11:21:54.842887: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
-2023-11-11 11:21:54.844790: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:35:35.472964: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-11-11 11:35:35.510274: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-11-11 11:35:35.512344: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:21:55.591596: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-11-11 11:35:36.280682: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/imdb.npz
@@ -958,7 +958,15 @@ To enable the following instructions: AVX2 FMA, in other operations, rebuild Ten
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 6283264/17464789 [=========&gt;....................] - ETA: 0s
+ 4202496/17464789 [======&gt;.......................] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+10723328/17464789 [=================&gt;............] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+15704064/17464789 [=========================&gt;....] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1188,8 +1196,8 @@ fitting LogisticRegression with C = 0.001
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... done
-CPU times: user 2min 22s, sys: 3min 54s, total: 6min 17s
-Wall time: 1min 35s
+CPU times: user 2min 22s, sys: 3min 51s, total: 6min 13s
+Wall time: 1min 34s
 </pre></div>
 </div>
 </div>
@@ -1221,23 +1229,23 @@ Wall time: 1min 35s
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e.vega-embed {
+  #altair-viz-9a0225328825472aaca5a85188392fb5.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e.vega-embed details,
-  #altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e.vega-embed details summary {
+  #altair-viz-9a0225328825472aaca5a85188392fb5.vega-embed details,
+  #altair-viz-9a0225328825472aaca5a85188392fb5.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e"></div>
+<div id="altair-viz-9a0225328825472aaca5a85188392fb5"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e") {
-      outputDiv = document.getElementById("altair-viz-cee3bf6b0a024757aeb3112fcdcbe40e");
+    if (outputDiv.id !== "altair-viz-9a0225328825472aaca5a85188392fb5") {
+      outputDiv = document.getElementById("altair-viz-9a0225328825472aaca5a85188392fb5");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -1363,125 +1371,125 @@ Wall time: 1min 35s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 1s - loss: 0.4989 - accuracy: 0.7849 - val_loss: 0.3745 - val_accuracy: 0.8685 - 834ms/epoch - 18ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 1s - loss: 0.4939 - accuracy: 0.7890 - val_loss: 0.3717 - val_accuracy: 0.8580 - 818ms/epoch - 18ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.3099 - accuracy: 0.8944 - val_loss: 0.3153 - val_accuracy: 0.8810 - 273ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.3101 - accuracy: 0.8901 - val_loss: 0.3000 - val_accuracy: 0.8820 - 264ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.2491 - accuracy: 0.9147 - val_loss: 0.2843 - val_accuracy: 0.8905 - 266ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.2462 - accuracy: 0.9143 - val_loss: 0.2779 - val_accuracy: 0.8900 - 274ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.2046 - accuracy: 0.9313 - val_loss: 0.4318 - val_accuracy: 0.8400 - 264ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.2066 - accuracy: 0.9266 - val_loss: 0.3047 - val_accuracy: 0.8840 - 268ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1845 - accuracy: 0.9363 - val_loss: 0.2778 - val_accuracy: 0.8935 - 265ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1792 - accuracy: 0.9380 - val_loss: 0.3094 - val_accuracy: 0.8845 - 267ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1604 - accuracy: 0.9466 - val_loss: 0.2933 - val_accuracy: 0.8920 - 266ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1575 - accuracy: 0.9457 - val_loss: 0.3265 - val_accuracy: 0.8770 - 269ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1475 - accuracy: 0.9491 - val_loss: 0.3334 - val_accuracy: 0.8835 - 264ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1413 - accuracy: 0.9522 - val_loss: 0.3000 - val_accuracy: 0.8830 - 265ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1340 - accuracy: 0.9545 - val_loss: 0.3370 - val_accuracy: 0.8880 - 266ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1277 - accuracy: 0.9562 - val_loss: 0.3129 - val_accuracy: 0.8875 - 266ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1224 - accuracy: 0.9593 - val_loss: 0.3956 - val_accuracy: 0.8665 - 273ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1136 - accuracy: 0.9633 - val_loss: 0.3225 - val_accuracy: 0.8850 - 265ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1052 - accuracy: 0.9643 - val_loss: 0.3345 - val_accuracy: 0.8835 - 266ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.1009 - accuracy: 0.9675 - val_loss: 0.3268 - val_accuracy: 0.8835 - 264ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0977 - accuracy: 0.9687 - val_loss: 0.3546 - val_accuracy: 0.8800 - 263ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0871 - accuracy: 0.9730 - val_loss: 0.3464 - val_accuracy: 0.8845 - 262ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0856 - accuracy: 0.9740 - val_loss: 0.3690 - val_accuracy: 0.8865 - 265ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0805 - accuracy: 0.9742 - val_loss: 0.3676 - val_accuracy: 0.8755 - 267ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0770 - accuracy: 0.9766 - val_loss: 0.4984 - val_accuracy: 0.8615 - 268ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0735 - accuracy: 0.9761 - val_loss: 0.3770 - val_accuracy: 0.8765 - 267ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0701 - accuracy: 0.9788 - val_loss: 0.4018 - val_accuracy: 0.8840 - 268ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0639 - accuracy: 0.9806 - val_loss: 0.4272 - val_accuracy: 0.8770 - 275ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0651 - accuracy: 0.9801 - val_loss: 0.4164 - val_accuracy: 0.8815 - 269ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0543 - accuracy: 0.9847 - val_loss: 0.4777 - val_accuracy: 0.8670 - 275ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0569 - accuracy: 0.9838 - val_loss: 0.4312 - val_accuracy: 0.8805 - 267ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0494 - accuracy: 0.9867 - val_loss: 0.4719 - val_accuracy: 0.8745 - 265ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0450 - accuracy: 0.9877 - val_loss: 0.4497 - val_accuracy: 0.8800 - 262ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0481 - accuracy: 0.9863 - val_loss: 0.4603 - val_accuracy: 0.8745 - 272ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0477 - accuracy: 0.9869 - val_loss: 0.4791 - val_accuracy: 0.8775 - 263ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0373 - accuracy: 0.9903 - val_loss: 0.6295 - val_accuracy: 0.8510 - 275ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0321 - accuracy: 0.9929 - val_loss: 0.6361 - val_accuracy: 0.8545 - 261ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0310 - accuracy: 0.9926 - val_loss: 0.4740 - val_accuracy: 0.8780 - 266ms/epoch - 6ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0380 - accuracy: 0.9894 - val_loss: 0.5101 - val_accuracy: 0.8785 - 266ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0323 - accuracy: 0.9926 - val_loss: 0.5050 - val_accuracy: 0.8760 - 264ms/epoch - 6ms/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.2 s, sys: 1.15 s, total: 13.3 s
-Wall time: 6.07 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.3 s, sys: 1.01 s, total: 13.3 s
+Wall time: 6.08 s
 </pre></div>
 </div>
 </div>
@@ -1521,23 +1529,23 @@ Wall time: 6.07 s
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-9def18ef45824a98a389154fdf5e4786.vega-embed {
+  #altair-viz-2fa964c99e804e6fae4ee25413f81b01.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-9def18ef45824a98a389154fdf5e4786.vega-embed details,
-  #altair-viz-9def18ef45824a98a389154fdf5e4786.vega-embed details summary {
+  #altair-viz-2fa964c99e804e6fae4ee25413f81b01.vega-embed details,
+  #altair-viz-2fa964c99e804e6fae4ee25413f81b01.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-9def18ef45824a98a389154fdf5e4786"></div>
+<div id="altair-viz-2fa964c99e804e6fae4ee25413f81b01"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9def18ef45824a98a389154fdf5e4786") {
-      outputDiv = document.getElementById("altair-viz-9def18ef45824a98a389154fdf5e4786");
+    if (outputDiv.id !== "altair-viz-2fa964c99e804e6fae4ee25413f81b01") {
+      outputDiv = document.getElementById("altair-viz-2fa964c99e804e6fae4ee25413f81b01");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
@@ -1583,7 +1591,7 @@ Wall time: 6.07 s
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-5cf00e4e44615d6243bb2749c3fe93bb"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "accuracy", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "accuracy", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-5cf00e4e44615d6243bb2749c3fe93bb": [{"epoch": 1, "loss": 0.4988839626312256, "accuracy": 0.7849252820014954, "fold": "training"}, {"epoch": 2, "loss": 0.30993810296058655, "accuracy": 0.8943902850151062, "fold": "training"}, {"epoch": 3, "loss": 0.24912871420383453, "accuracy": 0.9147065281867981, "fold": "training"}, {"epoch": 4, "loss": 0.2045801281929016, "accuracy": 0.9312973618507385, "fold": "training"}, {"epoch": 5, "loss": 0.18449795246124268, "accuracy": 0.9362789392471313, "fold": "training"}, {"epoch": 6, "loss": 0.16043666005134583, "accuracy": 0.9466320276260376, "fold": "training"}, {"epoch": 7, "loss": 0.14746004343032837, "accuracy": 0.9491011500358582, "fold": "training"}, {"epoch": 8, "loss": 0.1340099573135376, "accuracy": 0.9545159339904785, "fold": "training"}, {"epoch": 9, "loss": 0.12241827696561813, "accuracy": 0.9593242406845093, "fold": "training"}, {"epoch": 10, "loss": 0.1052289754152298, "accuracy": 0.9643491506576538, "fold": "training"}, {"epoch": 11, "loss": 0.09766355901956558, "accuracy": 0.968724250793457, "fold": "training"}, {"epoch": 12, "loss": 0.08557236939668655, "accuracy": 0.9739657640457153, "fold": "training"}, {"epoch": 13, "loss": 0.07701767235994339, "accuracy": 0.976564884185791, "fold": "training"}, {"epoch": 14, "loss": 0.07010523974895477, "accuracy": 0.9788174033164978, "fold": "training"}, {"epoch": 15, "loss": 0.06512611359357834, "accuracy": 0.9801169633865356, "fold": "training"}, {"epoch": 16, "loss": 0.05685609579086304, "accuracy": 0.9837557077407837, "fold": "training"}, {"epoch": 17, "loss": 0.04504818469285965, "accuracy": 0.9876543283462524, "fold": "training"}, {"epoch": 18, "loss": 0.04766636714339256, "accuracy": 0.9869179129600525, "fold": "training"}, {"epoch": 19, "loss": 0.03212776780128479, "accuracy": 0.9928958415985107, "fold": "training"}, {"epoch": 20, "loss": 0.03804022818803787, "accuracy": 0.989387035369873, "fold": "training"}, {"epoch": 1, "loss": 0.37453213334083557, "accuracy": 0.8684999942779541, "fold": "validation"}, {"epoch": 2, "loss": 0.31531229615211487, "accuracy": 0.8809999823570251, "fold": "validation"}, {"epoch": 3, "loss": 0.28431224822998047, "accuracy": 0.890500009059906, "fold": "validation"}, {"epoch": 4, "loss": 0.431823194026947, "accuracy": 0.8399999737739563, "fold": "validation"}, {"epoch": 5, "loss": 0.2777901589870453, "accuracy": 0.8934999704360962, "fold": "validation"}, {"epoch": 6, "loss": 0.29331323504447937, "accuracy": 0.8920000195503235, "fold": "validation"}, {"epoch": 7, "loss": 0.33339086174964905, "accuracy": 0.8834999799728394, "fold": "validation"}, {"epoch": 8, "loss": 0.3370259404182434, "accuracy": 0.8880000114440918, "fold": "validation"}, {"epoch": 9, "loss": 0.39564788341522217, "accuracy": 0.8665000200271606, "fold": "validation"}, {"epoch": 10, "loss": 0.33451083302497864, "accuracy": 0.8834999799728394, "fold": "validation"}, {"epoch": 11, "loss": 0.35461682081222534, "accuracy": 0.8799999952316284, "fold": "validation"}, {"epoch": 12, "loss": 0.369007408618927, "accuracy": 0.8865000009536743, "fold": "validation"}, {"epoch": 13, "loss": 0.4983779191970825, "accuracy": 0.8615000247955322, "fold": "validation"}, {"epoch": 14, "loss": 0.4017930328845978, "accuracy": 0.8840000033378601, "fold": "validation"}, {"epoch": 15, "loss": 0.41638824343681335, "accuracy": 0.8815000057220459, "fold": "validation"}, {"epoch": 16, "loss": 0.4311864376068115, "accuracy": 0.8805000185966492, "fold": "validation"}, {"epoch": 17, "loss": 0.4496627748012543, "accuracy": 0.8799999952316284, "fold": "validation"}, {"epoch": 18, "loss": 0.4790547788143158, "accuracy": 0.8774999976158142, "fold": "validation"}, {"epoch": 19, "loss": 0.6361104846000671, "accuracy": 0.8544999957084656, "fold": "validation"}, {"epoch": 20, "loss": 0.510054886341095, "accuracy": 0.8784999847412109, "fold": "validation"}]}}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3465235ed13d4c726d91906b3e5060da"}, "mark": {"type": "line", "point": true}, "encoding": {"color": {"field": "fold", "type": "nominal"}, "tooltip": [{"field": "epoch", "type": "quantitative"}, {"field": "accuracy", "format": ",.2f", "type": "quantitative"}], "x": {"field": "epoch", "type": "quantitative"}, "y": {"field": "accuracy", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-3465235ed13d4c726d91906b3e5060da": [{"epoch": 1, "loss": 0.49388861656188965, "accuracy": 0.7890405058860779, "fold": "training"}, {"epoch": 2, "loss": 0.31007856130599976, "accuracy": 0.8901451230049133, "fold": "training"}, {"epoch": 3, "loss": 0.24617862701416016, "accuracy": 0.9142733216285706, "fold": "training"}, {"epoch": 4, "loss": 0.20660200715065002, "accuracy": 0.9266189932823181, "fold": "training"}, {"epoch": 5, "loss": 0.1791810542345047, "accuracy": 0.937968373298645, "fold": "training"}, {"epoch": 6, "loss": 0.15750417113304138, "accuracy": 0.9456790089607239, "fold": "training"}, {"epoch": 7, "loss": 0.14125186204910278, "accuracy": 0.9521767497062683, "fold": "training"}, {"epoch": 8, "loss": 0.1277123987674713, "accuracy": 0.9562053084373474, "fold": "training"}, {"epoch": 9, "loss": 0.1135692298412323, "accuracy": 0.9633095264434814, "fold": "training"}, {"epoch": 10, "loss": 0.1008852943778038, "accuracy": 0.9675113558769226, "fold": "training"}, {"epoch": 11, "loss": 0.08707012236118317, "accuracy": 0.9730128049850464, "fold": "training"}, {"epoch": 12, "loss": 0.08052635192871094, "accuracy": 0.9741823673248291, "fold": "training"}, {"epoch": 13, "loss": 0.07354652136564255, "accuracy": 0.9761316776275635, "fold": "training"}, {"epoch": 14, "loss": 0.0639297291636467, "accuracy": 0.9806367754936218, "fold": "training"}, {"epoch": 15, "loss": 0.05434611067175865, "accuracy": 0.9846653938293457, "fold": "training"}, {"epoch": 16, "loss": 0.04941670596599579, "accuracy": 0.9867013096809387, "fold": "training"}, {"epoch": 17, "loss": 0.04813485965132713, "accuracy": 0.986268162727356, "fold": "training"}, {"epoch": 18, "loss": 0.03732893615961075, "accuracy": 0.9902533888816833, "fold": "training"}, {"epoch": 19, "loss": 0.031048282980918884, "accuracy": 0.9925925731658936, "fold": "training"}, {"epoch": 20, "loss": 0.032271187752485275, "accuracy": 0.9926359057426453, "fold": "training"}, {"epoch": 1, "loss": 0.3717499077320099, "accuracy": 0.8579999804496765, "fold": "validation"}, {"epoch": 2, "loss": 0.30001088976860046, "accuracy": 0.8820000290870667, "fold": "validation"}, {"epoch": 3, "loss": 0.2779347002506256, "accuracy": 0.8899999856948853, "fold": "validation"}, {"epoch": 4, "loss": 0.30474793910980225, "accuracy": 0.8840000033378601, "fold": "validation"}, {"epoch": 5, "loss": 0.30938199162483215, "accuracy": 0.8845000267028809, "fold": "validation"}, {"epoch": 6, "loss": 0.3264929950237274, "accuracy": 0.8769999742507935, "fold": "validation"}, {"epoch": 7, "loss": 0.2999842166900635, "accuracy": 0.8830000162124634, "fold": "validation"}, {"epoch": 8, "loss": 0.3129108250141144, "accuracy": 0.887499988079071, "fold": "validation"}, {"epoch": 9, "loss": 0.32250848412513733, "accuracy": 0.8849999904632568, "fold": "validation"}, {"epoch": 10, "loss": 0.32675623893737793, "accuracy": 0.8834999799728394, "fold": "validation"}, {"epoch": 11, "loss": 0.34635430574417114, "accuracy": 0.8845000267028809, "fold": "validation"}, {"epoch": 12, "loss": 0.36762702465057373, "accuracy": 0.8755000233650208, "fold": "validation"}, {"epoch": 13, "loss": 0.37704676389694214, "accuracy": 0.8765000104904175, "fold": "validation"}, {"epoch": 14, "loss": 0.4272248148918152, "accuracy": 0.8769999742507935, "fold": "validation"}, {"epoch": 15, "loss": 0.47771960496902466, "accuracy": 0.8669999837875366, "fold": "validation"}, {"epoch": 16, "loss": 0.47194263339042664, "accuracy": 0.8744999766349792, "fold": "validation"}, {"epoch": 17, "loss": 0.46029171347618103, "accuracy": 0.8744999766349792, "fold": "validation"}, {"epoch": 18, "loss": 0.6295106410980225, "accuracy": 0.8510000109672546, "fold": "validation"}, {"epoch": 19, "loss": 0.4740228056907654, "accuracy": 0.878000020980835, "fold": "validation"}, {"epoch": 20, "loss": 0.504989743232727, "accuracy": 0.8759999871253967, "fold": "validation"}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>To compute the test accuracy, we rerun the entire sequence above, replacing the last line with</p>
@@ -1600,121 +1608,121 @@ Wall time: 6.07 s
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0279 - accuracy: 0.9935 - val_loss: 0.5684 - val_accuracy: 0.8582 - 456ms/epoch - 10ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0286 - accuracy: 0.9936 - val_loss: 0.5592 - val_accuracy: 0.8629 - 465ms/epoch - 10ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0243 - accuracy: 0.9940 - val_loss: 1.0076 - val_accuracy: 0.8144 - 375ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0268 - accuracy: 0.9935 - val_loss: 0.5882 - val_accuracy: 0.8615 - 368ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0228 - accuracy: 0.9950 - val_loss: 0.6041 - val_accuracy: 0.8593 - 369ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0220 - accuracy: 0.9955 - val_loss: 0.5976 - val_accuracy: 0.8627 - 371ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0246 - accuracy: 0.9937 - val_loss: 0.7068 - val_accuracy: 0.8460 - 371ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0236 - accuracy: 0.9941 - val_loss: 0.6095 - val_accuracy: 0.8615 - 372ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0103 - accuracy: 0.9990 - val_loss: 0.6473 - val_accuracy: 0.8562 - 378ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0188 - accuracy: 0.9953 - val_loss: 0.6223 - val_accuracy: 0.8612 - 366ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0204 - accuracy: 0.9956 - val_loss: 0.7058 - val_accuracy: 0.8506 - 376ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0204 - accuracy: 0.9953 - val_loss: 0.6381 - val_accuracy: 0.8602 - 371ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0178 - accuracy: 0.9956 - val_loss: 0.6703 - val_accuracy: 0.8583 - 376ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0183 - accuracy: 0.9960 - val_loss: 0.6389 - val_accuracy: 0.8616 - 367ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0161 - accuracy: 0.9964 - val_loss: 0.6863 - val_accuracy: 0.8586 - 375ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0057 - accuracy: 0.9998 - val_loss: 0.7101 - val_accuracy: 0.8595 - 372ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0171 - accuracy: 0.9960 - val_loss: 0.7024 - val_accuracy: 0.8577 - 368ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0175 - accuracy: 0.9960 - val_loss: 0.7006 - val_accuracy: 0.8613 - 373ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0155 - accuracy: 0.9962 - val_loss: 0.7174 - val_accuracy: 0.8578 - 366ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0189 - accuracy: 0.9956 - val_loss: 0.6976 - val_accuracy: 0.8611 - 371ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0039 - accuracy: 0.9998 - val_loss: 0.7590 - val_accuracy: 0.8569 - 374ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0149 - accuracy: 0.9966 - val_loss: 0.7056 - val_accuracy: 0.8602 - 368ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0144 - accuracy: 0.9971 - val_loss: 0.7648 - val_accuracy: 0.8569 - 369ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0034 - accuracy: 0.9998 - val_loss: 0.7337 - val_accuracy: 0.8612 - 386ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0185 - accuracy: 0.9953 - val_loss: 0.7744 - val_accuracy: 0.8567 - 372ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0130 - accuracy: 0.9966 - val_loss: 0.7513 - val_accuracy: 0.8618 - 372ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0027 - accuracy: 0.9999 - val_loss: 0.9114 - val_accuracy: 0.8494 - 371ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0146 - accuracy: 0.9962 - val_loss: 0.7728 - val_accuracy: 0.8589 - 372ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0153 - accuracy: 0.9964 - val_loss: 0.8084 - val_accuracy: 0.8570 - 370ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0022 - accuracy: 1.0000 - val_loss: 0.7874 - val_accuracy: 0.8600 - 369ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0128 - accuracy: 0.9970 - val_loss: 0.8151 - val_accuracy: 0.8584 - 374ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0133 - accuracy: 0.9971 - val_loss: 0.7988 - val_accuracy: 0.8601 - 373ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0030 - accuracy: 0.9997 - val_loss: 0.8691 - val_accuracy: 0.8536 - 370ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0018 - accuracy: 1.0000 - val_loss: 0.8907 - val_accuracy: 0.8538 - 376ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0020 - accuracy: 0.9999 - val_loss: 0.8481 - val_accuracy: 0.8577 - 384ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0114 - accuracy: 0.9969 - val_loss: 0.8301 - val_accuracy: 0.8594 - 373ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0120 - accuracy: 0.9971 - val_loss: 0.8555 - val_accuracy: 0.8569 - 373ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0198 - accuracy: 0.9957 - val_loss: 0.8410 - val_accuracy: 0.8576 - 375ms/epoch - 8ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/20
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0014 - accuracy: 1.0000 - val_loss: 0.8805 - val_accuracy: 0.8573 - 372ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46/46 - 0s - loss: 0.0014 - accuracy: 1.0000 - val_loss: 0.8551 - val_accuracy: 0.8600 - 368ms/epoch - 8ms/step
 </pre></div>
 </div>
 </div>
