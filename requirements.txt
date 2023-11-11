@@ -24,11 +24,11 @@ pmdarima
 pyLDAvis
 levenshtein
 rdata
+scikit-learn
 scikit-plot
 scipy
 seaborn
 shap
-sklearn
 sktime
 spacy
 statsmodels
