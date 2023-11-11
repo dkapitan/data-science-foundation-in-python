@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 17 – Autoencoders and GANs** &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Chapter 17 – Autoencoders and GANs** &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,63 +64,99 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'handson-ml2/original/17_autoencoders_and_gans';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/handson-ml2/original/17_autoencoders_and_gans.html" />
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chapter 18 – Reinforcement Learning" href="18_reinforcement_learning.html" />
     <link rel="prev" title="Chapter 16 – Natural Language Processing with RNNs and Attention**" href="16_nlp_with_rnns_and_attention.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -117,1568 +165,779 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_linear_algebra.html">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_differential_calculus.html">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../visualization/altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../extra.html">Miscellaneous tips &amp; tricks</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="math_linear_algebra.html">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="math_differential_calculus.html">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../visualization/altair_get_started.html">Getting Started with Altair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../nlp/introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-pipeline-example.html">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../nlp/introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-pipeline-example.html">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/handson-ml2/original/17_autoencoders_and_gans.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/handson-ml2/original/17_autoencoders_and_gans.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/handson-ml2/original/17_autoencoders_and_gans.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/17_autoencoders_and_gans.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/handson-ml2/original/17_autoencoders_and_gans.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/17_autoencoders_and_gans.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/handson-ml2/original/17_autoencoders_and_gans.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chapter 17 – Autoencoders and GANs**
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pca-with-a-linear-autoencoder">
-   PCA with a linear Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stacked-autoencoders">
-   Stacked Autoencoders
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-all-layers-at-once">
-     Train all layers at once
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizing-fashion-mnist">
-   Visualizing Fashion MNIST
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tying-weights">
-     Tying weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-one-autoencoder-at-a-time">
-     Training one Autoencoder at a Time
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-convolutional-layers-instead-of-dense-layers">
-     Using Convolutional Layers Instead of Dense Layers
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recurrent-autoencoders">
-   Recurrent Autoencoders
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stacked-denoising-autoencoder">
-   Stacked denoising Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sparse-autoencoder">
-   Sparse Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variational-autoencoder">
-   Variational Autoencoder
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-fashion-images">
-     Generate Fashion Images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generative-adversarial-networks">
-   Generative Adversarial Networks
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deep-convolutional-gan">
-   Deep Convolutional GAN
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extra-material">
-   Extra Material
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hashing-using-a-binary-autoencoder">
-     Hashing Using a Binary Autoencoder
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-solutions">
-   Exercise Solutions
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-8">
-     1. to 8.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     9.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     10.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     11.
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 17 – Autoencoders and GANs**</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chapter 17 – Autoencoders and GANs**
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#pca-with-a-linear-autoencoder">
-   PCA with a linear Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stacked-autoencoders">
-   Stacked Autoencoders
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-all-layers-at-once">
-     Train all layers at once
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualizing-fashion-mnist">
-   Visualizing Fashion MNIST
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tying-weights">
-     Tying weights
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#training-one-autoencoder-at-a-time">
-     Training one Autoencoder at a Time
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-convolutional-layers-instead-of-dense-layers">
-     Using Convolutional Layers Instead of Dense Layers
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recurrent-autoencoders">
-   Recurrent Autoencoders
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stacked-denoising-autoencoder">
-   Stacked denoising Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sparse-autoencoder">
-   Sparse Autoencoder
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variational-autoencoder">
-   Variational Autoencoder
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#generate-fashion-images">
-     Generate Fashion Images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generative-adversarial-networks">
-   Generative Adversarial Networks
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#deep-convolutional-gan">
-   Deep Convolutional GAN
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extra-material">
-   Extra Material
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hashing-using-a-binary-autoencoder">
-     Hashing Using a Binary Autoencoder
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-solutions">
-   Exercise Solutions
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-8">
-     1. to 8.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     9.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     10.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     11.
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 17 – Autoencoders and GANs**</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 17 – Autoencoders and GANs**</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-with-a-linear-autoencoder">PCA with a linear Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stacked-autoencoders">Stacked Autoencoders</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-all-layers-at-once">Train all layers at once</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-fashion-mnist">Visualizing Fashion MNIST</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-weights">Tying weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-one-autoencoder-at-a-time">Training one Autoencoder at a Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-convolutional-layers-instead-of-dense-layers">Using Convolutional Layers Instead of Dense Layers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-autoencoders">Recurrent Autoencoders</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stacked-denoising-autoencoder">Stacked denoising Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-autoencoder">Sparse Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoder">Variational Autoencoder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-fashion-images">Generate Fashion Images</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-adversarial-networks">Generative Adversarial Networks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convolutional-gan">Deep Convolutional GAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-material">Extra Material</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-using-a-binary-autoencoder">Hashing Using a Binary Autoencoder</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-solutions">Exercise Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-8">1. to 8.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-17-autoencoders-and-gans">
-<h1>Chapter 17 – Autoencoders and GANs**<a class="headerlink" href="#chapter-17-autoencoders-and-gans" title="Permalink to this headline">#</a></h1>
+<h1>Chapter 17 – Autoencoders and GANs**<a class="headerlink" href="#chapter-17-autoencoders-and-gans" title="Permalink to this heading">#</a></h1>
 <p><em>This notebook contains all the sample code in chapter 17.</em></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="setup">
-<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h1>
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h1>
 <p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1755,7 +1014,7 @@ title="Print to PDF"
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="pca-with-a-linear-autoencoder">
-<h1>PCA with a linear Autoencoder<a class="headerlink" href="#pca-with-a-linear-autoencoder" title="Permalink to this headline">#</a></h1>
+<h1>PCA with a linear Autoencoder<a class="headerlink" href="#pca-with-a-linear-autoencoder" title="Permalink to this heading">#</a></h1>
 <p>Build 3D dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1865,12 +1124,12 @@ Epoch 20/20
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure linear_autoencoder_pca_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_14_1.png" src="../../_images/17_autoencoders_and_gans_14_1.png" />
+<img alt="../../_images/97d9c16b6fbbb2b4fb979121d6779d88b8ef2e3377d2369893d7b6f5f3d28610.png" src="../../_images/97d9c16b6fbbb2b4fb979121d6779d88b8ef2e3377d2369893d7b6f5f3d28610.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="stacked-autoencoders">
-<h1>Stacked Autoencoders<a class="headerlink" href="#stacked-autoencoders" title="Permalink to this headline">#</a></h1>
+<h1>Stacked Autoencoders<a class="headerlink" href="#stacked-autoencoders" title="Permalink to this heading">#</a></h1>
 <p>Let’s use MNIST:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1884,7 +1143,7 @@ Epoch 20/20
 </div>
 </div>
 <section id="train-all-layers-at-once">
-<h2>Train all layers at once<a class="headerlink" href="#train-all-layers-at-once" title="Permalink to this headline">#</a></h2>
+<h2>Train all layers at once<a class="headerlink" href="#train-all-layers-at-once" title="Permalink to this heading">#</a></h2>
 <p>Let’s build a stacked Autoencoder with 3 hidden layers and 1 output layer (i.e., 2 stacked Autoencoders).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1989,13 +1248,13 @@ Epoch 20/20
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure reconstruction_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_24_1.png" src="../../_images/17_autoencoders_and_gans_24_1.png" />
+<img alt="../../_images/5f4de474a71b1c1e6f2280ca8bf185b084399fe87e0dd022fd97c0990effbc98.png" src="../../_images/5f4de474a71b1c1e6f2280ca8bf185b084399fe87e0dd022fd97c0990effbc98.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="visualizing-fashion-mnist">
-<h1>Visualizing Fashion MNIST<a class="headerlink" href="#visualizing-fashion-mnist" title="Permalink to this headline">#</a></h1>
+<h1>Visualizing Fashion MNIST<a class="headerlink" href="#visualizing-fashion-mnist" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -2019,7 +1278,7 @@ Epoch 20/20
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_27_0.png" src="../../_images/17_autoencoders_and_gans_27_0.png" />
+<img alt="../../_images/aa8503679f892c91c22e8957299e1b990f8532fe82846320dcc1d1473ca16d43.png" src="../../_images/aa8503679f892c91c22e8957299e1b990f8532fe82846320dcc1d1473ca16d43.png" />
 </div>
 </div>
 <p>Let’s make this diagram a bit prettier:</p>
@@ -2048,11 +1307,11 @@ Epoch 20/20
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure fashion_mnist_visualization_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_29_1.png" src="../../_images/17_autoencoders_and_gans_29_1.png" />
+<img alt="../../_images/5439ab51c1b7763e55b416ffcb8a8a230e3fcc80bc4b8f4baa49591e399d07cd.png" src="../../_images/5439ab51c1b7763e55b416ffcb8a8a230e3fcc80bc4b8f4baa49591e399d07cd.png" />
 </div>
 </div>
 <section id="tying-weights">
-<h2>Tying weights<a class="headerlink" href="#tying-weights" title="Permalink to this headline">#</a></h2>
+<h2>Tying weights<a class="headerlink" href="#tying-weights" title="Permalink to this heading">#</a></h2>
 <p>It is common to tie the weights of the encoder and the decoder, by simply using the transpose of the encoder’s weights as the decoder weights. For this, we need to use a custom layer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2137,12 +1396,12 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_34_0.png" src="../../_images/17_autoencoders_and_gans_34_0.png" />
+<img alt="../../_images/8fe8a03278e34dc605dcf106f9207c9630721697051fb848fa4313e01a11420a.png" src="../../_images/8fe8a03278e34dc605dcf106f9207c9630721697051fb848fa4313e01a11420a.png" />
 </div>
 </div>
 </section>
 <section id="training-one-autoencoder-at-a-time">
-<h2>Training one Autoencoder at a Time<a class="headerlink" href="#training-one-autoencoder-at-a-time" title="Permalink to this headline">#</a></h2>
+<h2>Training one Autoencoder at a Time<a class="headerlink" href="#training-one-autoencoder-at-a-time" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train_autoencoder</span><span class="p">(</span><span class="n">n_neurons</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span>
@@ -2247,7 +1506,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_39_0.png" src="../../_images/17_autoencoders_and_gans_39_0.png" />
+<img alt="../../_images/b2fa1c3021f37bc3df22e90b44950bf35d90ff4f201526a320fae8bc72f5d8c5.png" src="../../_images/b2fa1c3021f37bc3df22e90b44950bf35d90ff4f201526a320fae8bc72f5d8c5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2293,12 +1552,12 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_41_0.png" src="../../_images/17_autoencoders_and_gans_41_0.png" />
+<img alt="../../_images/d634ae7aa006c2716df0786284e7f6d3e816057ef1fefc4935f5a5ba6f54de5e.png" src="../../_images/d634ae7aa006c2716df0786284e7f6d3e816057ef1fefc4935f5a5ba6f54de5e.png" />
 </div>
 </div>
 </section>
 <section id="using-convolutional-layers-instead-of-dense-layers">
-<h2>Using Convolutional Layers Instead of Dense Layers<a class="headerlink" href="#using-convolutional-layers-instead-of-dense-layers" title="Permalink to this headline">#</a></h2>
+<h2>Using Convolutional Layers Instead of Dense Layers<a class="headerlink" href="#using-convolutional-layers-instead-of-dense-layers" title="Permalink to this heading">#</a></h2>
 <p>Let’s build a stacked Autoencoder with 3 hidden layers and 1 output layer (i.e., 2 stacked Autoencoders).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2404,13 +1663,13 @@ _________________________________________________________________
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_46_0.png" src="../../_images/17_autoencoders_and_gans_46_0.png" />
+<img alt="../../_images/4381aabcee7ba0ccee589ab729ca96190eb9febacbf8a37c0c68702fc2cfa1c9.png" src="../../_images/4381aabcee7ba0ccee589ab729ca96190eb9febacbf8a37c0c68702fc2cfa1c9.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="recurrent-autoencoders">
-<h1>Recurrent Autoencoders<a class="headerlink" href="#recurrent-autoencoders" title="Permalink to this headline">#</a></h1>
+<h1>Recurrent Autoencoders<a class="headerlink" href="#recurrent-autoencoders" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recurrent_encoder</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
@@ -2472,12 +1731,12 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_50_0.png" src="../../_images/17_autoencoders_and_gans_50_0.png" />
+<img alt="../../_images/5dd611058aeda114e1e11b6b1a6015e61575b718fa5f0289a79e1014be75e08a.png" src="../../_images/5dd611058aeda114e1e11b6b1a6015e61575b718fa5f0289a79e1014be75e08a.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="stacked-denoising-autoencoder">
-<h1>Stacked denoising Autoencoder<a class="headerlink" href="#stacked-denoising-autoencoder" title="Permalink to this headline">#</a></h1>
+<h1>Stacked denoising Autoencoder<a class="headerlink" href="#stacked-denoising-autoencoder" title="Permalink to this heading">#</a></h1>
 <p>Using Gaussian noise:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2541,7 +1800,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_54_0.png" src="../../_images/17_autoencoders_and_gans_54_0.png" />
+<img alt="../../_images/647cc030a36380b3a8bc8697c241815c7c1e84b4e2623b1127d257acd82da372.png" src="../../_images/647cc030a36380b3a8bc8697c241815c7c1e84b4e2623b1127d257acd82da372.png" />
 </div>
 </div>
 <p>Using dropout:</p>
@@ -2610,12 +1869,12 @@ Epoch 10/10
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure dropout_denoising_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_57_1.png" src="../../_images/17_autoencoders_and_gans_57_1.png" />
+<img alt="../../_images/2f45a2eae66a8e68e29446ea2a4e95bd12ed5e7e011f288b865bf5d9e6a377ad.png" src="../../_images/2f45a2eae66a8e68e29446ea2a4e95bd12ed5e7e011f288b865bf5d9e6a377ad.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="sparse-autoencoder">
-<h1>Sparse Autoencoder<a class="headerlink" href="#sparse-autoencoder" title="Permalink to this headline">#</a></h1>
+<h1>Sparse Autoencoder<a class="headerlink" href="#sparse-autoencoder" title="Permalink to this heading">#</a></h1>
 <p>Let’s build a simple stacked autoencoder, so we can compare it to the sparse autoencoders we will build. This time we will use the sigmoid activation function for the coding layer, to ensure that the coding values range from 0 to 1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2674,7 +1933,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_61_0.png" src="../../_images/17_autoencoders_and_gans_61_0.png" />
+<img alt="../../_images/4850aea54cb2ad9566fed05f20383b8d403bac0481bf5e5b2fbd7b78dd1abbe1.png" src="../../_images/4850aea54cb2ad9566fed05f20383b8d403bac0481bf5e5b2fbd7b78dd1abbe1.png" />
 </div>
 </div>
 <p>Let’s create a couple functions to print nice activation histograms:</p>
@@ -2726,7 +1985,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_66_0.png" src="../../_images/17_autoencoders_and_gans_66_0.png" />
+<img alt="../../_images/eec6626d4da39d0fa2faeacf2c4a9fad7f204373239e2398005c92547b154682.png" src="../../_images/eec6626d4da39d0fa2faeacf2c4a9fad7f204373239e2398005c92547b154682.png" />
 </div>
 </div>
 <p>Now let’s add <span class="math notranslate nohighlight">\(\ell_1\)</span> regularization to the coding layer:</p>
@@ -2789,7 +2048,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_69_0.png" src="../../_images/17_autoencoders_and_gans_69_0.png" />
+<img alt="../../_images/b411bc550347e601949dfd6c0cd713f10c8b96c58c688224f36ad05c6c25c51c.png" src="../../_images/b411bc550347e601949dfd6c0cd713f10c8b96c58c688224f36ad05c6c25c51c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2800,7 +2059,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_70_0.png" src="../../_images/17_autoencoders_and_gans_70_0.png" />
+<img alt="../../_images/08ed20c9b9cf8a843f2eaccebfadcff6147b7efe20040f63b9bd0b0b2d3a47ce.png" src="../../_images/08ed20c9b9cf8a843f2eaccebfadcff6147b7efe20040f63b9bd0b0b2d3a47ce.png" />
 </div>
 </div>
 <p>Let’s use the KL Divergence loss instead to ensure sparsity, and target 10% sparsity rather than 0%:</p>
@@ -2828,7 +2087,7 @@ Epoch 10/10
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure sparsity_loss_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_72_1.png" src="../../_images/17_autoencoders_and_gans_72_1.png" />
+<img alt="../../_images/ec281055846fb81ef38b105ad22305b00ad35e901aacc9de20f3e5131754e55b.png" src="../../_images/ec281055846fb81ef38b105ad22305b00ad35e901aacc9de20f3e5131754e55b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2906,7 +2165,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_75_0.png" src="../../_images/17_autoencoders_and_gans_75_0.png" />
+<img alt="../../_images/ffc13545f0f50289e1d71add7c053efa3c8e6729096e5d561826826f0c79a6f7.png" src="../../_images/ffc13545f0f50289e1d71add7c053efa3c8e6729096e5d561826826f0c79a6f7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2921,12 +2180,12 @@ Epoch 10/10
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure sparse_autoencoder_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_76_1.png" src="../../_images/17_autoencoders_and_gans_76_1.png" />
+<img alt="../../_images/584cc1c1ba81ee6657b11f286f35a4c2bc4c23e58826e3ba41e0b78c9eccfa75.png" src="../../_images/584cc1c1ba81ee6657b11f286f35a4c2bc4c23e58826e3ba41e0b78c9eccfa75.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="variational-autoencoder">
-<h1>Variational Autoencoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this headline">#</a></h1>
+<h1>Variational Autoencoder<a class="headerlink" href="#variational-autoencoder" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sampling</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
@@ -3039,11 +2298,11 @@ Epoch 25/25
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_80_0.png" src="../../_images/17_autoencoders_and_gans_80_0.png" />
+<img alt="../../_images/56772bca3be0ed64e007e88c3fd2cf1f8933806c06c1efb11da712ffe91b95d5.png" src="../../_images/56772bca3be0ed64e007e88c3fd2cf1f8933806c06c1efb11da712ffe91b95d5.png" />
 </div>
 </div>
 <section id="generate-fashion-images">
-<h2>Generate Fashion Images<a class="headerlink" href="#generate-fashion-images" title="Permalink to this headline">#</a></h2>
+<h2>Generate Fashion Images<a class="headerlink" href="#generate-fashion-images" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_multiple_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">n_cols</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -3076,7 +2335,7 @@ Epoch 25/25
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure vae_generated_images_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_84_1.png" src="../../_images/17_autoencoders_and_gans_84_1.png" />
+<img alt="../../_images/49b9a45649360ed8e98f423d33afbfa922de35ce9386a9600e90dd1037aee4b2.png" src="../../_images/49b9a45649360ed8e98f423d33afbfa922de35ce9386a9600e90dd1037aee4b2.png" />
 </div>
 </div>
 <p>Now let’s perform semantic interpolation between these images:</p>
@@ -3107,13 +2366,13 @@ Epoch 25/25
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure semantic_interpolation_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_86_1.png" src="../../_images/17_autoencoders_and_gans_86_1.png" />
+<img alt="../../_images/2a09f7b89c9c1fba35ac6a3a669f6c6bf7cb4318edbf7d74c8c8923f93ce45b9.png" src="../../_images/2a09f7b89c9c1fba35ac6a3a669f6c6bf7cb4318edbf7d74c8c8923f93ce45b9.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="generative-adversarial-networks">
-<h1>Generative Adversarial Networks<a class="headerlink" href="#generative-adversarial-networks" title="Permalink to this headline">#</a></h1>
+<h1>Generative Adversarial Networks<a class="headerlink" href="#generative-adversarial-networks" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -3191,7 +2450,7 @@ Epoch 25/25
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/1
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_92_1.png" src="../../_images/17_autoencoders_and_gans_92_1.png" />
+<img alt="../../_images/98cbcb363e2038588cc92be6d751c8ee290442d3c1da153cca665919cd7c783d.png" src="../../_images/98cbcb363e2038588cc92be6d751c8ee290442d3c1da153cca665919cd7c783d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3210,7 +2469,7 @@ Epoch 25/25
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure gan_generated_images_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_93_1.png" src="../../_images/17_autoencoders_and_gans_93_1.png" />
+<img alt="../../_images/d2c367647bcd632ade1c87968061951d66a169b203348a09527283c821d8d75c.png" src="../../_images/d2c367647bcd632ade1c87968061951d66a169b203348a09527283c821d8d75c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3223,208 +2482,208 @@ Epoch 25/25
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_1.png" src="../../_images/17_autoencoders_and_gans_94_1.png" />
+<img alt="../../_images/ceebe112ab12fb39e247b84243272c29eba2f99cb48f3c56aac26fa645c23303.png" src="../../_images/ceebe112ab12fb39e247b84243272c29eba2f99cb48f3c56aac26fa645c23303.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_3.png" src="../../_images/17_autoencoders_and_gans_94_3.png" />
+<img alt="../../_images/795b0ae101269d7b5989ddc787b1237501248bd8656ae46d513aec1b37315efe.png" src="../../_images/795b0ae101269d7b5989ddc787b1237501248bd8656ae46d513aec1b37315efe.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_5.png" src="../../_images/17_autoencoders_and_gans_94_5.png" />
+<img alt="../../_images/acab577826f1de17eaeed18797aac9a834946c1a65d1800b21db12f9b8793d0a.png" src="../../_images/acab577826f1de17eaeed18797aac9a834946c1a65d1800b21db12f9b8793d0a.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_7.png" src="../../_images/17_autoencoders_and_gans_94_7.png" />
+<img alt="../../_images/f7f04baed1e4c7a1aceb85046fbb5d02f3f1b86ab4574e299cbde30183d21fe5.png" src="../../_images/f7f04baed1e4c7a1aceb85046fbb5d02f3f1b86ab4574e299cbde30183d21fe5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_9.png" src="../../_images/17_autoencoders_and_gans_94_9.png" />
+<img alt="../../_images/301935fdc7961d413ebf9e8dbdecda7d1cbd292d225eb758b336847866f16765.png" src="../../_images/301935fdc7961d413ebf9e8dbdecda7d1cbd292d225eb758b336847866f16765.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_11.png" src="../../_images/17_autoencoders_and_gans_94_11.png" />
+<img alt="../../_images/69816d018cf124d9c2fb3050cb4ece84b46efa9991ecb7db0a298879e019762e.png" src="../../_images/69816d018cf124d9c2fb3050cb4ece84b46efa9991ecb7db0a298879e019762e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_13.png" src="../../_images/17_autoencoders_and_gans_94_13.png" />
+<img alt="../../_images/609c0be3cda06dab72d4fe0c523e1f1eb81eae6d8406249020ec94610319a1f4.png" src="../../_images/609c0be3cda06dab72d4fe0c523e1f1eb81eae6d8406249020ec94610319a1f4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_15.png" src="../../_images/17_autoencoders_and_gans_94_15.png" />
+<img alt="../../_images/a151097596e84244ec96d321cc21dc81ad6805c18bd72f725c968f3294163bd5.png" src="../../_images/a151097596e84244ec96d321cc21dc81ad6805c18bd72f725c968f3294163bd5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_17.png" src="../../_images/17_autoencoders_and_gans_94_17.png" />
+<img alt="../../_images/25b8d019f1d353c80ef2d20e2fe1afcc764a3e4e95bd6389133cc28817748107.png" src="../../_images/25b8d019f1d353c80ef2d20e2fe1afcc764a3e4e95bd6389133cc28817748107.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_19.png" src="../../_images/17_autoencoders_and_gans_94_19.png" />
+<img alt="../../_images/ac698b0692cd5c5b33eff99a6789bc301ea0830f37b6351f0af038c30c4d89ce.png" src="../../_images/ac698b0692cd5c5b33eff99a6789bc301ea0830f37b6351f0af038c30c4d89ce.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_21.png" src="../../_images/17_autoencoders_and_gans_94_21.png" />
+<img alt="../../_images/939a953011e7e513a48fcf498c96e6bf10d9477e130107ddd8f015b4b6eca5f6.png" src="../../_images/939a953011e7e513a48fcf498c96e6bf10d9477e130107ddd8f015b4b6eca5f6.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_23.png" src="../../_images/17_autoencoders_and_gans_94_23.png" />
+<img alt="../../_images/7f5fda95d34c7c0af4ec81356b3316bb294991805e8b635fe254ae1346940706.png" src="../../_images/7f5fda95d34c7c0af4ec81356b3316bb294991805e8b635fe254ae1346940706.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_25.png" src="../../_images/17_autoencoders_and_gans_94_25.png" />
+<img alt="../../_images/20d07eac23a0f64ee92fe6a292e188823e8b28ec074cac420a5ad94591456a31.png" src="../../_images/20d07eac23a0f64ee92fe6a292e188823e8b28ec074cac420a5ad94591456a31.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_27.png" src="../../_images/17_autoencoders_and_gans_94_27.png" />
+<img alt="../../_images/c9c1d5a761e246dc39c6ca7ec14e3e2229ccf2c9b296aa534c7d140c280460c0.png" src="../../_images/c9c1d5a761e246dc39c6ca7ec14e3e2229ccf2c9b296aa534c7d140c280460c0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_29.png" src="../../_images/17_autoencoders_and_gans_94_29.png" />
+<img alt="../../_images/4c36f3a3008f84c3f3b0853d524942825736372ae083bb7a8280607850829c17.png" src="../../_images/4c36f3a3008f84c3f3b0853d524942825736372ae083bb7a8280607850829c17.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_31.png" src="../../_images/17_autoencoders_and_gans_94_31.png" />
+<img alt="../../_images/e947efff8b46fcbffddbe40227db541320202cb0f2df4159e2d04a637f703ae7.png" src="../../_images/e947efff8b46fcbffddbe40227db541320202cb0f2df4159e2d04a637f703ae7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_33.png" src="../../_images/17_autoencoders_and_gans_94_33.png" />
+<img alt="../../_images/5ebbc21ef47122eb26073344aeb7e4bdf19d72ee03b7048f836ee16f3e60043f.png" src="../../_images/5ebbc21ef47122eb26073344aeb7e4bdf19d72ee03b7048f836ee16f3e60043f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_35.png" src="../../_images/17_autoencoders_and_gans_94_35.png" />
+<img alt="../../_images/357d72d9b9a3d1830062b875d68a6234d5ffbce68fbbb92ad6732b006876a65b.png" src="../../_images/357d72d9b9a3d1830062b875d68a6234d5ffbce68fbbb92ad6732b006876a65b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_37.png" src="../../_images/17_autoencoders_and_gans_94_37.png" />
+<img alt="../../_images/e404dd2c50255f904d0d761584226af016668a7c1419fc0a704b07aac48f6a37.png" src="../../_images/e404dd2c50255f904d0d761584226af016668a7c1419fc0a704b07aac48f6a37.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_39.png" src="../../_images/17_autoencoders_and_gans_94_39.png" />
+<img alt="../../_images/4072ea4c6d67afe500186f31f0e434ae0b4fb574f30ee52a7c62df454ff13540.png" src="../../_images/4072ea4c6d67afe500186f31f0e434ae0b4fb574f30ee52a7c62df454ff13540.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_41.png" src="../../_images/17_autoencoders_and_gans_94_41.png" />
+<img alt="../../_images/81fb0baa8e849314013a3fa03ca76d2076deaa40c5faa84517fda8074cdd462c.png" src="../../_images/81fb0baa8e849314013a3fa03ca76d2076deaa40c5faa84517fda8074cdd462c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_43.png" src="../../_images/17_autoencoders_and_gans_94_43.png" />
+<img alt="../../_images/7ca0fc6859aedd51df65e0fb65f497f40afe9b71e8e84c3f5a02850f17c39e72.png" src="../../_images/7ca0fc6859aedd51df65e0fb65f497f40afe9b71e8e84c3f5a02850f17c39e72.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_45.png" src="../../_images/17_autoencoders_and_gans_94_45.png" />
+<img alt="../../_images/5a391e256d18079018753f38e5740f5c2e326a014eb8dc7c5fd2a54d5bd12afc.png" src="../../_images/5a391e256d18079018753f38e5740f5c2e326a014eb8dc7c5fd2a54d5bd12afc.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_47.png" src="../../_images/17_autoencoders_and_gans_94_47.png" />
+<img alt="../../_images/34bdfe8ba3745cff9c3401022f8176d5c1e4a79661158a8bfdffa5a9c3ef3c27.png" src="../../_images/34bdfe8ba3745cff9c3401022f8176d5c1e4a79661158a8bfdffa5a9c3ef3c27.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_49.png" src="../../_images/17_autoencoders_and_gans_94_49.png" />
+<img alt="../../_images/062be24c5488282fd948c948f6dd0a8755f0f7d7e65f0840cd91fd1263431dcb.png" src="../../_images/062be24c5488282fd948c948f6dd0a8755f0f7d7e65f0840cd91fd1263431dcb.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_51.png" src="../../_images/17_autoencoders_and_gans_94_51.png" />
+<img alt="../../_images/2fc0fd9d0e26e58c7c9e82b2792ac6d513b6e26ecdb6cecb74d2344b494582ca.png" src="../../_images/2fc0fd9d0e26e58c7c9e82b2792ac6d513b6e26ecdb6cecb74d2344b494582ca.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_53.png" src="../../_images/17_autoencoders_and_gans_94_53.png" />
+<img alt="../../_images/39b4c6a1822a8735cf3c44da153d87aaf4a223999d795778ab759eeae65d0a88.png" src="../../_images/39b4c6a1822a8735cf3c44da153d87aaf4a223999d795778ab759eeae65d0a88.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_55.png" src="../../_images/17_autoencoders_and_gans_94_55.png" />
+<img alt="../../_images/b1129c7f499ffbcd3d04ab18d7068fffa14bb7b4fd9e9640eca3de7eb04fe9e4.png" src="../../_images/b1129c7f499ffbcd3d04ab18d7068fffa14bb7b4fd9e9640eca3de7eb04fe9e4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_57.png" src="../../_images/17_autoencoders_and_gans_94_57.png" />
+<img alt="../../_images/1077f12d7a8a54910c3ac550a02495d4de8437c3d58f51a58f3b532bc331e594.png" src="../../_images/1077f12d7a8a54910c3ac550a02495d4de8437c3d58f51a58f3b532bc331e594.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_59.png" src="../../_images/17_autoencoders_and_gans_94_59.png" />
+<img alt="../../_images/c922305ba62763c92deeae5d7174e71893f64a03f06aac56a6a0737dba21bdd5.png" src="../../_images/c922305ba62763c92deeae5d7174e71893f64a03f06aac56a6a0737dba21bdd5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 31/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_61.png" src="../../_images/17_autoencoders_and_gans_94_61.png" />
+<img alt="../../_images/f7f7617f1e2cb8b1c3699a9ebb772ed9b685456f5d5e496b4c8c51a98ca097c8.png" src="../../_images/f7f7617f1e2cb8b1c3699a9ebb772ed9b685456f5d5e496b4c8c51a98ca097c8.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 32/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_63.png" src="../../_images/17_autoencoders_and_gans_94_63.png" />
+<img alt="../../_images/5edcc5a602317dad1137d5085f52407995451de3cd60d4f047ec10ee67947120.png" src="../../_images/5edcc5a602317dad1137d5085f52407995451de3cd60d4f047ec10ee67947120.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 33/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_65.png" src="../../_images/17_autoencoders_and_gans_94_65.png" />
+<img alt="../../_images/b0c3d3cc83e451634eadc0950fc2c114690a3de96b44e762282d6a7a2e4b7c89.png" src="../../_images/b0c3d3cc83e451634eadc0950fc2c114690a3de96b44e762282d6a7a2e4b7c89.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 34/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_67.png" src="../../_images/17_autoencoders_and_gans_94_67.png" />
+<img alt="../../_images/58f282112dc0940adeaeb888d65c80495ec860048f95a94fad6a20e7a91b056c.png" src="../../_images/58f282112dc0940adeaeb888d65c80495ec860048f95a94fad6a20e7a91b056c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 35/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_69.png" src="../../_images/17_autoencoders_and_gans_94_69.png" />
+<img alt="../../_images/0b21ba0a097dcb1bb25284c40ae52741f490f8092cf36a3db06a3a69573f1b18.png" src="../../_images/0b21ba0a097dcb1bb25284c40ae52741f490f8092cf36a3db06a3a69573f1b18.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 36/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_71.png" src="../../_images/17_autoencoders_and_gans_94_71.png" />
+<img alt="../../_images/4e8e9f52d4bbd6351b58b6b6da8a4c19598f256d978b28793a21e38785f485c0.png" src="../../_images/4e8e9f52d4bbd6351b58b6b6da8a4c19598f256d978b28793a21e38785f485c0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 37/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_73.png" src="../../_images/17_autoencoders_and_gans_94_73.png" />
+<img alt="../../_images/f344e96807ccf01058d5b7686f760ad55c095e140453728d3abd0121b86148d6.png" src="../../_images/f344e96807ccf01058d5b7686f760ad55c095e140453728d3abd0121b86148d6.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 38/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_75.png" src="../../_images/17_autoencoders_and_gans_94_75.png" />
+<img alt="../../_images/8ecd6daf0b08e50fd8fd8d6bef2bbb91d5c3afabf5444509449273392fd9d01d.png" src="../../_images/8ecd6daf0b08e50fd8fd8d6bef2bbb91d5c3afabf5444509449273392fd9d01d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 39/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_77.png" src="../../_images/17_autoencoders_and_gans_94_77.png" />
+<img alt="../../_images/aada049d657b6e2c75e917b512dc18010182468eb7f9e727f25bd6386f4e5cb2.png" src="../../_images/aada049d657b6e2c75e917b512dc18010182468eb7f9e727f25bd6386f4e5cb2.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 40/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_79.png" src="../../_images/17_autoencoders_and_gans_94_79.png" />
+<img alt="../../_images/7af44427ef725b3cebf6cda2d5e948ba17057b91faf29e0b2e67f9a9fbd687af.png" src="../../_images/7af44427ef725b3cebf6cda2d5e948ba17057b91faf29e0b2e67f9a9fbd687af.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 41/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_81.png" src="../../_images/17_autoencoders_and_gans_94_81.png" />
+<img alt="../../_images/671d7c3a9f386656e165362d85d1fac11704c48242ea21c1a3a38b921996c821.png" src="../../_images/671d7c3a9f386656e165362d85d1fac11704c48242ea21c1a3a38b921996c821.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 42/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_83.png" src="../../_images/17_autoencoders_and_gans_94_83.png" />
+<img alt="../../_images/6833174d6007b083b80d8ac823de97b51199f4cadbcbfa5615416f82e28265a3.png" src="../../_images/6833174d6007b083b80d8ac823de97b51199f4cadbcbfa5615416f82e28265a3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 43/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_85.png" src="../../_images/17_autoencoders_and_gans_94_85.png" />
+<img alt="../../_images/0d554c4c41ded0d77a0d07d92bde744c9c8f8707731c89ff4f405be154129863.png" src="../../_images/0d554c4c41ded0d77a0d07d92bde744c9c8f8707731c89ff4f405be154129863.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 44/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_87.png" src="../../_images/17_autoencoders_and_gans_94_87.png" />
+<img alt="../../_images/eb3727dea2510119dc43b783a79d61811ec790d52b225c69dbc98caa0086f97b.png" src="../../_images/eb3727dea2510119dc43b783a79d61811ec790d52b225c69dbc98caa0086f97b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 45/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_89.png" src="../../_images/17_autoencoders_and_gans_94_89.png" />
+<img alt="../../_images/d1ab02ca5623fd5bd846e0d82da86fa35c616a28dba5a14e26dbf518ca8e5772.png" src="../../_images/d1ab02ca5623fd5bd846e0d82da86fa35c616a28dba5a14e26dbf518ca8e5772.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 46/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_91.png" src="../../_images/17_autoencoders_and_gans_94_91.png" />
+<img alt="../../_images/7e1919bfadf6b9423654b333c39ed76b945c94beac0f682db59f4e046a90074e.png" src="../../_images/7e1919bfadf6b9423654b333c39ed76b945c94beac0f682db59f4e046a90074e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 47/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_93.png" src="../../_images/17_autoencoders_and_gans_94_93.png" />
+<img alt="../../_images/482eb43cfe52771ba95814c188f6f9062c9a075b1ee49ea0189dcadfc014b81c.png" src="../../_images/482eb43cfe52771ba95814c188f6f9062c9a075b1ee49ea0189dcadfc014b81c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 48/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_95.png" src="../../_images/17_autoencoders_and_gans_94_95.png" />
+<img alt="../../_images/5c5800a817e531d002423c7b45811623488d77fead99d383276a9d9c095ebc70.png" src="../../_images/5c5800a817e531d002423c7b45811623488d77fead99d383276a9d9c095ebc70.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 49/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_97.png" src="../../_images/17_autoencoders_and_gans_94_97.png" />
+<img alt="../../_images/9029c1d65edb74e30774d22f5ac14f210ecccbc5ce03baa9638e93364e1497c8.png" src="../../_images/9029c1d65edb74e30774d22f5ac14f210ecccbc5ce03baa9638e93364e1497c8.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 50/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_94_99.png" src="../../_images/17_autoencoders_and_gans_94_99.png" />
+<img alt="../../_images/28c09da440918df94bf50d6a2c17815b399c33f393d9debdab4966f169da5810.png" src="../../_images/28c09da440918df94bf50d6a2c17815b399c33f393d9debdab4966f169da5810.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="deep-convolutional-gan">
-<h1>Deep Convolutional GAN<a class="headerlink" href="#deep-convolutional-gan" title="Permalink to this headline">#</a></h1>
+<h1>Deep Convolutional GAN<a class="headerlink" href="#deep-convolutional-gan" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -3495,203 +2754,203 @@ Epoch 25/25
 Saving figure gan_generated_images_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_1.png" src="../../_images/17_autoencoders_and_gans_100_1.png" />
+<img alt="../../_images/cab2ef69abeae5ebea59e5253e9db22f8203c82cfacd447f48d76ccf5e4671ba.png" src="../../_images/cab2ef69abeae5ebea59e5253e9db22f8203c82cfacd447f48d76ccf5e4671ba.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_3.png" src="../../_images/17_autoencoders_and_gans_100_3.png" />
+<img alt="../../_images/6b29f3c4916f098c79296cae4a40c627ecf8025031b70733d8f9bccb4a32e004.png" src="../../_images/6b29f3c4916f098c79296cae4a40c627ecf8025031b70733d8f9bccb4a32e004.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_5.png" src="../../_images/17_autoencoders_and_gans_100_5.png" />
+<img alt="../../_images/103d49a2903b856f77e7105fc75fb87dbc72b7ca20d87392e532a84f1d15fea7.png" src="../../_images/103d49a2903b856f77e7105fc75fb87dbc72b7ca20d87392e532a84f1d15fea7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_7.png" src="../../_images/17_autoencoders_and_gans_100_7.png" />
+<img alt="../../_images/5454ca17fd9fdba1c887fb20310245793e0302b7afdbfcbf276c9fbd1508ebee.png" src="../../_images/5454ca17fd9fdba1c887fb20310245793e0302b7afdbfcbf276c9fbd1508ebee.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_9.png" src="../../_images/17_autoencoders_and_gans_100_9.png" />
+<img alt="../../_images/9a79eefdaf51ccb167e5b1eccd83211177a2b7a75ea94ea938b793c689abf413.png" src="../../_images/9a79eefdaf51ccb167e5b1eccd83211177a2b7a75ea94ea938b793c689abf413.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_11.png" src="../../_images/17_autoencoders_and_gans_100_11.png" />
+<img alt="../../_images/4a10f2c78a20acd6b983ca9a0780a5180eb326d7c6938fa691527f46f45a0765.png" src="../../_images/4a10f2c78a20acd6b983ca9a0780a5180eb326d7c6938fa691527f46f45a0765.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_13.png" src="../../_images/17_autoencoders_and_gans_100_13.png" />
+<img alt="../../_images/ebef279a50ab1afc81e2b85855b8010731a3c59c5fb298079bdcef5d3c3dcc68.png" src="../../_images/ebef279a50ab1afc81e2b85855b8010731a3c59c5fb298079bdcef5d3c3dcc68.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_15.png" src="../../_images/17_autoencoders_and_gans_100_15.png" />
+<img alt="../../_images/bf6695b97c05a44a5986dd52388fe3dba680fe48eda14efa9fe0ac4d778035c7.png" src="../../_images/bf6695b97c05a44a5986dd52388fe3dba680fe48eda14efa9fe0ac4d778035c7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_17.png" src="../../_images/17_autoencoders_and_gans_100_17.png" />
+<img alt="../../_images/51a5d6968174657d7ecb5c72f9b4160bb82c2852cfc9af6f5300b825d851221d.png" src="../../_images/51a5d6968174657d7ecb5c72f9b4160bb82c2852cfc9af6f5300b825d851221d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_19.png" src="../../_images/17_autoencoders_and_gans_100_19.png" />
+<img alt="../../_images/59e4bfd66ab166ce641adda74d826205865977c14b8d181e3f3df8cac8f615e9.png" src="../../_images/59e4bfd66ab166ce641adda74d826205865977c14b8d181e3f3df8cac8f615e9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_21.png" src="../../_images/17_autoencoders_and_gans_100_21.png" />
+<img alt="../../_images/edd45fd5a06da0cee8a2c7f1041d17f6e3fa2c82328a17e35142c05248444814.png" src="../../_images/edd45fd5a06da0cee8a2c7f1041d17f6e3fa2c82328a17e35142c05248444814.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_23.png" src="../../_images/17_autoencoders_and_gans_100_23.png" />
+<img alt="../../_images/2bcaa557b8a3613f87adda9671406acfadfaf4a4ee8e94f39c048cc8fdf1ca32.png" src="../../_images/2bcaa557b8a3613f87adda9671406acfadfaf4a4ee8e94f39c048cc8fdf1ca32.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_25.png" src="../../_images/17_autoencoders_and_gans_100_25.png" />
+<img alt="../../_images/807d6878a0b6a964e6b96be94ea7520d906d832399d0baf9fc4b21437e3331bf.png" src="../../_images/807d6878a0b6a964e6b96be94ea7520d906d832399d0baf9fc4b21437e3331bf.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_27.png" src="../../_images/17_autoencoders_and_gans_100_27.png" />
+<img alt="../../_images/7c8e6e15b76ca5015cf6d70171961d13e9afc203e37a2d0162c7852102fd7c7d.png" src="../../_images/7c8e6e15b76ca5015cf6d70171961d13e9afc203e37a2d0162c7852102fd7c7d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_29.png" src="../../_images/17_autoencoders_and_gans_100_29.png" />
+<img alt="../../_images/ac7ce065759aa913eb8e0c7d1049f70563036ad07544c0eda1b16951611453e3.png" src="../../_images/ac7ce065759aa913eb8e0c7d1049f70563036ad07544c0eda1b16951611453e3.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_31.png" src="../../_images/17_autoencoders_and_gans_100_31.png" />
+<img alt="../../_images/256769ed4af7f16318d6b5df2add0c2e71a7713fbaf1179abc94c99c69cf7afa.png" src="../../_images/256769ed4af7f16318d6b5df2add0c2e71a7713fbaf1179abc94c99c69cf7afa.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_33.png" src="../../_images/17_autoencoders_and_gans_100_33.png" />
+<img alt="../../_images/40b95fea515fe45f9fb9d76c72734e0ab67a3b9ec4816844a721a61ce3809950.png" src="../../_images/40b95fea515fe45f9fb9d76c72734e0ab67a3b9ec4816844a721a61ce3809950.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_35.png" src="../../_images/17_autoencoders_and_gans_100_35.png" />
+<img alt="../../_images/90b6887d238b41eaf46bd72df046d95cdc157e58247ed25aa1abf4b0dfc71aa0.png" src="../../_images/90b6887d238b41eaf46bd72df046d95cdc157e58247ed25aa1abf4b0dfc71aa0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_37.png" src="../../_images/17_autoencoders_and_gans_100_37.png" />
+<img alt="../../_images/ad46d452c5b12a8fda1d7dcc47f3f465d091795242f2a0b7ece57b5cb6edb1ef.png" src="../../_images/ad46d452c5b12a8fda1d7dcc47f3f465d091795242f2a0b7ece57b5cb6edb1ef.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_39.png" src="../../_images/17_autoencoders_and_gans_100_39.png" />
+<img alt="../../_images/b1e16f1fea9a0b2f139a0b8900e49dd808f329711bcc66f9017c60a62650c020.png" src="../../_images/b1e16f1fea9a0b2f139a0b8900e49dd808f329711bcc66f9017c60a62650c020.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_41.png" src="../../_images/17_autoencoders_and_gans_100_41.png" />
+<img alt="../../_images/74182646304a087b6708011f0d20dac97a7b3901ed00043ed3b1d5bd5aea59b9.png" src="../../_images/74182646304a087b6708011f0d20dac97a7b3901ed00043ed3b1d5bd5aea59b9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_43.png" src="../../_images/17_autoencoders_and_gans_100_43.png" />
+<img alt="../../_images/88e5664e9aa6b9b14108d2db7523f82c0bc89b0b8e6cecd7464cac37d29d0f0c.png" src="../../_images/88e5664e9aa6b9b14108d2db7523f82c0bc89b0b8e6cecd7464cac37d29d0f0c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_45.png" src="../../_images/17_autoencoders_and_gans_100_45.png" />
+<img alt="../../_images/9219954c70a9542ccb56df3687abe537a27ad03f30707c416c10762a49e52893.png" src="../../_images/9219954c70a9542ccb56df3687abe537a27ad03f30707c416c10762a49e52893.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_47.png" src="../../_images/17_autoencoders_and_gans_100_47.png" />
+<img alt="../../_images/d6ab25c0a1d53aa29837cbfc81804acd219faa012336d78d54ae837e3d82e90d.png" src="../../_images/d6ab25c0a1d53aa29837cbfc81804acd219faa012336d78d54ae837e3d82e90d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_49.png" src="../../_images/17_autoencoders_and_gans_100_49.png" />
+<img alt="../../_images/38b95e537abee95e155b144d88b42e793d5535be06949aa7ca2a7975edfe2d42.png" src="../../_images/38b95e537abee95e155b144d88b42e793d5535be06949aa7ca2a7975edfe2d42.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_51.png" src="../../_images/17_autoencoders_and_gans_100_51.png" />
+<img alt="../../_images/63fbf2c69fecd1438939e3937466ce500c9247c776bbd8a32830f451e98dacc1.png" src="../../_images/63fbf2c69fecd1438939e3937466ce500c9247c776bbd8a32830f451e98dacc1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_53.png" src="../../_images/17_autoencoders_and_gans_100_53.png" />
+<img alt="../../_images/af371bfc2fbf9c1af9e10704673354152d32ba3d850d8480f15efa9dae49951b.png" src="../../_images/af371bfc2fbf9c1af9e10704673354152d32ba3d850d8480f15efa9dae49951b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_55.png" src="../../_images/17_autoencoders_and_gans_100_55.png" />
+<img alt="../../_images/f5e9ad45e7861a3abb3015c15cb6a93a2e900ad446692230a51fa8edd7ad9226.png" src="../../_images/f5e9ad45e7861a3abb3015c15cb6a93a2e900ad446692230a51fa8edd7ad9226.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_57.png" src="../../_images/17_autoencoders_and_gans_100_57.png" />
+<img alt="../../_images/9862f8a20e45552fcc1875e4f11b043f92921586d0ec4ef38e70ba2156378469.png" src="../../_images/9862f8a20e45552fcc1875e4f11b043f92921586d0ec4ef38e70ba2156378469.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_59.png" src="../../_images/17_autoencoders_and_gans_100_59.png" />
+<img alt="../../_images/e5f137571e66de7133aa377596885b2fd7a3408e3306fc956b8087daf9ddcf25.png" src="../../_images/e5f137571e66de7133aa377596885b2fd7a3408e3306fc956b8087daf9ddcf25.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 31/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_61.png" src="../../_images/17_autoencoders_and_gans_100_61.png" />
+<img alt="../../_images/9aac478fb4c3172eb35011118e08e970097d9dd3743b29862b10ce274e3d2dd9.png" src="../../_images/9aac478fb4c3172eb35011118e08e970097d9dd3743b29862b10ce274e3d2dd9.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 32/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_63.png" src="../../_images/17_autoencoders_and_gans_100_63.png" />
+<img alt="../../_images/9a777d2ebb85b4759f866826124657f22774043c5b01f5e8eab4d5aff5d5aad0.png" src="../../_images/9a777d2ebb85b4759f866826124657f22774043c5b01f5e8eab4d5aff5d5aad0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 33/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_65.png" src="../../_images/17_autoencoders_and_gans_100_65.png" />
+<img alt="../../_images/51fd31ed4143190e308929b43887c2ca4e96336ae45ce798b102690d17942209.png" src="../../_images/51fd31ed4143190e308929b43887c2ca4e96336ae45ce798b102690d17942209.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 34/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_67.png" src="../../_images/17_autoencoders_and_gans_100_67.png" />
+<img alt="../../_images/c0523026596dcd675a556566b58754d2f06ac99d20ed82e8caf9c1b5f9e72f40.png" src="../../_images/c0523026596dcd675a556566b58754d2f06ac99d20ed82e8caf9c1b5f9e72f40.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 35/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_69.png" src="../../_images/17_autoencoders_and_gans_100_69.png" />
+<img alt="../../_images/4dcdb264edd5b8fc4a0dd82e8f6ca7043da6d23492de8d0d7715c0e17a911414.png" src="../../_images/4dcdb264edd5b8fc4a0dd82e8f6ca7043da6d23492de8d0d7715c0e17a911414.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 36/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_71.png" src="../../_images/17_autoencoders_and_gans_100_71.png" />
+<img alt="../../_images/4620789a970ce4e194d9380aa9ffc59598efff6d851ebdd166549ae3b13303b6.png" src="../../_images/4620789a970ce4e194d9380aa9ffc59598efff6d851ebdd166549ae3b13303b6.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 37/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_73.png" src="../../_images/17_autoencoders_and_gans_100_73.png" />
+<img alt="../../_images/ccfcb6a8c8780fc23affd0a0c3611f581d6f58d75fe006d506bc23627d31df07.png" src="../../_images/ccfcb6a8c8780fc23affd0a0c3611f581d6f58d75fe006d506bc23627d31df07.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 38/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_75.png" src="../../_images/17_autoencoders_and_gans_100_75.png" />
+<img alt="../../_images/af677a7d22b3e2ad2a4befb0d8657840c29611ece85cd06ad8e1ef3d68a1ce8b.png" src="../../_images/af677a7d22b3e2ad2a4befb0d8657840c29611ece85cd06ad8e1ef3d68a1ce8b.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 39/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_77.png" src="../../_images/17_autoencoders_and_gans_100_77.png" />
+<img alt="../../_images/2873578e8edc3fd6c8bd26fbfcf8312f7a9f67036688d0743f13a654c1d4312f.png" src="../../_images/2873578e8edc3fd6c8bd26fbfcf8312f7a9f67036688d0743f13a654c1d4312f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 40/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_79.png" src="../../_images/17_autoencoders_and_gans_100_79.png" />
+<img alt="../../_images/350da61876d45fb50432e297e41de4a36fba3a851ce4fa6e94ae6b5b917bd04f.png" src="../../_images/350da61876d45fb50432e297e41de4a36fba3a851ce4fa6e94ae6b5b917bd04f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 41/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_81.png" src="../../_images/17_autoencoders_and_gans_100_81.png" />
+<img alt="../../_images/41402426e197a683747836b2cc1391e99c54784d9642281480132aa842013aad.png" src="../../_images/41402426e197a683747836b2cc1391e99c54784d9642281480132aa842013aad.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 42/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_83.png" src="../../_images/17_autoencoders_and_gans_100_83.png" />
+<img alt="../../_images/579c5e86d213e3fd9f717ded4b4f520df55ad82956f15e54ccefcbc2ba72cf2c.png" src="../../_images/579c5e86d213e3fd9f717ded4b4f520df55ad82956f15e54ccefcbc2ba72cf2c.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 43/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_85.png" src="../../_images/17_autoencoders_and_gans_100_85.png" />
+<img alt="../../_images/ab4ceebae3bdf983b4a97efa3a9c483dfb882edec3a0bcb2ea42f9ffd1f24673.png" src="../../_images/ab4ceebae3bdf983b4a97efa3a9c483dfb882edec3a0bcb2ea42f9ffd1f24673.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 44/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_87.png" src="../../_images/17_autoencoders_and_gans_100_87.png" />
+<img alt="../../_images/4762905cbdcd94ab6bba816d600eb3ec237e8be416d7fdc148bba1825b1a357f.png" src="../../_images/4762905cbdcd94ab6bba816d600eb3ec237e8be416d7fdc148bba1825b1a357f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 45/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_89.png" src="../../_images/17_autoencoders_and_gans_100_89.png" />
+<img alt="../../_images/30c75a9a2268260fd6d4bb2a3b212d328961464b7a67bf4205b2de836180d569.png" src="../../_images/30c75a9a2268260fd6d4bb2a3b212d328961464b7a67bf4205b2de836180d569.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 46/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_91.png" src="../../_images/17_autoencoders_and_gans_100_91.png" />
+<img alt="../../_images/1e3a72a661c64ea744156950f8796af36037c7238e5c6c5f234f955a56eefefe.png" src="../../_images/1e3a72a661c64ea744156950f8796af36037c7238e5c6c5f234f955a56eefefe.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 47/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_93.png" src="../../_images/17_autoencoders_and_gans_100_93.png" />
+<img alt="../../_images/bfc889ec3c28b8f0ecfab6b4304b9d869cc205ab802098570c2efc90e88f88d5.png" src="../../_images/bfc889ec3c28b8f0ecfab6b4304b9d869cc205ab802098570c2efc90e88f88d5.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 48/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_95.png" src="../../_images/17_autoencoders_and_gans_100_95.png" />
+<img alt="../../_images/4e77ef2e9602b843c45797b47316cdb43248a0750fca7bb9853c70338b1e191e.png" src="../../_images/4e77ef2e9602b843c45797b47316cdb43248a0750fca7bb9853c70338b1e191e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 49/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_97.png" src="../../_images/17_autoencoders_and_gans_100_97.png" />
+<img alt="../../_images/4566f9547950308378d744e6b0bc4b6762ddb73bf3217e5109d4089cfdbcbd4f.png" src="../../_images/4566f9547950308378d744e6b0bc4b6762ddb73bf3217e5109d4089cfdbcbd4f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 50/50
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_100_99.png" src="../../_images/17_autoencoders_and_gans_100_99.png" />
+<img alt="../../_images/37744dd3e4344bf2d2faf24777239f9355c2a279c4cb46ca5893d14110bd7e29.png" src="../../_images/37744dd3e4344bf2d2faf24777239f9355c2a279c4cb46ca5893d14110bd7e29.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3710,14 +2969,14 @@ Saving figure gan_generated_images_plot
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saving figure dcgan_generated_images_plot
 </pre></div>
 </div>
-<img alt="../../_images/17_autoencoders_and_gans_101_1.png" src="../../_images/17_autoencoders_and_gans_101_1.png" />
+<img alt="../../_images/6ca885f9f3978cdcfba4b1364dde8905edf7275ef4f03eeef825e7346711791d.png" src="../../_images/6ca885f9f3978cdcfba4b1364dde8905edf7275ef4f03eeef825e7346711791d.png" />
 </div>
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="extra-material">
-<h1>Extra Material<a class="headerlink" href="#extra-material" title="Permalink to this headline">#</a></h1>
+<h1>Extra Material<a class="headerlink" href="#extra-material" title="Permalink to this heading">#</a></h1>
 <section id="hashing-using-a-binary-autoencoder">
-<h2>Hashing Using a Binary Autoencoder<a class="headerlink" href="#hashing-using-a-binary-autoencoder" title="Permalink to this headline">#</a></h2>
+<h2>Hashing Using a Binary Autoencoder<a class="headerlink" href="#hashing-using-a-binary-autoencoder" title="Permalink to this heading">#</a></h2>
 <p>Let’s load the Fashion MNIST dataset again:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3789,7 +3048,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_109_0.png" src="../../_images/17_autoencoders_and_gans_109_0.png" />
+<img alt="../../_images/86fbde84a9e9f31010b52446843bedac8e1d2713d1042008f06c5172f091f68d.png" src="../../_images/86fbde84a9e9f31010b52446843bedac8e1d2713d1042008f06c5172f091f68d.png" />
 </div>
 </div>
 <p>Notice that the outputs are indeed very close to 0 or 1 (left graph):</p>
@@ -3801,7 +3060,7 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_111_0.png" src="../../_images/17_autoencoders_and_gans_111_0.png" />
+<img alt="../../_images/68c45112576e26700fb96af1eead4f5503e59d32d7deb19b977efdeb49295109.png" src="../../_images/68c45112576e26700fb96af1eead4f5503e59d32d7deb19b977efdeb49295109.png" />
 </div>
 </div>
 <p>Now let’s see what the hashes look like for the first few images in the validation set:</p>
@@ -3848,19 +3107,19 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_115_0.png" src="../../_images/17_autoencoders_and_gans_115_0.png" />
+<img alt="../../_images/41a70b8e27ddc7fd4800fac3da6b57b2fb37cbe2106f51a8e7ab76a4072d5675.png" src="../../_images/41a70b8e27ddc7fd4800fac3da6b57b2fb37cbe2106f51a8e7ab76a4072d5675.png" />
 </div>
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercise-solutions">
-<h1>Exercise Solutions<a class="headerlink" href="#exercise-solutions" title="Permalink to this headline">#</a></h1>
+<h1>Exercise Solutions<a class="headerlink" href="#exercise-solutions" title="Permalink to this heading">#</a></h1>
 <section id="to-8">
-<h2>1. to 8.<a class="headerlink" href="#to-8" title="Permalink to this headline">#</a></h2>
+<h2>1. to 8.<a class="headerlink" href="#to-8" title="Permalink to this heading">#</a></h2>
 <p>See Appendix A.</p>
 </section>
 <section id="id1">
-<h2>9.<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>9.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p><em>Exercise: Try using a denoising autoencoder to pretrain an image classifier. You can use MNIST (the simplest option), or a more complex image dataset such as <a class="reference external" href="https://homl.info/122">CIFAR10</a> if you want a bigger challenge. Regardless of the dataset you’re using, follow these steps:</em></p>
 <ul class="simple">
 <li><p>Split the dataset into a training set and a test set. Train a deep denoising autoencoder on the full training set.</p></li>
@@ -4023,16 +3282,16 @@ Epoch 10/10
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/17_autoencoders_and_gans_125_0.png" src="../../_images/17_autoencoders_and_gans_125_0.png" />
+<img alt="../../_images/544aeb1b268dbc82a7d015e16315e4f6eb4c632638279f273ca9c489f1023e24.png" src="../../_images/544aeb1b268dbc82a7d015e16315e4f6eb4c632638279f273ca9c489f1023e24.png" />
 </div>
 </div>
 </section>
 <section id="id2">
-<h2>10.<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>10.<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p><em>Exercise: Train a variational autoencoder on the image dataset of your choice, and use it to generate images. Alternatively, you can try to find an unlabeled dataset that you are interested in and see if you can generate new samples.</em></p>
 </section>
 <section id="id3">
-<h2>11.<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>11.<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p><em>Exercise: Train a DCGAN to tackle the image dataset of your choice, and use it to generate images. Add experience replay and see if this helps. Turn it into a conditional GAN where you can control the generated class.</em></p>
 </section>
 </section>
@@ -4049,7 +3308,7 @@ Epoch 10/10
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./handson-ml2/original"
         },
         predefinedOutput: true
@@ -4057,50 +3316,134 @@ Epoch 10/10
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="16_nlp_with_rnns_and_attention.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 16 – Natural Language Processing with RNNs and Attention**</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="16_nlp_with_rnns_and_attention.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 16 – Natural Language Processing with RNNs and Attention**</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="18_reinforcement_learning.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="18_reinforcement_learning.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 18 – Reinforcement Learning</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 17 – Autoencoders and GANs**</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-with-a-linear-autoencoder">PCA with a linear Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stacked-autoencoders">Stacked Autoencoders</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-all-layers-at-once">Train all layers at once</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-fashion-mnist">Visualizing Fashion MNIST</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tying-weights">Tying weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-one-autoencoder-at-a-time">Training one Autoencoder at a Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-convolutional-layers-instead-of-dense-layers">Using Convolutional Layers Instead of Dense Layers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrent-autoencoders">Recurrent Autoencoders</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stacked-denoising-autoencoder">Stacked denoising Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-autoencoder">Sparse Autoencoder</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoder">Variational Autoencoder</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-fashion-images">Generate Fashion Images</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generative-adversarial-networks">Generative Adversarial Networks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deep-convolutional-gan">Deep Convolutional GAN</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-material">Extra Material</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing-using-a-binary-autoencoder">Hashing Using a Binary Autoencoder</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-solutions">Exercise Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-8">1. to 8.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">10.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

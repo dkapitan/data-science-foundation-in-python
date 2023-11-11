@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Scales, Axes, and Legends &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Scales, Axes, and Legends &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,63 +62,99 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'visualization/altair_scales_axes_legends';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/visualization/altair_scales_axes_legends.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multi-View Composition" href="altair_view_composition.html" />
     <link rel="prev" title="Data Transformation" href="altair_data_transformation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,1432 +163,756 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../handson-ml2/introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/12_custom_models_and_training_with_tensorflow.html">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/17_autoencoders_and_gans.html">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../handson-ml2/extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/math_linear_algebra.html">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/math_differential_calculus.html">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../handson-ml2/introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/12_custom_models_and_training_with_tensorflow.html">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/17_autoencoders_and_gans.html">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../handson-ml2/extra.html">Miscellaneous tips &amp; tricks</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/math_linear_algebra.html">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/math_differential_calculus.html">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="altair_get_started.html">Getting Started with Altair</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../nlp/introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../nlp/dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../nlp/nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../nlp/prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../nlp/nlp-pipeline-example.html">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../nlp/language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../nlp/nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../nlp/introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../nlp/dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../nlp/nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp/prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp/nlp-pipeline-example.html">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../nlp/language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nlp/nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/visualization/altair_scales_axes_legends.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/visualization/altair_scales_axes_legends.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/visualization/altair_scales_axes_legends.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fvisualization/altair_scales_axes_legends.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/visualization/altair_scales_axes_legends.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fvisualization/altair_scales_axes_legends.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/visualization/altair_scales_axes_legends.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#antibiotics-data">
-   Antibiotics Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-scales-and-axes">
-   Configuring Scales and Axes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-antibiotic-resistance-adjusting-the-scale-type">
-     Plotting Antibiotic Resistance: Adjusting the Scale Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#styling-an-axis">
-     Styling an Axis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing">
-     Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-color-legends">
-   Configuring Color Legends
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-gram-staining">
-     Color by Gram Staining
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-species">
-     Color by Species
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-genus">
-     Color by Genus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-antibiotic-response">
-     Color by Antibiotic Response
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Scales, Axes, and Legends</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#antibiotics-data">
-   Antibiotics Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-scales-and-axes">
-   Configuring Scales and Axes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-antibiotic-resistance-adjusting-the-scale-type">
-     Plotting Antibiotic Resistance: Adjusting the Scale Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#styling-an-axis">
-     Styling an Axis
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing">
-     Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#configuring-color-legends">
-   Configuring Color Legends
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-gram-staining">
-     Color by Gram Staining
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-species">
-     Color by Species
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-genus">
-     Color by Genus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#color-by-antibiotic-response">
-     Color by Antibiotic Response
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scales, Axes, and Legends</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antibiotics-data">Antibiotics Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-scales-and-axes">Configuring Scales and Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-antibiotic-resistance-adjusting-the-scale-type">Plotting Antibiotic Resistance: Adjusting the Scale Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-an-axis">Styling an Axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing">Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-color-legends">Configuring Color Legends</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-gram-staining">Color by Gram Staining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-species">Color by Species</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-genus">Color by Genus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-antibiotic-response">Color by Antibiotic Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="scales-axes-and-legends">
-<h1>Scales, Axes, and Legends<a class="headerlink" href="#scales-axes-and-legends" title="Permalink to this headline">#</a></h1>
+<h1>Scales, Axes, and Legends<a class="headerlink" href="#scales-axes-and-legends" title="Permalink to this heading">#</a></h1>
 <p>Visual encoding – mapping data to visual variables such as position, size, shape, or color – is the beating heart of data visualization. The workhorse that actually performs this mapping is the <em>scale</em>: a function that takes a data value as input (the scale <em>domain</em>) and returns a visual value, such as a pixel position or RGB color, as output (the scale <em>range</em>).  Of course, a visualization is useless if no one can figure out what it conveys! In addition to graphical marks, a chart needs reference elements, or <em>guides</em>, that allow readers to decode the graphic. Guides such as <em>axes</em> (which visualize scales with spatial ranges) and <em>legends</em> (which visualize scales with color, size, or shape ranges), are the unsung heroes of effective data visualization!</p>
 <p>In this notebook, we will explore the options Altair provides to support customized designs of scale mappings, axes, and legends, using a running example about the effectiveness of antibiotic drugs.</p>
 <p><em>This notebook is part of the <a class="reference external" href="https://github.com/uwdata/visualization-curriculum">data visualization curriculum</a>.</em></p>
@@ -1553,7 +925,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="antibiotics-data">
-<h2>Antibiotics Data<a class="headerlink" href="#antibiotics-data" title="Permalink to this headline">#</a></h2>
+<h2>Antibiotics Data<a class="headerlink" href="#antibiotics-data" title="Permalink to this heading">#</a></h2>
 <p>After World War II, antibiotics were considered “wonder drugs”, as they were an easy remedy for what had been intractable ailments. To learn which drug worked most effectively for which bacterial infection, performance of the three most popular antibiotics on 16 bacteria were gathered.</p>
 <p>We will be using an antibiotics dataset from the <a class="reference external" href="https://github.com/vega/vega-datasets">vega-datasets collection</a>. In the examples below, we will pass the URL directly to Altair:</p>
 <div class="cell docutils container">
@@ -1750,9 +1122,9 @@ title="Print to PDF"
 <p>As we examine different visualizations of this dataset, ask yourself: What might we learn about the relative effectiveness of the antibiotics? What might we learn about the bacterial species based on their antibiotic response?</p>
 </section>
 <section id="configuring-scales-and-axes">
-<h2>Configuring Scales and Axes<a class="headerlink" href="#configuring-scales-and-axes" title="Permalink to this headline">#</a></h2>
+<h2>Configuring Scales and Axes<a class="headerlink" href="#configuring-scales-and-axes" title="Permalink to this heading">#</a></h2>
 <section id="plotting-antibiotic-resistance-adjusting-the-scale-type">
-<h3>Plotting Antibiotic Resistance: Adjusting the Scale Type<a class="headerlink" href="#plotting-antibiotic-resistance-adjusting-the-scale-type" title="Permalink to this headline">#</a></h3>
+<h3>Plotting Antibiotic Resistance: Adjusting the Scale Type<a class="headerlink" href="#plotting-antibiotic-resistance-adjusting-the-scale-type" title="Permalink to this heading">#</a></h3>
 <p>Let’s start by looking at a simple dot plot of the MIC for Neomycin.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1764,19 +1136,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-b553a73132db4ed9b5066f340ca7db20"></div>
+<style>
+  #altair-viz-79f6f1a5889b4a118348dff2f918cf3b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-79f6f1a5889b4a118348dff2f918cf3b.vega-embed details,
+  #altair-viz-79f6f1a5889b4a118348dff2f918cf3b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-79f6f1a5889b4a118348dff2f918cf3b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b553a73132db4ed9b5066f340ca7db20") {
-      outputDiv = document.getElementById("altair-viz-b553a73132db4ed9b5066f340ca7db20");
+    if (outputDiv.id !== "altair-viz-79f6f1a5889b4a118348dff2f918cf3b") {
+      outputDiv = document.getElementById("altair-viz-79f6f1a5889b4a118348dff2f918cf3b");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -1811,12 +1194,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>We can see that the MIC values span orders of magnitude: most points to cluster on the left, with a few large outliers to the right.</em></p>
@@ -1834,19 +1217,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-2e9a37a660014d6aaa757f88b107a043"></div>
+<style>
+  #altair-viz-3cedda0420b04319972dedead16b1ed9.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-3cedda0420b04319972dedead16b1ed9.vega-embed details,
+  #altair-viz-3cedda0420b04319972dedead16b1ed9.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-3cedda0420b04319972dedead16b1ed9"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2e9a37a660014d6aaa757f88b107a043") {
-      outputDiv = document.getElementById("altair-viz-2e9a37a660014d6aaa757f88b107a043");
+    if (outputDiv.id !== "altair-viz-3cedda0420b04319972dedead16b1ed9") {
+      outputDiv = document.getElementById("altair-viz-3cedda0420b04319972dedead16b1ed9");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -1881,12 +1275,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "sqrt"}, "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "sqrt"}, "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>The points on the left are now better differentiated, but we still see some heavy skew.</em></p>
@@ -1902,19 +1296,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-6ed5856d73e4479c8af620391323d279"></div>
+<style>
+  #altair-viz-5b5f111302154264b4c209052dc7f7a5.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-5b5f111302154264b4c209052dc7f7a5.vega-embed details,
+  #altair-viz-5b5f111302154264b4c209052dc7f7a5.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-5b5f111302154264b4c209052dc7f7a5"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6ed5856d73e4479c8af620391323d279") {
-      outputDiv = document.getElementById("altair-viz-6ed5856d73e4479c8af620391323d279");
+    if (outputDiv.id !== "altair-viz-5b5f111302154264b4c209052dc7f7a5") {
+      outputDiv = document.getElementById("altair-viz-5b5f111302154264b4c209052dc7f7a5");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -1949,19 +1354,19 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Now the data is much more evenly distributed and we can see the very large differences in concentrations required for different bacteria.</em></p>
 <p>In a standard linear scale, a visual (pixel) distance of 10 units might correspond to an <em>addition</em> of 10 units in the data domain. A logarithmic transform maps between multiplication and addition, such that <code class="docutils literal notranslate"><span class="pre">log(u)</span> <span class="pre">+</span> <span class="pre">log(v)</span> <span class="pre">=</span> <span class="pre">log(u*v)</span></code>. As a result, in a logarithmic scale, a visual distance of 10 units instead corresponds to <em>multiplication</em> by 10 units in the data domain, assuming a base 10 logarithm. The <code class="docutils literal notranslate"><span class="pre">log</span></code> scale above defaults to using the logarithm base 10, but we can adjust this by providing a <code class="docutils literal notranslate"><span class="pre">base</span></code> parameter to the scale.</p>
 </section>
 <section id="styling-an-axis">
-<h3>Styling an Axis<a class="headerlink" href="#styling-an-axis" title="Permalink to this headline">#</a></h3>
+<h3>Styling an Axis<a class="headerlink" href="#styling-an-axis" title="Permalink to this heading">#</a></h3>
 <p>Lower dosages indicate higher effectiveness. However, some people may expect values that are “better” to be “up and to the right” within a chart. If we want to cater to this convention, we can reverse the axis to encode “effectiveness” as a reversed MIC scale.</p>
 <p>To do this, we can set the encoding <code class="docutils literal notranslate"><span class="pre">sort</span></code> property to <code class="docutils literal notranslate"><span class="pre">'descending'</span></code>:</p>
 <div class="cell docutils container">
@@ -1976,19 +1381,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-097a1142803f4974a5889d765a2b9188"></div>
+<style>
+  #altair-viz-0e07c1d10b7e4ea29e926973387f9115.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-0e07c1d10b7e4ea29e926973387f9115.vega-embed details,
+  #altair-viz-0e07c1d10b7e4ea29e926973387f9115.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-0e07c1d10b7e4ea29e926973387f9115"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-097a1142803f4974a5889d765a2b9188") {
-      outputDiv = document.getElementById("altair-viz-097a1142803f4974a5889d765a2b9188");
+    if (outputDiv.id !== "altair-viz-0e07c1d10b7e4ea29e926973387f9115") {
+      outputDiv = document.getElementById("altair-viz-0e07c1d10b7e4ea29e926973387f9115");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2023,12 +1439,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Unfortunately the axis is starting to get a bit confusing: we’re plotting data on a logarithmic scale, in the reverse direction, and without a clear indication of what our units are!</em></p>
@@ -2046,19 +1462,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-5d77bf117bde40239599d556a674c18b"></div>
+<style>
+  #altair-viz-caae6c4fef57458c99d7ae6650948c63.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-caae6c4fef57458c99d7ae6650948c63.vega-embed details,
+  #altair-viz-caae6c4fef57458c99d7ae6650948c63.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-caae6c4fef57458c99d7ae6650948c63"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5d77bf117bde40239599d556a674c18b") {
-      outputDiv = document.getElementById("altair-viz-5d77bf117bde40239599d556a674c18b");
+    if (outputDiv.id !== "altair-viz-caae6c4fef57458c99d7ae6650948c63") {
+      outputDiv = document.getElementById("altair-viz-caae6c4fef57458c99d7ae6650948c63");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2093,12 +1520,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>Much better!</p>
@@ -2117,19 +1544,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-4a272c612d2c478fa61e351e5ba9d719"></div>
+<style>
+  #altair-viz-c88eddf0c0c044789a17b50eb612976b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-c88eddf0c0c044789a17b50eb612976b.vega-embed details,
+  #altair-viz-c88eddf0c0c044789a17b50eb612976b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-c88eddf0c0c044789a17b50eb612976b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-4a272c612d2c478fa61e351e5ba9d719") {
-      outputDiv = document.getElementById("altair-viz-4a272c612d2c478fa61e351e5ba9d719");
+    if (outputDiv.id !== "altair-viz-c88eddf0c0c044789a17b50eb612976b") {
+      outputDiv = document.getElementById("altair-viz-c88eddf0c0c044789a17b50eb612976b");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2164,18 +1602,18 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"axis": {"orient": "top"}, "field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"axis": {"orient": "top"}, "field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>Similarly, the y-axis defaults to a <code class="docutils literal notranslate"><span class="pre">'left'</span></code> orientation, but can be set to <code class="docutils literal notranslate"><span class="pre">'right'</span></code>.</p>
 </section>
 <section id="comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing">
-<h3>Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing<a class="headerlink" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing" title="Permalink to this headline">#</a></h3>
+<h3>Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing<a class="headerlink" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing" title="Permalink to this heading">#</a></h3>
 <p><em>How does neomycin compare to other antibiotics, such as streptomycin and penicillin?</em></p>
 <p>To start answering this question, we can create scatter plots, adding a y-axis encoding for another antibiotic that mirrors the design of our x-axis for neomycin.</p>
 <div class="cell docutils container">
@@ -2195,19 +1633,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-6b0aaca8514b4ae4870a91c1ba42c3bf"></div>
+<style>
+  #altair-viz-e40b9378eea6424fb3ed37b467cae7cd.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-e40b9378eea6424fb3ed37b467cae7cd.vega-embed details,
+  #altair-viz-e40b9378eea6424fb3ed37b467cae7cd.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-e40b9378eea6424fb3ed37b467cae7cd"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6b0aaca8514b4ae4870a91c1ba42c3bf") {
-      outputDiv = document.getElementById("altair-viz-6b0aaca8514b4ae4870a91c1ba42c3bf");
+    if (outputDiv.id !== "altair-viz-e40b9378eea6424fb3ed37b467cae7cd") {
+      outputDiv = document.getElementById("altair-viz-e40b9378eea6424fb3ed37b467cae7cd");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2242,12 +1691,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Streptomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Streptomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Streptomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Streptomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>We can see that neomycin and streptomycin appear highly correlated, as the bacterial strains respond similarly to both antibiotics.</em></p>
@@ -2269,19 +1718,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-9135e202b1904e3cb60c7a78b1843ede"></div>
+<style>
+  #altair-viz-453f21dab75c4207aadb389cc2b08e13.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-453f21dab75c4207aadb389cc2b08e13.vega-embed details,
+  #altair-viz-453f21dab75c4207aadb389cc2b08e13.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-453f21dab75c4207aadb389cc2b08e13"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9135e202b1904e3cb60c7a78b1843ede") {
-      outputDiv = document.getElementById("altair-viz-9135e202b1904e3cb60c7a78b1843ede");
+    if (outputDiv.id !== "altair-viz-453f21dab75c4207aadb389cc2b08e13") {
+      outputDiv = document.getElementById("altair-viz-453f21dab75c4207aadb389cc2b08e13");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2316,12 +1776,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Penicillin", "scale": {"type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Penicillin", "scale": {"type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Now we see a more differentiated response: some bacteria respond well to neomycin but not penicillin, and vice versa!</em></p>
@@ -2344,19 +1804,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-5f22d9c69998415d84e4c2bcf4a02e77"></div>
+<style>
+  #altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba.vega-embed details,
+  #altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5f22d9c69998415d84e4c2bcf4a02e77") {
-      outputDiv = document.getElementById("altair-viz-5f22d9c69998415d84e4c2bcf4a02e77");
+    if (outputDiv.id !== "altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba") {
+      outputDiv = document.getElementById("altair-viz-c728fb8a6a9e4ad8bbec392533fd19ba");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2391,12 +1862,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>The resulting plot is more balanced, and less prone to subtle misinterpretations!</em></p>
@@ -2421,19 +1892,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-fc1a50f97ed04ad2b8e6d0876601f9c2"></div>
+<style>
+  #altair-viz-668d022c425d43408a0cb9dda458a066.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-668d022c425d43408a0cb9dda458a066.vega-embed details,
+  #altair-viz-668d022c425d43408a0cb9dda458a066.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-668d022c425d43408a0cb9dda458a066"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-fc1a50f97ed04ad2b8e6d0876601f9c2") {
-      outputDiv = document.getElementById("altair-viz-fc1a50f97ed04ad2b8e6d0876601f9c2");
+    if (outputDiv.id !== "altair-viz-668d022c425d43408a0cb9dda458a066") {
+      outputDiv = document.getElementById("altair-viz-668d022c425d43408a0cb9dda458a066");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2468,12 +1950,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "circle", "encoding": {"x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle"}, "encoding": {"x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>By setting the <code class="docutils literal notranslate"><span class="pre">tickCount</span></code> to 5, we have the desired effect.</p>
@@ -2497,19 +1979,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-c8fcae2f37e245db9857817939222795"></div>
+<style>
+  #altair-viz-4364300abec943ce90cfea63b8840e32.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-4364300abec943ce90cfea63b8840e32.vega-embed details,
+  #altair-viz-4364300abec943ce90cfea63b8840e32.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-4364300abec943ce90cfea63b8840e32"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-c8fcae2f37e245db9857817939222795") {
-      outputDiv = document.getElementById("altair-viz-c8fcae2f37e245db9857817939222795");
+    if (outputDiv.id !== "altair-viz-4364300abec943ce90cfea63b8840e32") {
+      outputDiv = document.getElementById("altair-viz-4364300abec943ce90cfea63b8840e32");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2544,21 +2037,21 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>Here we’ve set the circle mark area to 80 pixels. <em>Further adjust the value as you see fit!</em></p>
 </section>
 </section>
 <section id="configuring-color-legends">
-<h2>Configuring Color Legends<a class="headerlink" href="#configuring-color-legends" title="Permalink to this headline">#</a></h2>
+<h2>Configuring Color Legends<a class="headerlink" href="#configuring-color-legends" title="Permalink to this heading">#</a></h2>
 <section id="color-by-gram-staining">
-<h3>Color by Gram Staining<a class="headerlink" href="#color-by-gram-staining" title="Permalink to this headline">#</a></h3>
+<h3>Color by Gram Staining<a class="headerlink" href="#color-by-gram-staining" title="Permalink to this heading">#</a></h3>
 <p><em>Above we saw that neomycin is more effective for some bacteria, while penicillin is more effective for others. But how can we tell which antibiotic to use if we don’t know the specific species of bacteria? Gram staining serves as a diagnostic for discriminating classes of bacteria!</em></p>
 <p>Let’s encode <code class="docutils literal notranslate"><span class="pre">Gram_Staining</span></code> on the <code class="docutils literal notranslate"><span class="pre">color</span></code> channel as a nominal data type:</p>
 <div class="cell docutils container">
@@ -2581,19 +2074,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-9ac946a0ac524e3895642221d56ffb7b"></div>
+<style>
+  #altair-viz-78f31830e786471b958e945092ac6866.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-78f31830e786471b958e945092ac6866.vega-embed details,
+  #altair-viz-78f31830e786471b958e945092ac6866.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-78f31830e786471b958e945092ac6866"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9ac946a0ac524e3895642221d56ffb7b") {
-      outputDiv = document.getElementById("altair-viz-9ac946a0ac524e3895642221d56ffb7b");
+    if (outputDiv.id !== "altair-viz-78f31830e786471b958e945092ac6866") {
+      outputDiv = document.getElementById("altair-viz-78f31830e786471b958e945092ac6866");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2628,12 +2132,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>We can see that Gram-positive bacteria seem most susceptible to penicillin, whereas neomycin is more effective for Gram-negative bacteria!</em></p>
@@ -2661,19 +2165,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-a86dfbca5fd8496bbea3eb87a93609b3"></div>
+<style>
+  #altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20.vega-embed details,
+  #altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-a86dfbca5fd8496bbea3eb87a93609b3") {
-      outputDiv = document.getElementById("altair-viz-a86dfbca5fd8496bbea3eb87a93609b3");
+    if (outputDiv.id !== "altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20") {
+      outputDiv = document.getElementById("altair-viz-379c0dfb26d94c5d85ef55d7ec28ea20");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2708,12 +2223,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>By default legends are placed on the right side of the chart. Similar to axes, we can change the legend orientation using the <code class="docutils literal notranslate"><span class="pre">orient</span></code> parameter:</p>
@@ -2740,19 +2255,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-558df93417ff451aaf3950bc416b4b47"></div>
+<style>
+  #altair-viz-5f498a1172a044c386db0f723591152b.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-5f498a1172a044c386db0f723591152b.vega-embed details,
+  #altair-viz-5f498a1172a044c386db0f723591152b.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-5f498a1172a044c386db0f723591152b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-558df93417ff451aaf3950bc416b4b47") {
-      outputDiv = document.getElementById("altair-viz-558df93417ff451aaf3950bc416b4b47");
+    if (outputDiv.id !== "altair-viz-5f498a1172a044c386db0f723591152b") {
+      outputDiv = document.getElementById("altair-viz-5f498a1172a044c386db0f723591152b");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2787,12 +2313,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "legend": {"orient": "left"}, "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "legend": {"orient": "left"}, "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>We can also remove a legend entirely by specifying <code class="docutils literal notranslate"><span class="pre">legend=None</span></code>:</p>
@@ -2819,19 +2345,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-b82823f9e9174b538098dcd445a1ded8"></div>
+<style>
+  #altair-viz-100bd15d403f41abbb1da9f32a63b4b2.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-100bd15d403f41abbb1da9f32a63b4b2.vega-embed details,
+  #altair-viz-100bd15d403f41abbb1da9f32a63b4b2.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-100bd15d403f41abbb1da9f32a63b4b2"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b82823f9e9174b538098dcd445a1ded8") {
-      outputDiv = document.getElementById("altair-viz-b82823f9e9174b538098dcd445a1ded8");
+    if (outputDiv.id !== "altair-viz-100bd15d403f41abbb1da9f32a63b4b2") {
+      outputDiv = document.getElementById("altair-viz-100bd15d403f41abbb1da9f32a63b4b2");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2866,17 +2403,17 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "legend": null, "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Gram_Staining", "legend": null, "scale": {"domain": ["negative", "positive"], "range": ["hotpink", "purple"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </section>
 <section id="color-by-species">
-<h3>Color by Species<a class="headerlink" href="#color-by-species" title="Permalink to this headline">#</a></h3>
+<h3>Color by Species<a class="headerlink" href="#color-by-species" title="Permalink to this heading">#</a></h3>
 <p><em>So far we’ve considered the effectiveness of antibiotics. Let’s turn around and ask a different question: what might antibiotic response teach us about the different species of bacteria?</em></p>
 <p>To start, let’s encode <code class="docutils literal notranslate"><span class="pre">Bacteria</span></code> (a nominal data field) using the <code class="docutils literal notranslate"><span class="pre">color</span></code> channel:</p>
 <div class="cell docutils container">
@@ -2899,19 +2436,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-5a892c9c60454b0798f5353e4237f266"></div>
+<style>
+  #altair-viz-808453ba1de54a55b4e9b540b4ecca5d.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-808453ba1de54a55b4e9b540b4ecca5d.vega-embed details,
+  #altair-viz-808453ba1de54a55b4e9b540b4ecca5d.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-808453ba1de54a55b4e9b540b4ecca5d"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5a892c9c60454b0798f5353e4237f266") {
-      outputDiv = document.getElementById("altair-viz-5a892c9c60454b0798f5353e4237f266");
+    if (outputDiv.id !== "altair-viz-808453ba1de54a55b4e9b540b4ecca5d") {
+      outputDiv = document.getElementById("altair-viz-808453ba1de54a55b4e9b540b4ecca5d");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -2946,12 +2494,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>The result is a bit of a mess!</em> There are enough unique bacteria that Altair starts repeating colors from its default 10-color palette for nominal values.</p>
@@ -2978,19 +2526,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-f8f5f9a7491d475aacacdd995b16bbec"></div>
+<style>
+  #altair-viz-eebaf45459b0401a8948417720b7e41c.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-eebaf45459b0401a8948417720b7e41c.vega-embed details,
+  #altair-viz-eebaf45459b0401a8948417720b7e41c.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-eebaf45459b0401a8948417720b7e41c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f8f5f9a7491d475aacacdd995b16bbec") {
-      outputDiv = document.getElementById("altair-viz-f8f5f9a7491d475aacacdd995b16bbec");
+    if (outputDiv.id !== "altair-viz-eebaf45459b0401a8948417720b7e41c") {
+      outputDiv = document.getElementById("altair-viz-eebaf45459b0401a8948417720b7e41c");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3025,12 +2584,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "scale": {"scheme": "tableau20"}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "scale": {"scheme": "tableau20"}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>We now have a unique color for each bacteria, but the chart is still a mess. Among other issues, the encoding takes no account of bacteria that belong to the same genus. In the chart above, the two different Salmonella strains have very different hues (teal and pink), despite being biological cousins.</em></p>
@@ -3055,19 +2614,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-58e706a367f5403f81d1261b8480c1d2"></div>
+<style>
+  #altair-viz-27460a6aee6f4e4caf2c5cc2c342a945.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-27460a6aee6f4e4caf2c5cc2c342a945.vega-embed details,
+  #altair-viz-27460a6aee6f4e4caf2c5cc2c342a945.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-27460a6aee6f4e4caf2c5cc2c342a945"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-58e706a367f5403f81d1261b8480c1d2") {
-      outputDiv = document.getElementById("altair-viz-58e706a367f5403f81d1261b8480c1d2");
+    if (outputDiv.id !== "altair-viz-27460a6aee6f4e4caf2c5cc2c342a945") {
+      outputDiv = document.getElementById("altair-viz-27460a6aee6f4e4caf2c5cc2c342a945");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3102,12 +2672,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "type": "ordinal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "type": "ordinal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Some of those blue shades may be hard to distinguish.</em></p>
@@ -3133,19 +2703,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-0546685f36f44dde9782ab1171b4371e"></div>
+<style>
+  #altair-viz-3de530ac619c494fb2c1d67a87facbfd.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-3de530ac619c494fb2c1d67a87facbfd.vega-embed details,
+  #altair-viz-3de530ac619c494fb2c1d67a87facbfd.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-3de530ac619c494fb2c1d67a87facbfd"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-0546685f36f44dde9782ab1171b4371e") {
-      outputDiv = document.getElementById("altair-viz-0546685f36f44dde9782ab1171b4371e");
+    if (outputDiv.id !== "altair-viz-3de530ac619c494fb2c1d67a87facbfd") {
+      outputDiv = document.getElementById("altair-viz-3de530ac619c494fb2c1d67a87facbfd");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3180,18 +2761,18 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "scale": {"scheme": "viridis"}, "type": "ordinal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Bacteria", "scale": {"scheme": "viridis"}, "type": "ordinal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Bacteria from the same genus now have more similar colors than before, but the chart still remains confusing. There are many colors, they are hard to look up in the legend accurately, and two bacteria may have similar colors but different genus.</em></p>
 </section>
 <section id="color-by-genus">
-<h3>Color by Genus<a class="headerlink" href="#color-by-genus" title="Permalink to this headline">#</a></h3>
+<h3>Color by Genus<a class="headerlink" href="#color-by-genus" title="Permalink to this heading">#</a></h3>
 <p>Let’s try to color by genus instead of bacteria. To do so, we will add a <code class="docutils literal notranslate"><span class="pre">calculate</span></code> transform that splits up the bacteria name on space characters and takes the first word in the resulting array. We can then encode the resulting <code class="docutils literal notranslate"><span class="pre">Genus</span></code> field using the <code class="docutils literal notranslate"><span class="pre">tableau20</span></code> color scheme.</p>
 <p>(Note that the antibiotics dataset includes a pre-calculated <code class="docutils literal notranslate"><span class="pre">Genus</span></code> field, but we will ignore it here in order to further explore Altair’s data transformations.)</p>
 <div class="cell docutils container">
@@ -3217,19 +2798,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-582a5c1460fa4981a6e7295d8629c8c9"></div>
+<style>
+  #altair-viz-1354aaae523f4c658d0666baaaeb91f3.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-1354aaae523f4c658d0666baaaeb91f3.vega-embed details,
+  #altair-viz-1354aaae523f4c658d0666baaaeb91f3.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-1354aaae523f4c658d0666baaaeb91f3"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-582a5c1460fa4981a6e7295d8629c8c9") {
-      outputDiv = document.getElementById("altair-viz-582a5c1460fa4981a6e7295d8629c8c9");
+    if (outputDiv.id !== "altair-viz-1354aaae523f4c658d0666baaaeb91f3") {
+      outputDiv = document.getElementById("altair-viz-1354aaae523f4c658d0666baaaeb91f3");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3264,12 +2856,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Genus", "scale": {"scheme": "tableau20"}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "transform": [{"calculate": "split(datum.Bacteria, \" \")[0]", "as": "Genus"}], "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Genus", "scale": {"scheme": "tableau20"}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "transform": [{"calculate": "split(datum.Bacteria, \" \")[0]", "as": "Genus"}], "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>Hmm… While the data are better segregated by genus, this cacapohony of colors doesn’t seem particularly useful.</em></p>
@@ -3304,19 +2896,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-9626223dea814907b87c87042d912a80"></div>
+<style>
+  #altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f.vega-embed details,
+  #altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9626223dea814907b87c87042d912a80") {
-      outputDiv = document.getElementById("altair-viz-9626223dea814907b87c87042d912a80");
+    if (outputDiv.id !== "altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f") {
+      outputDiv = document.getElementById("altair-viz-9e9621b5dd0a47f08bf66ae2b5cd1d1f");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3351,12 +2954,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Genus", "scale": {"domain": ["Salmonella", "Staphylococcus", "Streptococcus", "Other"], "range": ["rgb(76,120,168)", "rgb(84,162,75)", "rgb(228,87,86)", "rgb(121,112,110)"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "transform": [{"calculate": "split(datum.Bacteria, \" \")[0]", "as": "Split"}, {"calculate": "indexof([\"Salmonella\", \"Staphylococcus\", \"Streptococcus\"], datum.Split) >= 0 ? datum.Split : \"Other\"", "as": "Genus"}], "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "circle", "size": 80}, "encoding": {"color": {"field": "Genus", "scale": {"domain": ["Salmonella", "Staphylococcus", "Streptococcus", "Other"], "range": ["rgb(76,120,168)", "rgb(84,162,75)", "rgb(228,87,86)", "rgb(121,112,110)"]}, "type": "nominal"}, "x": {"axis": {"tickCount": 5}, "field": "Neomycin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Neomycin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}, "y": {"axis": {"tickCount": 5}, "field": "Penicillin", "scale": {"domain": [0.001, 1000], "type": "log"}, "sort": "descending", "title": "Penicillin MIC (\u03bcg/ml, reverse log scale)", "type": "quantitative"}}, "height": 250, "transform": [{"calculate": "split(datum.Bacteria, \" \")[0]", "as": "Split"}, {"calculate": "indexof([\"Salmonella\", \"Staphylococcus\", \"Streptococcus\"], datum.Split) >= 0 ? datum.Split : \"Other\"", "as": "Genus"}], "width": 250, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p><em>We now have a much more revealing plot, made possible by customizations to the axes and legend. Take a moment to examine the plot above. Notice any surprising groupings?</em></p>
@@ -3366,7 +2969,7 @@ title="Print to PDF"
 <p>This example also reinforces an important lesson: <strong><em>always be skeptical of your data!</em></strong></p>
 </section>
 <section id="color-by-antibiotic-response">
-<h3>Color by Antibiotic Response<a class="headerlink" href="#color-by-antibiotic-response" title="Permalink to this headline">#</a></h3>
+<h3>Color by Antibiotic Response<a class="headerlink" href="#color-by-antibiotic-response" title="Permalink to this heading">#</a></h3>
 <p>We might also use the <code class="docutils literal notranslate"><span class="pre">color</span></code> channel to encode quantitative values. Though keep in mind that typically color is not as effective for conveying quantities as position or size encodings!</p>
 <p>Here is a basic heatmap of penicillin MIC values for each bacteria. We’ll use a <code class="docutils literal notranslate"><span class="pre">rect</span></code> mark and sort the bacteria by descending MIC values (from most to least resistant):</p>
 <div class="cell docutils container">
@@ -3382,19 +2985,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-2ea1a9f6b68d423594dbbddd7702da08"></div>
+<style>
+  #altair-viz-9b57d09f339242838643e31a50cc3996.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-9b57d09f339242838643e31a50cc3996.vega-embed details,
+  #altair-viz-9b57d09f339242838643e31a50cc3996.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-9b57d09f339242838643e31a50cc3996"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2ea1a9f6b68d423594dbbddd7702da08") {
-      outputDiv = document.getElementById("altair-viz-2ea1a9f6b68d423594dbbddd7702da08");
+    if (outputDiv.id !== "altair-viz-9b57d09f339242838643e31a50cc3996") {
+      outputDiv = document.getElementById("altair-viz-9b57d09f339242838643e31a50cc3996");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3429,12 +3043,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "rect", "encoding": {"color": {"field": "Penicillin", "type": "quantitative"}, "y": {"field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "type": "quantitative"}, "y": {"field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>We can further improve this chart by combining features we’ve seen thus far: a log-transformed scale, a change of axis orientation, a custom color scheme (<code class="docutils literal notranslate"><span class="pre">plasma</span></code>), tick count adjustment, and custom title text. We’ll also exercise configuration options to adjust the axis title placement and legend title alignment.</p>
@@ -3462,19 +3076,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-18775fe3d751483fb547b86f26f5ac9a"></div>
+<style>
+  #altair-viz-a7f4e9b78e444d3db328c7374b621ac4.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-a7f4e9b78e444d3db328c7374b621ac4.vega-embed details,
+  #altair-viz-a7f4e9b78e444d3db328c7374b621ac4.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-a7f4e9b78e444d3db328c7374b621ac4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-18775fe3d751483fb547b86f26f5ac9a") {
-      outputDiv = document.getElementById("altair-viz-18775fe3d751483fb547b86f26f5ac9a");
+    if (outputDiv.id !== "altair-viz-a7f4e9b78e444d3db328c7374b621ac4") {
+      outputDiv = document.getElementById("altair-viz-a7f4e9b78e444d3db328c7374b621ac4");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3509,12 +3134,12 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "rect", "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "plasma", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "y": {"axis": {"orient": "right", "titleAlign": "left", "titleAngle": 0, "titleX": 7, "titleY": -2}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "plasma", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "y": {"axis": {"orient": "right", "titleAlign": "left", "titleAngle": 0, "titleX": 7, "titleY": -2}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 <p>Alternatively, we can remove the axis title altogether, and use the top-level <code class="docutils literal notranslate"><span class="pre">title</span></code> property to add a title for the entire chart:</p>
@@ -3539,19 +3164,30 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-5df0bcd1660240589371c1bd123ddced"></div>
+<style>
+  #altair-viz-3c00ed8139944babb8b593a0c321f792.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-3c00ed8139944babb8b593a0c321f792.vega-embed details,
+  #altair-viz-3c00ed8139944babb8b593a0c321f792.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-3c00ed8139944babb8b593a0c321f792"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5df0bcd1660240589371c1bd123ddced") {
-      outputDiv = document.getElementById("altair-viz-5df0bcd1660240589371c1bd123ddced");
+    if (outputDiv.id !== "altair-viz-3c00ed8139944babb8b593a0c321f792") {
+      outputDiv = document.getElementById("altair-viz-3c00ed8139944babb8b593a0c321f792");
     }
     const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.15.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
     };
 
     function maybeLoadScript(lib, version) {
@@ -3586,18 +3222,18 @@ title="Print to PDF"
       require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
     } else {
       maybeLoadScript("vega", "5")
-        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-lite", "5.15.1"))
         .then(() => maybeLoadScript("vega-embed", "6"))
         .catch(showError)
         .then(() => displayChart(vegaEmbed));
     }
-  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "title": {"anchor": "start", "offset": 5}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": "rect", "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "plasma", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "title": "Penicillin Resistance of Bacterial Strains", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"}, {"mode": "vega-lite"});
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}, "title": {"anchor": "start", "offset": 5}}, "data": {"url": "https://cdn.jsdelivr.net/npm/vega-datasets@1/data/burtin.json"}, "mark": {"type": "rect"}, "encoding": {"color": {"field": "Penicillin", "legend": {"tickCount": 5, "titleOrient": "right"}, "scale": {"nice": true, "scheme": "plasma", "type": "log"}, "title": "Penicillin MIC (\u03bcg/ml)", "type": "quantitative"}, "y": {"axis": {"orient": "right", "title": null}, "field": "Bacteria", "sort": {"field": "Penicillin", "op": "max", "order": "descending"}, "type": "nominal"}}, "title": "Penicillin Resistance of Bacterial Strains", "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json"}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
 </section>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>Integrating what we’ve learned across the notebooks so far about encodings, data transforms, and customization, you should now be prepared to make a wide variety of statistical graphics. Now you can put Altair into everyday use for exploring and communicating data!</p>
 <p>Interested in learning more about this topic?</p>
 <ul class="simple">
@@ -3621,7 +3257,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./visualization"
         },
         predefinedOutput: true
@@ -3629,50 +3265,115 @@ title="Print to PDF"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="altair_data_transformation.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Data Transformation</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="altair_data_transformation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Transformation</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="altair_view_composition.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="altair_view_composition.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Multi-View Composition</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#antibiotics-data">Antibiotics Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-scales-and-axes">Configuring Scales and Axes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-antibiotic-resistance-adjusting-the-scale-type">Plotting Antibiotic Resistance: Adjusting the Scale Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-an-axis">Styling an Axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-antibiotics-adjusting-grid-lines-tick-counts-and-sizing">Comparing Antibiotics: Adjusting Grid Lines, Tick Counts, and Sizing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-color-legends">Configuring Color Legends</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-gram-staining">Color by Gram Staining</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-species">Color by Species</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-genus">Color by Genus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-by-antibiotic-response">Color by Antibiotic Response</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

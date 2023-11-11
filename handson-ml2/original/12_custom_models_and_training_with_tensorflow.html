@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Chapter 12 – Custom Models and Training with TensorFlow &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Chapter 12 – Custom Models and Training with TensorFlow &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,63 +62,99 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'handson-ml2/original/12_custom_models_and_training_with_tensorflow';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/handson-ml2/original/12_custom_models_and_training_with_tensorflow.html" />
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chapter 13 – Loading and Preprocessing Data with TensorFlow" href="13_loading_and_preprocessing_data.html" />
     <link rel="prev" title="Chapter 11 – Training Deep Neural Networks" href="11_training_deep_neural_networks.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,1796 +163,805 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="17_autoencoders_and_gans.html">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_linear_algebra.html">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_differential_calculus.html">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="17_autoencoders_and_gans.html">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../visualization/altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../extra.html">Miscellaneous tips &amp; tricks</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="math_linear_algebra.html">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="math_differential_calculus.html">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../visualization/altair_get_started.html">Getting Started with Altair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../nlp/introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-pipeline-example.html">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../nlp/introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-pipeline-example.html">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/handson-ml2/original/12_custom_models_and_training_with_tensorflow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/handson-ml2/original/12_custom_models_and_training_with_tensorflow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/handson-ml2/original/12_custom_models_and_training_with_tensorflow.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/12_custom_models_and_training_with_tensorflow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/handson-ml2/original/12_custom_models_and_training_with_tensorflow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/12_custom_models_and_training_with_tensorflow.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/handson-ml2/original/12_custom_models_and_training_with_tensorflow.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chapter 12 – Custom Models and Training with TensorFlow
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensors-and-operations">
-     Tensors and operations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensors">
-       Tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexing">
-       Indexing
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ops">
-       Ops
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-keras-backend">
-       Using
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         keras.backend
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#from-to-numpy">
-       From/To NumPy
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#conflicting-types">
-       Conflicting Types
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#strings">
-       Strings
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string-arrays">
-       String arrays
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ragged-tensors">
-       Ragged tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sparse-tensors">
-       Sparse tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sets">
-       Sets
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variables">
-       Variables
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensor-arrays">
-       Tensor Arrays
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-loss-function">
-     Custom loss function
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-loading-models-with-custom-objects">
-     Saving/Loading Models with Custom Objects
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-custom-functions">
-     Other Custom Functions
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-metrics">
-     Custom Metrics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#streaming-metrics">
-       Streaming metrics
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-layers">
-     Custom Layers
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-models">
-     Custom Models
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#losses-and-metrics-based-on-model-internals">
-     Losses and Metrics Based on Model Internals
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#computing-gradients-with-autodiff">
-     Computing Gradients with Autodiff
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computing-gradients-using-autodiff">
-   Computing Gradients Using Autodiff
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensorflow-functions">
-     TensorFlow Functions
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tf-functions-and-concrete-functions">
-       TF Functions and Concrete Functions
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exploring-function-definitions-and-graphs">
-       Exploring Function Definitions and Graphs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs">
-       How TF Functions Trace Python Functions to Extract Their Computation Graphs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-autograph-to-capture-control-flow">
-       Using Autograph To Capture Control Flow
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#handling-variables-and-other-resources-in-tf-functions">
-       Handling Variables and Other Resources in TF Functions
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-tf-functions-with-tf-keras-or-not">
-     Using TF Functions with tf.keras (or Not)
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-optimizers">
-     Custom Optimizers
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-11">
-     1. to 11.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implement-a-custom-layer-that-performs-layer-normalization">
-     12. Implement a custom layer that performs
-     <em>
-      Layer Normalization
-     </em>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a">
-       a.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#b">
-       b.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#c">
-       c.
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset">
-     13. Train a model using a custom training loop to tackle the Fashion MNIST dataset
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       a.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       b.
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 12 – Custom Models and Training with TensorFlow</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chapter 12 – Custom Models and Training with TensorFlow
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup">
-   Setup
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensors-and-operations">
-     Tensors and operations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensors">
-       Tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#indexing">
-       Indexing
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ops">
-       Ops
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-keras-backend">
-       Using
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         keras.backend
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#from-to-numpy">
-       From/To NumPy
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#conflicting-types">
-       Conflicting Types
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#strings">
-       Strings
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string-arrays">
-       String arrays
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ragged-tensors">
-       Ragged tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sparse-tensors">
-       Sparse tensors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#sets">
-       Sets
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variables">
-       Variables
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tensor-arrays">
-       Tensor Arrays
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-loss-function">
-     Custom loss function
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#saving-loading-models-with-custom-objects">
-     Saving/Loading Models with Custom Objects
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#other-custom-functions">
-     Other Custom Functions
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-metrics">
-     Custom Metrics
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#streaming-metrics">
-       Streaming metrics
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-layers">
-     Custom Layers
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-models">
-     Custom Models
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#losses-and-metrics-based-on-model-internals">
-     Losses and Metrics Based on Model Internals
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#computing-gradients-with-autodiff">
-     Computing Gradients with Autodiff
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#computing-gradients-using-autodiff">
-   Computing Gradients Using Autodiff
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tensorflow-functions">
-     TensorFlow Functions
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#tf-functions-and-concrete-functions">
-       TF Functions and Concrete Functions
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#exploring-function-definitions-and-graphs">
-       Exploring Function Definitions and Graphs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs">
-       How TF Functions Trace Python Functions to Extract Their Computation Graphs
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#using-autograph-to-capture-control-flow">
-       Using Autograph To Capture Control Flow
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#handling-variables-and-other-resources-in-tf-functions">
-       Handling Variables and Other Resources in TF Functions
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#using-tf-functions-with-tf-keras-or-not">
-     Using TF Functions with tf.keras (or Not)
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#custom-optimizers">
-     Custom Optimizers
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-11">
-     1. to 11.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#implement-a-custom-layer-that-performs-layer-normalization">
-     12. Implement a custom layer that performs
-     <em>
-      Layer Normalization
-     </em>
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a">
-       a.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#b">
-       b.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#c">
-       c.
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset">
-     13. Train a model using a custom training loop to tackle the Fashion MNIST dataset
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       a.
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       b.
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 12 – Custom Models and Training with TensorFlow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors-and-operations">Tensors and operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors">Tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ops">Ops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-keras-backend">Using <code class="docutils literal notranslate"><span class="pre">keras.backend</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-to-numpy">From/To NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflicting-types">Conflicting Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-arrays">String arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragged-tensors">Ragged tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-tensors">Sparse tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-arrays">Tensor Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-loss-function">Custom loss function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-loading-models-with-custom-objects">Saving/Loading Models with Custom Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-custom-functions">Other Custom Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-metrics">Custom Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-metrics">Streaming metrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-layers">Custom Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-models">Custom Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#losses-and-metrics-based-on-model-internals">Losses and Metrics Based on Model Internals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gradients-with-autodiff">Computing Gradients with Autodiff</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gradients-using-autodiff">Computing Gradients Using Autodiff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow-functions">TensorFlow Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-functions-and-concrete-functions">TF Functions and Concrete Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-function-definitions-and-graphs">Exploring Function Definitions and Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs">How TF Functions Trace Python Functions to Extract Their Computation Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-autograph-to-capture-control-flow">Using Autograph To Capture Control Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-variables-and-other-resources-in-tf-functions">Handling Variables and Other Resources in TF Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-tf-functions-with-tf-keras-or-not">Using TF Functions with tf.keras (or Not)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-optimizers">Custom Optimizers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-11">1. to 11.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-custom-layer-that-performs-layer-normalization">12. Implement a custom layer that performs <em>Layer Normalization</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">a.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">b.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">c.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset">13. Train a model using a custom training loop to tackle the Fashion MNIST dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">a.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">b.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="chapter-12-custom-models-and-training-with-tensorflow">
-<h1>Chapter 12 – Custom Models and Training with TensorFlow<a class="headerlink" href="#chapter-12-custom-models-and-training-with-tensorflow" title="Permalink to this headline">#</a></h1>
+<h1>Chapter 12 – Custom Models and Training with TensorFlow<a class="headerlink" href="#chapter-12-custom-models-and-training-with-tensorflow" title="Permalink to this heading">#</a></h1>
 <p><em>This notebook contains all the sample code in chapter 12.</em></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="setup">
-<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h1>
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h1>
 <p>First, let’s import a few common modules, ensure MatplotLib plots figures inline and prepare a function to save the figures. We also check that Python 3.5 or later is installed (although Python 2.x may work, it is deprecated so we strongly recommend you use Python 3 instead), as well as Scikit-Learn ≥0.20 and TensorFlow ≥2.0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1961,9 +1018,9 @@ title="Print to PDF"
 </div>
 </div>
 <section id="tensors-and-operations">
-<h2>Tensors and operations<a class="headerlink" href="#tensors-and-operations" title="Permalink to this headline">#</a></h2>
+<h2>Tensors and operations<a class="headerlink" href="#tensors-and-operations" title="Permalink to this heading">#</a></h2>
 <section id="tensors">
-<h3>Tensors<a class="headerlink" href="#tensors" title="Permalink to this headline">#</a></h3>
+<h3>Tensors<a class="headerlink" href="#tensors" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span> <span class="c1"># matrix</span>
@@ -2031,7 +1088,7 @@ array([[1., 2., 3.],
 </div>
 </section>
 <section id="indexing">
-<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h3>
+<h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
@@ -2062,7 +1119,7 @@ array([[2.],
 </div>
 </section>
 <section id="ops">
-<h3>Ops<a class="headerlink" href="#ops" title="Permalink to this headline">#</a></h3>
+<h3>Ops<a class="headerlink" href="#ops" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">+</span> <span class="mi">10</span>
@@ -2107,7 +1164,7 @@ array([[14., 32.],
 </div>
 </section>
 <section id="using-keras-backend">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">keras.backend</span></code><a class="headerlink" href="#using-keras-backend" title="Permalink to this headline">#</a></h3>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">keras.backend</span></code><a class="headerlink" href="#using-keras-backend" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -2127,7 +1184,7 @@ array([[11., 26.],
 </div>
 </section>
 <section id="from-to-numpy">
-<h3>From/To NumPy<a class="headerlink" href="#from-to-numpy" title="Permalink to this headline">#</a></h3>
+<h3>From/To NumPy<a class="headerlink" href="#from-to-numpy" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">])</span>
@@ -2194,7 +1251,7 @@ array([[11., 26.],
 </div>
 </section>
 <section id="conflicting-types">
-<h3>Conflicting Types<a class="headerlink" href="#conflicting-types" title="Permalink to this headline">#</a></h3>
+<h3>Conflicting Types<a class="headerlink" href="#conflicting-types" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -2240,7 +1297,7 @@ array([[11., 26.],
 </div>
 </section>
 <section id="strings">
-<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h3>
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
@@ -2305,7 +1362,7 @@ array([[11., 26.],
 </div>
 </section>
 <section id="string-arrays">
-<h3>String arrays<a class="headerlink" href="#string-arrays" title="Permalink to this headline">#</a></h3>
+<h3>String arrays<a class="headerlink" href="#string-arrays" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="s2">&quot;Café&quot;</span><span class="p">,</span> <span class="s2">&quot;Coffee&quot;</span><span class="p">,</span> <span class="s2">&quot;caffè&quot;</span><span class="p">,</span> <span class="s2">&quot;咖啡&quot;</span><span class="p">])</span>
@@ -2352,7 +1409,7 @@ array([[11., 26.],
 </div>
 </section>
 <section id="ragged-tensors">
-<h3>Ragged tensors<a class="headerlink" href="#ragged-tensors" title="Permalink to this headline">#</a></h3>
+<h3>Ragged tensors<a class="headerlink" href="#ragged-tensors" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -2433,7 +1490,7 @@ array([[   67,    97,   102,   233,     0,     0],
 </div>
 </section>
 <section id="sparse-tensors">
-<h3>Sparse tensors<a class="headerlink" href="#sparse-tensors" title="Permalink to this headline">#</a></h3>
+<h3>Sparse tensors<a class="headerlink" href="#sparse-tensors" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">SparseTensor</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
@@ -2564,7 +1621,7 @@ array([[0., 2., 1., 0.],
 </div>
 </section>
 <section id="sets">
-<h3>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">#</a></h3>
+<h3>Sets<a class="headerlink" href="#sets" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">set1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
@@ -2611,7 +1668,7 @@ array([[5, 0],
 </div>
 </section>
 <section id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">#</a></h3>
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>
@@ -2709,7 +1766,7 @@ array([[4., 5., 6.],
 </div>
 </section>
 <section id="tensor-arrays">
-<h3>Tensor Arrays<a class="headerlink" href="#tensor-arrays" title="Permalink to this headline">#</a></h3>
+<h3>Tensor Arrays<a class="headerlink" href="#tensor-arrays" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">TensorArray</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -2775,7 +1832,7 @@ array([[1., 2.],
 </section>
 </section>
 <section id="custom-loss-function">
-<h2>Custom loss function<a class="headerlink" href="#custom-loss-function" title="Permalink to this headline">#</a></h2>
+<h2>Custom loss function<a class="headerlink" href="#custom-loss-function" title="Permalink to this heading">#</a></h2>
 <p>Let’s start by loading and preparing the California housing dataset. We first load it, then split it into a training set, a validation set and a test set, and finally we scale it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2829,7 +1886,7 @@ array([[1., 2.],
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12_custom_models_and_training_with_tensorflow_81_0.png" src="../../_images/12_custom_models_and_training_with_tensorflow_81_0.png" />
+<img alt="../../_images/b9c6354ce7ffc4013d4521202f2f01de5e1c46bbd3994052a63aa9eb09642856.png" src="../../_images/b9c6354ce7ffc4013d4521202f2f01de5e1c46bbd3994052a63aa9eb09642856.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2873,7 +1930,7 @@ Epoch 2/2
 </div>
 </section>
 <section id="saving-loading-models-with-custom-objects">
-<h2>Saving/Loading Models with Custom Objects<a class="headerlink" href="#saving-loading-models-with-custom-objects" title="Permalink to this headline">#</a></h2>
+<h2>Saving/Loading Models with Custom Objects<a class="headerlink" href="#saving-loading-models-with-custom-objects" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;my_model_with_a_custom_loss.h5&quot;</span><span class="p">)</span>
@@ -3086,7 +2143,7 @@ Epoch 2/2
 </div>
 </section>
 <section id="other-custom-functions">
-<h2>Other Custom Functions<a class="headerlink" href="#other-custom-functions" title="Permalink to this headline">#</a></h2>
+<h2>Other Custom Functions<a class="headerlink" href="#other-custom-functions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
@@ -3279,7 +2336,7 @@ Epoch 2/2
 </div>
 </section>
 <section id="custom-metrics">
-<h2>Custom Metrics<a class="headerlink" href="#custom-metrics" title="Permalink to this headline">#</a></h2>
+<h2>Custom Metrics<a class="headerlink" href="#custom-metrics" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
@@ -3367,7 +2424,7 @@ Epoch 2/2
 </div>
 </div>
 <section id="streaming-metrics">
-<h3>Streaming metrics<a class="headerlink" href="#streaming-metrics" title="Permalink to this headline">#</a></h3>
+<h3>Streaming metrics<a class="headerlink" href="#streaming-metrics" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">precision</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">()</span>
@@ -3725,7 +2782,7 @@ Epoch 2/2
 </section>
 </section>
 <section id="custom-layers">
-<h2>Custom Layers<a class="headerlink" href="#custom-layers" title="Permalink to this headline">#</a></h2>
+<h2>Custom Layers<a class="headerlink" href="#custom-layers" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exponential_layer</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -4055,7 +3112,7 @@ Epoch 2/2
 </div>
 </section>
 <section id="custom-models">
-<h2>Custom Models<a class="headerlink" href="#custom-models" title="Permalink to this headline">#</a></h2>
+<h2>Custom Models<a class="headerlink" href="#custom-models" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new_scaled</span> <span class="o">=</span> <span class="n">X_test_scaled</span>
@@ -4234,9 +3291,9 @@ Epoch 5/5
 </div>
 </section>
 <section id="losses-and-metrics-based-on-model-internals">
-<h2>Losses and Metrics Based on Model Internals<a class="headerlink" href="#losses-and-metrics-based-on-model-internals" title="Permalink to this headline">#</a></h2>
+<h2>Losses and Metrics Based on Model Internals<a class="headerlink" href="#losses-and-metrics-based-on-model-internals" title="Permalink to this heading">#</a></h2>
 <p><strong>Note</strong>: the following code has two differences with the code in the book:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>It creates a <code class="docutils literal notranslate"><span class="pre">keras.metrics.Mean()</span></code> metric in the constructor and uses it in the <code class="docutils literal notranslate"><span class="pre">call()</span></code> method to track the mean reconstruction loss. Since we only want to do this during training, we add a <code class="docutils literal notranslate"><span class="pre">training</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">call()</span></code> method, and if <code class="docutils literal notranslate"><span class="pre">training</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then we update <code class="docutils literal notranslate"><span class="pre">reconstruction_mean</span></code> and we call <code class="docutils literal notranslate"><span class="pre">self.add_metric()</span></code> to ensure it’s displayed properly.</p></li>
 <li><p>Due to an issue introduced in TF 2.2 (<a class="reference external" href="https://github.com/tensorflow/tensorflow/issues/46858">#46858</a>), we must not call <code class="docutils literal notranslate"><span class="pre">super().build()</span></code> inside the <code class="docutils literal notranslate"><span class="pre">build()</span></code> method.</p></li>
 </ol>
@@ -4300,7 +3357,7 @@ Epoch 2/2
 </div>
 </section>
 <section id="computing-gradients-with-autodiff">
-<h2>Computing Gradients with Autodiff<a class="headerlink" href="#computing-gradients-with-autodiff" title="Permalink to this headline">#</a></h2>
+<h2>Computing Gradients with Autodiff<a class="headerlink" href="#computing-gradients-with-autodiff" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">):</span>
@@ -4624,7 +3681,7 @@ Epoch 2/2
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="computing-gradients-using-autodiff">
-<h1>Computing Gradients Using Autodiff<a class="headerlink" href="#computing-gradients-using-autodiff" title="Permalink to this headline">#</a></h1>
+<h1>Computing Gradients Using Autodiff<a class="headerlink" href="#computing-gradients-using-autodiff" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
@@ -4840,22 +3897,10 @@ Epoch 5/5
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "911ccc0821324e99b156302727dbf9c4", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "21c8135ff59540c085b55653e6d69243", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "06190b83afc348e999aeb3a3c523aae8", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "44eb6b7d11b74a4aa9af17892e2a8ce9", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6c62578a1aa24b7d96201cc285025e83", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "46a0328d0c5b4112995297e67bc290b6", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "911ccc0821324e99b156302727dbf9c4", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "21c8135ff59540c085b55653e6d69243", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "06190b83afc348e999aeb3a3c523aae8", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "44eb6b7d11b74a4aa9af17892e2a8ce9", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "6c62578a1aa24b7d96201cc285025e83", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "46a0328d0c5b4112995297e67bc290b6", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <section id="tensorflow-functions">
-<h2>TensorFlow Functions<a class="headerlink" href="#tensorflow-functions" title="Permalink to this headline">#</a></h2>
+<h2>TensorFlow Functions<a class="headerlink" href="#tensorflow-functions" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -4926,7 +3971,7 @@ Epoch 5/5
 </div>
 </div>
 <section id="tf-functions-and-concrete-functions">
-<h3>TF Functions and Concrete Functions<a class="headerlink" href="#tf-functions-and-concrete-functions" title="Permalink to this headline">#</a></h3>
+<h3>TF Functions and Concrete Functions<a class="headerlink" href="#tf-functions-and-concrete-functions" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">concrete_function</span> <span class="o">=</span> <span class="n">tf_cube</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">2.0</span><span class="p">))</span>
@@ -4966,7 +4011,7 @@ Epoch 5/5
 </div>
 </section>
 <section id="exploring-function-definitions-and-graphs">
-<h3>Exploring Function Definitions and Graphs<a class="headerlink" href="#exploring-function-definitions-and-graphs" title="Permalink to this headline">#</a></h3>
+<h3>Exploring Function Definitions and Graphs<a class="headerlink" href="#exploring-function-definitions-and-graphs" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">concrete_function</span><span class="o">.</span><span class="n">graph</span>
@@ -5067,7 +4112,7 @@ output_arg {
 </div>
 </section>
 <section id="how-tf-functions-trace-python-functions-to-extract-their-computation-graphs">
-<h3>How TF Functions Trace Python Functions to Extract Their Computation Graphs<a class="headerlink" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs" title="Permalink to this headline">#</a></h3>
+<h3>How TF Functions Trace Python Functions to Extract Their Computation Graphs<a class="headerlink" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
@@ -5194,7 +4239,7 @@ WARNING:tensorflow:6 out of the last 6 calls to &lt;function tf_cube at 0x7fbfc0
 </div>
 </section>
 <section id="using-autograph-to-capture-control-flow">
-<h3>Using Autograph To Capture Control Flow<a class="headerlink" href="#using-autograph-to-capture-control-flow" title="Permalink to this headline">#</a></h3>
+<h3>Using Autograph To Capture Control Flow<a class="headerlink" href="#using-autograph-to-capture-control-flow" title="Permalink to this heading">#</a></h3>
 <p>A “static” <code class="docutils literal notranslate"><span class="pre">for</span></code> loop using <code class="docutils literal notranslate"><span class="pre">range()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5337,7 +4382,7 @@ WARNING:tensorflow:6 out of the last 6 calls to &lt;function tf_cube at 0x7fbfc0
 </div>
 </section>
 <section id="handling-variables-and-other-resources-in-tf-functions">
-<h3>Handling Variables and Other Resources in TF Functions<a class="headerlink" href="#handling-variables-and-other-resources-in-tf-functions" title="Permalink to this headline">#</a></h3>
+<h3>Handling Variables and Other Resources in TF Functions<a class="headerlink" href="#handling-variables-and-other-resources-in-tf-functions" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -5537,7 +4582,7 @@ type: DT_RESOURCE
 </section>
 </section>
 <section id="using-tf-functions-with-tf-keras-or-not">
-<h2>Using TF Functions with tf.keras (or Not)<a class="headerlink" href="#using-tf-functions-with-tf-keras-or-not" title="Permalink to this headline">#</a></h2>
+<h2>Using TF Functions with tf.keras (or Not)<a class="headerlink" href="#using-tf-functions-with-tf-keras-or-not" title="Permalink to this heading">#</a></h2>
 <p>By default, tf.keras will automatically convert your custom code into TF Functions, no need to use
 <code class="docutils literal notranslate"><span class="pre">tf.function()</span></code>:</p>
 <div class="cell docutils container">
@@ -5820,20 +4865,20 @@ Tracing metric my_mae()
 </div>
 </section>
 <section id="custom-optimizers">
-<h2>Custom Optimizers<a class="headerlink" href="#custom-optimizers" title="Permalink to this headline">#</a></h2>
+<h2>Custom Optimizers<a class="headerlink" href="#custom-optimizers" title="Permalink to this heading">#</a></h2>
 <p>Defining custom optimizers is not very common, but in case you are one of the happy few who gets to write one, here is an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyMomentumOptimizer</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;MyMomentumOptimizer&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Call super().__init__() and use _set_hyper() to store hyperparameters&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call super().__init__() and use _set_hyper() to store hyperparameters&quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_hyper</span><span class="p">(</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lr&quot;</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">))</span> <span class="c1"># handle lr=learning_rate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_hyper</span><span class="p">(</span><span class="s2">&quot;decay&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initial_decay</span><span class="p">)</span> <span class="c1"># </span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_hyper</span><span class="p">(</span><span class="s2">&quot;momentum&quot;</span><span class="p">,</span> <span class="n">momentum</span><span class="p">)</span>
     
     <span class="k">def</span> <span class="nf">_create_slots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_list</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;For each model variable, create the optimizer variable associated with it.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;For each model variable, create the optimizer variable associated with it.</span>
 <span class="sd">        TensorFlow calls these optimizer variables &quot;slots&quot;.</span>
 <span class="sd">        For momentum optimization, we need one momentum slot per model variable.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -5842,7 +4887,7 @@ Tracing metric my_mae()
 
     <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
     <span class="k">def</span> <span class="nf">_resource_apply_dense</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the slots and perform one optimization step for one model variable</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the slots and perform one optimization step for one model variable</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">var_dtype</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">base_dtype</span>
         <span class="n">lr_t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decayed_lr</span><span class="p">(</span><span class="n">var_dtype</span><span class="p">)</span> <span class="c1"># handle learning rate decay</span>
@@ -5904,21 +4949,21 @@ Epoch 5/5
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">#</a></h1>
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
 <section id="to-11">
-<h2>1. to 11.<a class="headerlink" href="#to-11" title="Permalink to this headline">#</a></h2>
+<h2>1. to 11.<a class="headerlink" href="#to-11" title="Permalink to this heading">#</a></h2>
 <p>See Appendix A.</p>
 </section>
 <section id="implement-a-custom-layer-that-performs-layer-normalization">
-<h2>12. Implement a custom layer that performs <em>Layer Normalization</em><a class="headerlink" href="#implement-a-custom-layer-that-performs-layer-normalization" title="Permalink to this headline">#</a></h2>
+<h2>12. Implement a custom layer that performs <em>Layer Normalization</em><a class="headerlink" href="#implement-a-custom-layer-that-performs-layer-normalization" title="Permalink to this heading">#</a></h2>
 <p><em>We will use this type of layer in Chapter 15 when using Recurrent Neural Networks.</em></p>
 <section id="a">
-<h3>a.<a class="headerlink" href="#a" title="Permalink to this headline">#</a></h3>
+<h3>a.<a class="headerlink" href="#a" title="Permalink to this heading">#</a></h3>
 <p><em>Exercise: The <code class="docutils literal notranslate"><span class="pre">build()</span></code> method should define two trainable weights <em>α</em> and <em>β</em>, both of shape <code class="docutils literal notranslate"><span class="pre">input_shape[-1:]</span></code> and data type <code class="docutils literal notranslate"><span class="pre">tf.float32</span></code>. <em>α</em> should be initialized with 1s, and <em>β</em> with 0s.</em></p>
 <p>Solution: see below.</p>
 </section>
 <section id="b">
-<h3>b.<a class="headerlink" href="#b" title="Permalink to this headline">#</a></h3>
+<h3>b.<a class="headerlink" href="#b" title="Permalink to this heading">#</a></h3>
 <p><em>Exercise: The <code class="docutils literal notranslate"><span class="pre">call()</span></code> method should compute the mean</em> μ <em>and standard deviation</em> σ <em>of each instance’s features. For this, you can use <code class="docutils literal notranslate"><span class="pre">tf.nn.moments(inputs,</span> <span class="pre">axes=-1,</span> <span class="pre">keepdims=True)</span></code>, which returns the mean μ and the variance σ<sup>2</sup> of all instances (compute the square root of the variance to get the standard deviation). Then the function should compute and return <em>α</em>⊗(<em>X</em> - μ)/(σ + ε) + <em>β</em>, where ⊗ represents itemwise multiplication (<code class="docutils literal notranslate"><span class="pre">*</span></code>) and ε is a smoothing term (small constant to avoid division by zero, e.g., 0.001).</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5953,7 +4998,7 @@ Epoch 5/5
 <p>Note that making <em>ε</em> a hyperparameter (<code class="docutils literal notranslate"><span class="pre">eps</span></code>) was not compulsory. Also note that it’s preferable to compute <code class="docutils literal notranslate"><span class="pre">tf.sqrt(variance</span> <span class="pre">+</span> <span class="pre">self.eps)</span></code> rather than <code class="docutils literal notranslate"><span class="pre">tf.sqrt(variance)</span> <span class="pre">+</span> <span class="pre">self.eps</span></code>. Indeed, the derivative of sqrt(z) is undefined when z=0, so training will bomb whenever the variance vector has at least one component equal to 0. Adding <em>ε</em> within the square root guarantees that this will never happen.</p>
 </section>
 <section id="c">
-<h3>c.<a class="headerlink" href="#c" title="Permalink to this headline">#</a></h3>
+<h3>c.<a class="headerlink" href="#c" title="Permalink to this heading">#</a></h3>
 <p><em>Exercise: Ensure that your custom layer produces the same (or very nearly the same) output as the <code class="docutils literal notranslate"><span class="pre">keras.layers.LayerNormalization</span></code> layer.</em></p>
 <p>Let’s create one instance of each class, apply them to some data (e.g., the training set), and ensure that the difference is negligeable.</p>
 <div class="cell docutils container">
@@ -5998,10 +5043,10 @@ Epoch 5/5
 </section>
 </section>
 <section id="train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset">
-<h2>13. Train a model using a custom training loop to tackle the Fashion MNIST dataset<a class="headerlink" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset" title="Permalink to this headline">#</a></h2>
+<h2>13. Train a model using a custom training loop to tackle the Fashion MNIST dataset<a class="headerlink" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset" title="Permalink to this heading">#</a></h2>
 <p><em>The Fashion MNIST dataset was introduced in Chapter 10.</em></p>
 <section id="id1">
-<h3>a.<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>a.<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p><em>Exercise: Display the epoch, iteration, mean training loss, and mean accuracy over each epoch (updated at each iteration), as well as the validation loss and accuracy at the end of each epoch.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6081,23 +5126,11 @@ Epoch 5/5
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "901e5649b50840538874aed5bab0d4ed", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "2f29690a5ade4bd8a6d164d106ba2d31", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c2ea6579132c48c087c7f59e6309387a", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "94fa1527062c4cf7a277a548bbddc855", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "dbcfc9a0c4b64151a18cf27080872dd3", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "fc3831d9b98e488c837ba9644bf4b94a", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "901e5649b50840538874aed5bab0d4ed", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "2f29690a5ade4bd8a6d164d106ba2d31", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "c2ea6579132c48c087c7f59e6309387a", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "94fa1527062c4cf7a277a548bbddc855", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "dbcfc9a0c4b64151a18cf27080872dd3", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "fc3831d9b98e488c837ba9644bf4b94a", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 <section id="id2">
-<h3>b.<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>b.<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p><em>Exercise: Try using a different optimizer with a different learning rate for the upper layers and the lower layers.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6181,19 +5214,7 @@ Epoch 5/5
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7e81cf85cf7548748ec760afcbd71aa2", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "475109b927d044a7bba030f234c67838", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "af0a22afae4f47359f8fdfbac96e38bb", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "5519ec96e42f4281987a84a5434a0734", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "ed04f31b3a7d4b3b9a0cd63b644e2ed5", "version_major": 2, "version_minor": 0}
-</script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "bfc4b1b4d40f4003ab8a3140a68ec883", "version_major": 2, "version_minor": 0}
-</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "7e81cf85cf7548748ec760afcbd71aa2", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "475109b927d044a7bba030f234c67838", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "af0a22afae4f47359f8fdfbac96e38bb", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "5519ec96e42f4281987a84a5434a0734", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "ed04f31b3a7d4b3b9a0cd63b644e2ed5", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "bfc4b1b4d40f4003ab8a3140a68ec883", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 </section>
 </section>
@@ -6211,7 +5232,7 @@ Epoch 5/5
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./handson-ml2/original"
         },
         predefinedOutput: true
@@ -6219,50 +5240,160 @@ Epoch 5/5
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="11_training_deep_neural_networks.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 11 – Training Deep Neural Networks</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="11_training_deep_neural_networks.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 11 – Training Deep Neural Networks</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="13_loading_and_preprocessing_data.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="13_loading_and_preprocessing_data.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 13 – Loading and Preprocessing Data with TensorFlow</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors-and-operations">Tensors and operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensors">Tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ops">Ops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-keras-backend">Using <code class="docutils literal notranslate"><span class="pre">keras.backend</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-to-numpy">From/To NumPy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conflicting-types">Conflicting Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-arrays">String arrays</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ragged-tensors">Ragged tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sparse-tensors">Sparse tensors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-arrays">Tensor Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-loss-function">Custom loss function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-loading-models-with-custom-objects">Saving/Loading Models with Custom Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-custom-functions">Other Custom Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-metrics">Custom Metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#streaming-metrics">Streaming metrics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-layers">Custom Layers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-models">Custom Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#losses-and-metrics-based-on-model-internals">Losses and Metrics Based on Model Internals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gradients-with-autodiff">Computing Gradients with Autodiff</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-gradients-using-autodiff">Computing Gradients Using Autodiff</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tensorflow-functions">TensorFlow Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-functions-and-concrete-functions">TF Functions and Concrete Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-function-definitions-and-graphs">Exploring Function Definitions and Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-tf-functions-trace-python-functions-to-extract-their-computation-graphs">How TF Functions Trace Python Functions to Extract Their Computation Graphs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-autograph-to-capture-control-flow">Using Autograph To Capture Control Flow</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-variables-and-other-resources-in-tf-functions">Handling Variables and Other Resources in TF Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-tf-functions-with-tf-keras-or-not">Using TF Functions with tf.keras (or Not)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-optimizers">Custom Optimizers</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-11">1. to 11.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-a-custom-layer-that-performs-layer-normalization">12. Implement a custom layer that performs <em>Layer Normalization</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a">a.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b">b.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c">c.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-using-a-custom-training-loop-to-tackle-the-fashion-mnist-dataset">13. Train a model using a custom training loop to tackle the Fashion MNIST dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">a.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">b.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

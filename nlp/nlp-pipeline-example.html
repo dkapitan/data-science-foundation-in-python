@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Predict detractors from reviews &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Objective &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,63 +62,99 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nlp/nlp-pipeline-example';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/nlp/nlp-pipeline-example.html" />
     <link rel="shortcut icon" href="../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Extra: language detection with character quadgrams" href="language-detection-with-character-quadgrams.html" />
     <link rel="prev" title="Fetch and prepare reviews" href="prepare-restoreviews-dataset.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -115,1579 +163,972 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../handson-ml2/introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/12_custom_models_and_training_with_tensorflow.html">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/17_autoencoders_and_gans.html">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../handson-ml2/extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/math_linear_algebra.html">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/math_differential_calculus.html">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../handson-ml2/original/extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../handson-ml2/introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/12_custom_models_and_training_with_tensorflow.html">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/17_autoencoders_and_gans.html">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../handson-ml2/extra.html">Miscellaneous tips &amp; tricks</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/math_linear_algebra.html">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/math_differential_calculus.html">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../handson-ml2/original/extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../visualization/introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../visualization/altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_scales_axes_legends.html">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../visualization/altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../visualization/introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../visualization/altair_get_started.html">Getting Started with Altair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_scales_axes_legends.html">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../visualization/altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/nlp/nlp-pipeline-example.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/nlp/nlp-pipeline-example.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/nlp/nlp-pipeline-example.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fnlp/nlp-pipeline-example.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/nlp/nlp-pipeline-example.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fnlp/nlp-pipeline-example.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/nlp/nlp-pipeline-example.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objective">
-   Objective
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-preparation">
-   Data preparation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#select-main-columns">
-     Select main columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-date-columns">
-     Format date columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-numerical-columns">
-     Format numerical columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-ordinal-columns">
-     Format ordinal columns
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#text-pre-processing">
-   Text pre-processing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filter-reviews-that-are-short-or-in-process">
-     Filter reviews that are short or in process
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-simple-features">
-     Add simple features
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tokenize-and-create-document-term-matrix">
-     Tokenize and create Document-Term Matrix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binary-classification-is-detractor">
-   Binary classification:
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     is_detractor
-    </span>
-   </code>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-y">
-     Define Y
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-test-split">
-     Train-test split
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#balancedbaggingclassifier-without-dtm">
-     BalancedBaggingClassifier - without DTM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#balancedbaggingclassifier-with-dtm">
-     BalancedBaggingClassifier - with DTM
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#closing-remarks">
-   Closing remarks
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Predict detractors from reviews</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#objective">
-   Objective
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-preparation">
-   Data preparation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#select-main-columns">
-     Select main columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-date-columns">
-     Format date columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-numerical-columns">
-     Format numerical columns
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#format-ordinal-columns">
-     Format ordinal columns
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#text-pre-processing">
-   Text pre-processing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filter-reviews-that-are-short-or-in-process">
-     Filter reviews that are short or in process
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-simple-features">
-     Add simple features
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tokenize-and-create-document-term-matrix">
-     Tokenize and create Document-Term Matrix
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#binary-classification-is-detractor">
-   Binary classification:
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     is_detractor
-    </span>
-   </code>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-y">
-     Define Y
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#train-test-split">
-     Train-test split
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#balancedbaggingclassifier-without-dtm">
-     BalancedBaggingClassifier - without DTM
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#balancedbaggingclassifier-with-dtm">
-     BalancedBaggingClassifier - with DTM
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#closing-remarks">
-   Closing remarks
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Objective</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Objective</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-notebook">Initialize notebook</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-dependencies">Import dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-configuration">Set configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-spacy-model">Initialize spaCy model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-data">Initialize data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-source">Read data from source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-raw-data">Inspect raw data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data">Prepare data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-copy-of-the-raw-data">Create copy of the raw data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-irrelevant-columns">Drop irrelevant columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-rows-with-null-values">Drop rows with null values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-invalid-reviews">Drop invalid reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-reviewtext-from-bytes-to-string">Convert reviewText from “bytes” to “string”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-avgprice">Format avgPrice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-ordinal-columns">Format ordinal columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-feature-length-of-reviewtext">Add feature: length of reviewText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-preprocessed-data">Inspect preprocessed data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-pre-processing">Text pre-processing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-subset-of-the-data-to-be-used-for-training">Specify a subset of the data to be used for training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize-and-create-document-term-matrix">Tokenize and create Document-Term Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-only-those-words-that-occur-twice-or-more">Select only those words that occur twice or more.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-classification">Binary classification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-y">Define Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-test split</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balancedbaggingclassifier-using-structured-data">BalancedBaggingClassifier - using structured data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balancedbaggingclassifier-using-dtm">BalancedBaggingClassifier - using DTM</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="predict-detractors-from-reviews">
-<h1>Predict detractors from reviews<a class="headerlink" href="#predict-detractors-from-reviews" title="Permalink to this headline">#</a></h1>
-<section id="objective">
-<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">#</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="objective">
+<h1>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h1>
 <p>Predict a ‘detractor’ such that restaurant owner can look-up interesting (negative) feedback and act upon that.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initialize-notebook">
+<h1>Initialize notebook<a class="headerlink" href="#initialize-notebook" title="Permalink to this heading">#</a></h1>
+<section id="import-dependencies">
+<h2>Import dependencies<a class="headerlink" href="#import-dependencies" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imblearn.ensemble</span> <span class="kn">import</span> <span class="n">BalancedRandomForestClassifier</span><span class="p">,</span> <span class="n">BalancedBaggingClassifier</span>    
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pendulum</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+
+<span class="kn">from</span> <span class="nn">imblearn.ensemble</span> <span class="kn">import</span> <span class="n">BalancedRandomForestClassifier</span><span class="p">,</span> <span class="n">BalancedBaggingClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">TransformerMixin</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">TfidfVectorizer</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedShuffleSplit</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-<span class="kn">import</span> <span class="nn">spacy</span>
-
-
-<span class="c1"># only use 2019 data as example</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="s2">&quot;https://github.com/jads-nl/public-lectures/blob/main/nlp/data/dutch-restaurant-reviews-per-year/reviewYear%3D2019/058d741d776d45f18e0ccc51f71173dc.parquet?raw=true&quot;</span><span class="p">)</span>
-
-<span class="c1"># initiate spacy model</span>
-<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;nl_core_news_lg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="data-preparation">
-<h2>Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">#</a></h2>
-<section id="select-main-columns">
-<h3>Select main columns<a class="headerlink" href="#select-main-columns" title="Permalink to this headline">#</a></h3>
+<section id="set-configuration">
+<h2>Set configuration<a class="headerlink" href="#set-configuration" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;restoId&#39;</span><span class="p">,</span> <span class="s1">&#39;reviewerId&#39;</span><span class="p">,</span> <span class="s1">&#39;reviewerFame&#39;</span><span class="p">,</span> <span class="s1">&#39;reviewerNumReviews&#39;</span><span class="p">,</span> <span class="s1">&#39;reviewText&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make sure all columns are printed when printing a DataFrame.</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="format-date-columns">
-<h3>Format date columns<a class="headerlink" href="#format-date-columns" title="Permalink to this headline">#</a></h3>
+<section id="initialize-spacy-model">
+<h2>Initialize spaCy model<a class="headerlink" href="#initialize-spacy-model" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">parse_date</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">pendulum</span><span class="o">.</span><span class="n">from_format</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;D MMM YYYY&quot;</span><span class="p">,</span> <span class="n">locale</span><span class="o">=</span><span class="s2">&quot;nl&quot;</span><span class="p">)</span>
-
-<span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;reviewDate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reviewDate</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">parse_date</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;nl_core_news_lg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="format-numerical-columns">
-<h3>Format numerical columns<a class="headerlink" href="#format-numerical-columns" title="Permalink to this headline">#</a></h3>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="initialize-data">
+<h1>Initialize data<a class="headerlink" href="#initialize-data" title="Permalink to this heading">#</a></h1>
+<section id="read-data-from-source">
+<h2>Read data from source<a class="headerlink" href="#read-data-from-source" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_source</span> <span class="o">=</span> <span class="s2">&quot;https://bhciaaablob.blob.core.windows.net/cmotionsnlpblogs/RestoReviewRawdata.csv&quot;</span>
+<span class="n">raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">data_source</span><span class="p">,</span>
+                     <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span>
+                     <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;restoId&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">(),</span>
+                            <span class="s2">&quot;restoName&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;scoreTotal&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;avgPrice&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;numReviews&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">(),</span>
+                            <span class="s2">&quot;scoreFood&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;scoreService&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;scoreDecor&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;review_id&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">(),</span>
+                            <span class="s2">&quot;numreviews2&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">(),</span>
+                            <span class="s2">&quot;valueForPriceScore&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;noiseLevelScore&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;waitingTimeScore&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewerId&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewerFame&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewerNumReviews&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Int64Dtype</span><span class="p">(),</span>
+                            <span class="s2">&quot;reviewDate&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewScoreOverall&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewScoreFood&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewScoreService&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewScoreAmbiance&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                            <span class="s2">&quot;reviewText&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspect-raw-data">
+<h2>Inspect raw data<a class="headerlink" href="#inspect-raw-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">raw_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prepare-data">
+<h1>Prepare data<a class="headerlink" href="#prepare-data" title="Permalink to this heading">#</a></h1>
+<section id="create-copy-of-the-raw-data">
+<h2>Create copy of the raw data<a class="headerlink" href="#create-copy-of-the-raw-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span> <span class="o">=</span> <span class="n">raw_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="drop-irrelevant-columns">
+<h2>Drop irrelevant columns<a class="headerlink" href="#drop-irrelevant-columns" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape before: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">reviews</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;restoName&#39;</span><span class="p">,</span> <span class="s1">&#39;tags&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;review_id&#39;</span><span class="p">,</span> <span class="s1">&#39;reviewDate&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape after: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="drop-rows-with-null-values">
+<h2>Drop rows with null values<a class="headerlink" href="#drop-rows-with-null-values" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape before: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">reviews</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape after: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="drop-invalid-reviews">
+<h2>Drop invalid reviews<a class="headerlink" href="#drop-invalid-reviews" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_invalid_review</span><span class="p">(</span><span class="n">review</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;- Recensie is momenteel in behandeling -&quot;</span> <span class="ow">in</span> <span class="n">review</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">review</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape before: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">reviews</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">reviews</span><span class="p">[</span><span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">is_invalid_review</span><span class="p">(</span><span class="n">x</span><span class="p">))]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape after: </span><span class="si">{</span><span class="n">reviews</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="convert-reviewtext-from-bytes-to-string">
+<h2>Convert reviewText from “bytes” to “string”<a class="headerlink" href="#convert-reviewtext-from-bytes-to-string" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bytes_to_string</span><span class="p">(</span><span class="nb">bytes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Concat the passed argument with the UTF-8 decode statement and then evaluate the resulting statement.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">bytes</span> <span class="o">+</span> <span class="s2">&quot;.decode(&#39;utf-8&#39;)&quot;</span><span class="p">)</span>
+
+
+<span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">bytes_to_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="format-avgprice">
+<h2>Format avgPrice<a class="headerlink" href="#format-avgprice" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_price</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="s2">&quot;Remove euro sign and whitespace in price&quot;</span>
-    <span class="k">if</span> <span class="n">string</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Return the last piece of the passed argument, or 0 if argument is null.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 
-<span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;avgPrice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;avgPrice&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_price</span><span class="p">)</span>
-
-
-<span class="c1"># numerical columns have comma as decimal seperator --&gt; cast to floats</span>
-<span class="n">numerical_cols</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;scoreFood&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;scoreService&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;scoreDecor&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;reviewScoreOverall&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;scoreTotal&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">numerical_cols</span><span class="p">:</span>
-    <span class="n">reviews</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="c1"># Remove the euro sign and leading whitespace from the price.</span>
+<span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;avgPrice&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;avgPrice&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_price</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="format-ordinal-columns">
-<h3>Format ordinal columns<a class="headerlink" href="#format-ordinal-columns" title="Permalink to this headline">#</a></h3>
+<h2>Format ordinal columns<a class="headerlink" href="#format-ordinal-columns" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">map_scores</span> <span class="o">=</span> <span class="p">{</span>
@@ -1724,216 +1165,177 @@ title="Print to PDF"
 <span class="p">}</span>
 
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">map_scores</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">reviews</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">map_scores</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="n">reviews</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">map_scores</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-feature-length-of-reviewtext">
+<h2>Add feature: length of reviewText<a class="headerlink" href="#add-feature-length-of-reviewtext" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewTextLength&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;Int64&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inspect-preprocessed-data">
+<h2>Inspect preprocessed data<a class="headerlink" href="#inspect-preprocessed-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">reviews</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="text-pre-processing">
-<h2>Text pre-processing<a class="headerlink" href="#text-pre-processing" title="Permalink to this headline">#</a></h2>
-<section id="filter-reviews-that-are-short-or-in-process">
-<h3>Filter reviews that are short or in process<a class="headerlink" href="#filter-reviews-that-are-short-or-in-process" title="Permalink to this headline">#</a></h3>
+<section class="tex2jax_ignore mathjax_ignore" id="text-pre-processing">
+<h1>Text pre-processing<a class="headerlink" href="#text-pre-processing" title="Permalink to this heading">#</a></h1>
+<section id="specify-a-subset-of-the-data-to-be-used-for-training">
+<h2>Specify a subset of the data to be used for training<a class="headerlink" href="#specify-a-subset-of-the-data-to-be-used-for-training" title="Permalink to this heading">#</a></h2>
+<p><span style='color:red'>When using full data, the cells below may take <strong>very long</strong> to complete.</span><br />
+<span style='color:red'>Using <strong>25% of the data</strong> it will take about <strong>15 minutes</strong> to complete on a laptop.</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">validate_review</span><span class="p">(</span><span class="n">review</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">review</span> <span class="o">==</span> <span class="s1">&#39;- Recensie is momenteel in behandeling -&#39;</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">review</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    
-
-<span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;is_valid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">reviewText</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">validate_review</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="add-simple-features">
-<h3>Add simple features<a class="headerlink" href="#add-simple-features" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;review_char_length_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reviewText</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="tokenize-and-create-document-term-matrix">
-<h3>Tokenize and create Document-Term Matrix<a class="headerlink" href="#tokenize-and-create-document-term-matrix" title="Permalink to this headline">#</a></h3>
-<p>We will use <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/sparse.html">pandas sparse data structures</a> to save memory. Note cell below takes about 9 minutes to complete.</p>
+<h2>Tokenize and create Document-Term Matrix<a class="headerlink" href="#tokenize-and-create-document-term-matrix" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%time</span>
+<span class="c1"># THIS CELL TAKES ABOUT 12 MINUTES ON A LAPTOP WHEN USING 25% THE DATA.</span>
+
 <span class="k">def</span> <span class="nf">tokenize_simple</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tokenizer returning lowercase tokens with no stop words, no punctuation and no words with encoding errors&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Tokenizer returning lowercase tokens with no stop words, no punctuation and no words with encoding errors.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lower_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">is_stop</span> <span class="ow">or</span> <span class="n">token</span><span class="o">.</span><span class="n">is_punct</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">token</span><span class="o">.</span><span class="n">lower_</span><span class="p">))]</span>
 
 
-<span class="c1"># some abbreviations aren&#39;t in spaCy&#39;s default Dutch stopwords list, so we add them</span>
+<span class="c1"># Some abbreviations aren&#39;t in spaCy&#39;s default Dutch stopwords list, so we add them.</span>
 <span class="n">nlp</span><span class="o">.</span><span class="n">Defaults</span><span class="o">.</span><span class="n">stop_words</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;’n&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">])</span>
 
-<span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenize_simple</span><span class="p">,</span> <span class="n">stop_words</span><span class="o">=</span><span class="n">nlp</span><span class="o">.</span><span class="n">Defaults</span><span class="o">.</span><span class="n">stop_words</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">dtm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_spmatrix</span><span class="p">(</span><span class="n">count_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">reviews</span><span class="o">.</span><span class="n">reviewText</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">count_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+<span class="c1"># Define the CountVectorizer, use n-grams of length 1.</span>
+<span class="n">count_vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenize_simple</span><span class="p">,</span>
+                                   <span class="n">stop_words</span><span class="o">=</span><span class="n">nlp</span><span class="o">.</span><span class="n">Defaults</span><span class="o">.</span><span class="n">stop_words</span><span class="p">,</span>
+                                   <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Fit the CountVectorizer. The returned Document-Term Matrix is put in a DataFrame.</span>
+<span class="n">dtm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">from_spmatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">count_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]),</span>
+                                        <span class="n">index</span><span class="o">=</span><span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                                        <span class="n">columns</span><span class="o">=</span><span class="n">count_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8min, sys: 116 ms, total: 8min
-Wall time: 8min
-</pre></div>
 </div>
-</div>
-</div>
-<p>We will only keep words in the DTM that occur twice or more over all the reviews. This reduces the width of the DTM.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_filter</span> <span class="o">=</span> <span class="p">(</span><span class="n">dtm</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">token_filter</span><span class="p">[</span><span class="n">token_filter</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Full DTM: </span><span class="si">{</span><span class="n">dtm</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered DTM: </span><span class="si">{</span><span class="n">dtm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">token_filter</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the tokenization to the original reviewText for some observations.</span>
+<span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reviews</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">]))</span>
+
+<span class="n">subset</span> <span class="o">=</span> <span class="n">dtm</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">subset</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">subset</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">()])</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full DTM: (47048, 32820)
-Filtered DTM: (47048, 11047)
+</div>
+</section>
+<section id="select-only-those-words-that-occur-twice-or-more">
+<h2>Select only those words that occur twice or more.<a class="headerlink" href="#select-only-those-words-that-occur-twice-or-more" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Full DTM: </span><span class="si">{</span><span class="n">dtm</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dtm</span> <span class="o">=</span> <span class="n">dtm</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="n">dtm</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered DTM: </span><span class="si">{</span><span class="n">dtm</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="binary-classification-is-detractor">
-<h2>Binary classification: <code class="docutils literal notranslate"><span class="pre">is_detractor</span></code><a class="headerlink" href="#binary-classification-is-detractor" title="Permalink to this headline">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="binary-classification">
+<h1>Binary classification<a class="headerlink" href="#binary-classification" title="Permalink to this heading">#</a></h1>
 <section id="define-y">
-<h3>Define Y<a class="headerlink" href="#define-y" title="Permalink to this headline">#</a></h3>
+<h2>Define Y<a class="headerlink" href="#define-y" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;is_detractor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">reviewScoreOverall</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reviews</span><span class="p">[</span><span class="s2">&quot;is_detractor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;reviewScoreOverall&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="train-test-split">
-<h3>Train-test split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h3>
-<p>(Cell below takes about two minute).</p>
+<h2>Train-test split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="n">reviews</span><span class="o">.</span><span class="n">is_valid</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;reviewDate&quot;</span><span class="p">,</span> <span class="s2">&quot;reviewText&quot;</span><span class="p">,</span> <span class="s2">&quot;scoreFood&quot;</span><span class="p">,</span> <span class="s2">&quot;scoreService&quot;</span><span class="p">,</span> <span class="s2">&quot;scoreDecor&quot;</span><span class="p">,</span> <span class="s2">&quot;reviewScoreOverall&quot;</span><span class="p">,</span> <span class="s2">&quot;scoreTotal&quot;</span><span class="p">,</span> <span class="s2">&quot;is_detractor&quot;</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="n">reviews</span><span class="o">.</span><span class="n">is_valid</span><span class="p">]</span><span class="o">.</span><span class="n">is_detractor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%time</span>
+<span class="c1"># THIS CELL TAKES ABOUT 1 MINUTE ON A LAPTOP WHEN USING 25% THE DATA.</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">reviews</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;reviewText&#39;</span><span class="p">,</span><span class="s1">&#39;reviewScoreOverall&#39;</span><span class="p">,</span><span class="s1">&#39;is_detractor&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">reviews</span><span class="p">[</span><span class="s1">&#39;is_detractor&#39;</span><span class="p">]</span>
 
 <span class="n">sss</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">sss</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">sss</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">,</span> <span class="p">:],</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">,</span> <span class="p">:]</span>
     <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-    <span class="n">dtm_train</span><span class="p">,</span> <span class="n">dtm_test</span> <span class="o">=</span> <span class="n">dtm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">reviews</span><span class="o">.</span><span class="n">is_valid</span><span class="p">,</span> <span class="n">token_filter</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">,</span> <span class="p">:],</span> <span class="n">dtm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">reviews</span><span class="o">.</span><span class="n">is_valid</span><span class="p">,</span> <span class="n">token_filter</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">,</span> <span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 29s, sys: 64 ms, total: 1min 29s
-Wall time: 1min 29s
+    <span class="n">X_train_dtm</span><span class="p">,</span> <span class="n">X_test_dtm</span> <span class="o">=</span> <span class="n">dtm</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">,</span> <span class="p">:],</span> <span class="n">dtm</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="balancedbaggingclassifier-without-dtm">
-<h3>BalancedBaggingClassifier - without DTM<a class="headerlink" href="#balancedbaggingclassifier-without-dtm" title="Permalink to this headline">#</a></h3>
+<section id="balancedbaggingclassifier-using-structured-data">
+<h2>BalancedBaggingClassifier - using structured data<a class="headerlink" href="#balancedbaggingclassifier-using-structured-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">clf1</span> <span class="o">=</span> <span class="n">BalancedBaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
-                                <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                                <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf1</span> <span class="o">=</span> <span class="n">BalancedBaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+                                 <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                                 <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                 <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">clf1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 458 ms, sys: 8.01 ms, total: 466 ms
-Wall time: 465 ms
-</pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BalancedBaggingClassifier(base_estimator=DecisionTreeClassifier(),
-                          random_state=0)
-</pre></div>
-</div>
-</div>
-</div>
-<p>We will skip fine-tuning the model, our purpose is to compare it with a model that adds text. Using the balanced accuracy to compare, which is defined as the average of recall obtained on each class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.73
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="balancedbaggingclassifier-with-dtm">
-<h3>BalancedBaggingClassifier - with DTM<a class="headerlink" href="#balancedbaggingclassifier-with-dtm" title="Permalink to this headline">#</a></h3>
-<p>(Cell below takes about 50 minutes on Google Colab)</p>
+<section id="balancedbaggingclassifier-using-dtm">
+<h2>BalancedBaggingClassifier - using DTM<a class="headerlink" href="#balancedbaggingclassifier-using-dtm" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">clf2</span> <span class="o">=</span> <span class="n">BalancedBaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
-                                <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                                <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dtm_train</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">y_train</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dkapitan/.local/lib/python3.9/site-packages/sklearn/utils/validation.py:616: UserWarning: pandas.DataFrame with sparse columns found.It will be converted to a dense numpy array.
-  warnings.warn(
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2min 56s, sys: 1min 19s, total: 4min 16s
-Wall time: 4min 16s
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BalancedBaggingClassifier(base_estimator=DecisionTreeClassifier(),
-                          random_state=0)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf2</span> <span class="o">=</span> <span class="n">BalancedBaggingClassifier</span><span class="p">(</span><span class="n">base_estimator</span><span class="o">=</span><span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+                                 <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                                 <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                 <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_dtm</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">dtm_test</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/dkapitan/.local/lib/python3.9/site-packages/sklearn/utils/validation.py:616: UserWarning: pandas.DataFrame with sparse columns found.It will be converted to a dense numpy array.
-  warnings.warn(
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.83
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_dtm</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="closing-remarks">
-<h2>Closing remarks<a class="headerlink" href="#closing-remarks" title="Permalink to this headline">#</a></h2>
-<p>We have illustrated how a simple bag-of-words model can add to the performance of a classifier that uses structured data. We haven’t optimized the modeling at all, but done a simple like-to-like comparison with the same parameters.</p>
-<p>Note that working with text requires more engineering: you need to make decisions about how to store and process the data because it can quickly expand beyond the memory of your (virtual) machine. Even with this simple model, we have used over 700 features from a truncated document-term matrix.</p>
 </section>
 </section>
 
@@ -1949,7 +1351,7 @@ Wall time: 4min 16s
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./nlp"
         },
         predefinedOutput: true
@@ -1957,50 +1359,138 @@ Wall time: 4min 16s
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="prepare-restoreviews-dataset.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Fetch and prepare reviews</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prepare-restoreviews-dataset.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fetch and prepare reviews</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="language-detection-with-character-quadgrams.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="language-detection-with-character-quadgrams.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Extra: language detection with character quadgrams</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Objective</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-notebook">Initialize notebook</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-dependencies">Import dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-configuration">Set configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-spacy-model">Initialize spaCy model</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-data">Initialize data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-data-from-source">Read data from source</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-raw-data">Inspect raw data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-data">Prepare data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-copy-of-the-raw-data">Create copy of the raw data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-irrelevant-columns">Drop irrelevant columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-rows-with-null-values">Drop rows with null values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-invalid-reviews">Drop invalid reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-reviewtext-from-bytes-to-string">Convert reviewText from “bytes” to “string”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-avgprice">Format avgPrice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-ordinal-columns">Format ordinal columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-feature-length-of-reviewtext">Add feature: length of reviewText</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-preprocessed-data">Inspect preprocessed data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#text-pre-processing">Text pre-processing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-subset-of-the-data-to-be-used-for-training">Specify a subset of the data to be used for training</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize-and-create-document-term-matrix">Tokenize and create Document-Term Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-only-those-words-that-occur-twice-or-more">Select only those words that occur twice or more.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-classification">Binary classification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-y">Define Y</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train-test split</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balancedbaggingclassifier-using-structured-data">BalancedBaggingClassifier - using structured data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balancedbaggingclassifier-using-dtm">BalancedBaggingClassifier - using DTM</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

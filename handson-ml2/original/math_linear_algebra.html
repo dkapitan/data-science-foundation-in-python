@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Math primer - Linear Algebra &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Math primer - Linear Algebra &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,63 +64,99 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'handson-ml2/original/math_linear_algebra';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/handson-ml2/original/math_linear_algebra.html" />
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Math primer - Differential Calculus" href="math_differential_calculus.html" />
     <link rel="prev" title="Miscellaneous tips &amp; tricks" href="../extra.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -117,1761 +165,801 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="17_autoencoders_and_gans.html">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_differential_calculus.html">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="17_autoencoders_and_gans.html">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../visualization/altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../extra.html">Miscellaneous tips &amp; tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="math_differential_calculus.html">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../visualization/altair_get_started.html">Getting Started with Altair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../nlp/introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-pipeline-example.html">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../nlp/introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-pipeline-example.html">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/handson-ml2/original/math_linear_algebra.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/handson-ml2/original/math_linear_algebra.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/handson-ml2/original/math_linear_algebra.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/math_linear_algebra.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/handson-ml2/original/math_linear_algebra.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/math_linear_algebra.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/handson-ml2/original/math_linear_algebra.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Math primer - Linear Algebra
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vectors">
-   Vectors
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition">
-     Definition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#purpose">
-     Purpose
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectors-in-python">
-     Vectors in python
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-vectors">
-     Plotting vectors
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#d-vectors">
-       2D vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       3D vectors
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#norm">
-     Norm
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#addition">
-     Addition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiplication-by-a-scalar">
-     Multiplication by a scalar
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zero-unit-and-normalized-vectors">
-     Zero, unit and normalized vectors
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dot-product">
-     Dot product
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Definition
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#in-python">
-       In python
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#main-properties">
-       Main properties
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#calculating-the-angle-between-vectors">
-       Calculating the angle between vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#projecting-a-point-onto-an-axis">
-       Projecting a point onto an axis
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrices">
-   Matrices
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrices-in-python">
-     Matrices in python
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#size">
-     Size
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#element-indexing">
-     Element indexing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#square-triangular-diagonal-and-identity-matrices">
-     Square, triangular, diagonal and identity matrices
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-matrices">
-     Adding matrices
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scalar-multiplication">
-     Scalar multiplication
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-multiplication">
-     Matrix multiplication
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-transpose">
-     Matrix transpose
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#converting-1d-arrays-to-2d-arrays-in-numpy">
-     Converting 1D arrays to 2D arrays in NumPy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-a-matrix">
-     Plotting a matrix
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geometric-applications-of-matrix-operations">
-     Geometric applications of matrix operations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#addition-multiple-geometric-translations">
-       Addition = multiple geometric translations
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Scalar multiplication
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-projection-onto-an-axis">
-       Matrix multiplication – Projection onto an axis
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-rotation">
-       Matrix multiplication – Rotation
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-other-linear-transformations">
-       Matrix multiplication – Other linear transformations
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-inverse">
-     Matrix inverse
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#determinant">
-     Determinant
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#composing-linear-transformations">
-     Composing linear transformations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singular-value-decomposition">
-     Singular Value Decomposition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eigenvectors-and-eigenvalues">
-     Eigenvectors and eigenvalues
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trace">
-     Trace
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-next">
-   What next?
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Math primer - Linear Algebra</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Math primer - Linear Algebra
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vectors">
-   Vectors
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition">
-     Definition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#purpose">
-     Purpose
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#vectors-in-python">
-     Vectors in python
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-vectors">
-     Plotting vectors
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#d-vectors">
-       2D vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id1">
-       3D vectors
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#norm">
-     Norm
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#addition">
-     Addition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiplication-by-a-scalar">
-     Multiplication by a scalar
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#zero-unit-and-normalized-vectors">
-     Zero, unit and normalized vectors
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dot-product">
-     Dot product
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Definition
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#in-python">
-       In python
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#main-properties">
-       Main properties
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#calculating-the-angle-between-vectors">
-       Calculating the angle between vectors
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#projecting-a-point-onto-an-axis">
-       Projecting a point onto an axis
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrices">
-   Matrices
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrices-in-python">
-     Matrices in python
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#size">
-     Size
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#element-indexing">
-     Element indexing
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#square-triangular-diagonal-and-identity-matrices">
-     Square, triangular, diagonal and identity matrices
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#adding-matrices">
-     Adding matrices
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scalar-multiplication">
-     Scalar multiplication
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-multiplication">
-     Matrix multiplication
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-transpose">
-     Matrix transpose
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#converting-1d-arrays-to-2d-arrays-in-numpy">
-     Converting 1D arrays to 2D arrays in NumPy
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-a-matrix">
-     Plotting a matrix
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geometric-applications-of-matrix-operations">
-     Geometric applications of matrix operations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#addition-multiple-geometric-translations">
-       Addition = multiple geometric translations
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       Scalar multiplication
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-projection-onto-an-axis">
-       Matrix multiplication – Projection onto an axis
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-rotation">
-       Matrix multiplication – Rotation
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#matrix-multiplication-other-linear-transformations">
-       Matrix multiplication – Other linear transformations
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#matrix-inverse">
-     Matrix inverse
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#determinant">
-     Determinant
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#composing-linear-transformations">
-     Composing linear transformations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#singular-value-decomposition">
-     Singular Value Decomposition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#eigenvectors-and-eigenvalues">
-     Eigenvectors and eigenvalues
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#trace">
-     Trace
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-next">
-   What next?
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Math primer - Linear Algebra</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Math primer - Linear Algebra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-python">Vectors in python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-vectors">Plotting vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-vectors">2D vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3D vectors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#norm">Norm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-scalar">Multiplication by a scalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-unit-and-normalized-vectors">Zero, unit and normalized vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot product</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-python">In python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-properties">Main properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-angle-between-vectors">Calculating the angle between vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-a-point-onto-an-axis">Projecting a point onto an axis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python">Matrices in python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size">Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-indexing">Element indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#square-triangular-diagonal-and-identity-matrices">Square, triangular, diagonal and identity matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-matrices">Adding matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-transpose">Matrix transpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-1d-arrays-to-2d-arrays-in-numpy">Converting 1D arrays to 2D arrays in NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-matrix">Plotting a matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-applications-of-matrix-operations">Geometric applications of matrix operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiple-geometric-translations">Addition = multiple geometric translations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-projection-onto-an-axis">Matrix multiplication – Projection onto an axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-rotation">Matrix multiplication – Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-other-linear-transformations">Matrix multiplication – Other linear transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-inverse">Matrix inverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant">Determinant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-linear-transformations">Composing linear transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition">Singular Value Decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvectors-and-eigenvalues">Eigenvectors and eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace">Trace</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-next">What next?</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="math-primer-linear-algebra">
-<h1>Math primer - Linear Algebra<a class="headerlink" href="#math-primer-linear-algebra" title="Permalink to this headline">#</a></h1>
+<h1>Math primer - Linear Algebra<a class="headerlink" href="#math-primer-linear-algebra" title="Permalink to this heading">#</a></h1>
 <p><em>Linear Algebra is the branch of mathematics that studies <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space">vector spaces</a> and linear transformations between vector spaces, such as rotating a shape, scaling it up or down, translating it (ie. moving it), etc.</em></p>
 <p><em>Machine Learning relies heavily on Linear Algebra, so it is essential to understand what vectors and matrices are, what operations you can perform with them, and how they can be useful.</em></p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="vectors">
-<h1>Vectors<a class="headerlink" href="#vectors" title="Permalink to this headline">#</a></h1>
+<h1>Vectors<a class="headerlink" href="#vectors" title="Permalink to this heading">#</a></h1>
 <section id="definition">
-<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">#</a></h2>
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
 <p>A vector is a quantity defined by a magnitude and a direction. For example, a rocket’s velocity is a 3-dimensional vector: its magnitude is the speed of the rocket, and its direction is (hopefully) up. A vector can be represented by an array of numbers called <em>scalars</em>. Each scalar corresponds to the magnitude of the vector with regards to each dimension.</p>
 <p>For example, say the rocket is going up at a slight angle: it has a vertical speed of 5,000 m/s, and also a slight speed towards the East at 10 m/s, and a slight speed towards the North at 50 m/s. The rocket’s velocity may be represented by the following vector:</p>
 <p><strong>velocity</strong> <span class="math notranslate nohighlight">\(= \begin{pmatrix}
@@ -1883,7 +971,7 @@ title="Print to PDF"
 <p>A list of N numbers may also represent the coordinates of a point in an N-dimensional space, so it is quite frequent to represent vectors as simple points instead of arrows. A vector with 1 element may be represented as an arrow or a point on an axis, a vector with 2 elements is an arrow or a point on a plane, a vector with 3 elements is an arrow or point in space, and a vector with N elements is an arrow or a point in an N-dimensional space… which most people find hard to imagine.</p>
 </section>
 <section id="purpose">
-<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">#</a></h2>
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h2>
 <p>Vectors have many purposes in Machine Learning, most notably to represent observations and predictions. For example, say we built a Machine Learning system to classify videos into 3 categories (good, spam, clickbait) based on what we know about them. For each video, we would have a vector representing what we know about it, such as:</p>
 <p><strong>video</strong> <span class="math notranslate nohighlight">\(= \begin{pmatrix}
 10.5 \\
@@ -1900,7 +988,7 @@ title="Print to PDF"
 \end{pmatrix}\)</span></p>
 </section>
 <section id="vectors-in-python">
-<h2>Vectors in python<a class="headerlink" href="#vectors-in-python" title="Permalink to this headline">#</a></h2>
+<h2>Vectors in python<a class="headerlink" href="#vectors-in-python" title="Permalink to this heading">#</a></h2>
 <p>In python, a vector can be represented in many ways, the simplest being a regular python list of numbers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1958,7 +1046,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="plotting-vectors">
-<h2>Plotting vectors<a class="headerlink" href="#plotting-vectors" title="Permalink to this headline">#</a></h2>
+<h2>Plotting vectors<a class="headerlink" href="#plotting-vectors" title="Permalink to this heading">#</a></h2>
 <p>To plot vectors we will use matplotlib, so let’s start by importing it (for details about matplotlib, check the <span class="xref myst">matplotlib tutorial</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1969,7 +1057,7 @@ title="Print to PDF"
 </div>
 </div>
 <section id="d-vectors">
-<h3>2D vectors<a class="headerlink" href="#d-vectors" title="Permalink to this headline">#</a></h3>
+<h3>2D vectors<a class="headerlink" href="#d-vectors" title="Permalink to this heading">#</a></h3>
 <p>Let’s create a couple very simple 2D vectors to plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1991,7 +1079,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_15_0.png" src="../../_images/math_linear_algebra_15_0.png" />
+<img alt="../../_images/58a521777ecf9bc13a485352e9b9740becae6b276f2fcfde3e3f544d584be5ce.png" src="../../_images/58a521777ecf9bc13a485352e9b9740becae6b276f2fcfde3e3f544d584be5ce.png" />
 </div>
 </div>
 <p>Vectors can also be represented as arrows. Let’s create a small convenience function to draw nice arrows:</p>
@@ -2017,12 +1105,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_19_0.png" src="../../_images/math_linear_algebra_19_0.png" />
+<img alt="../../_images/532a2ef6273b02ec330b6d324e326004d086d8ce6df2dd99ef351ef619beade2.png" src="../../_images/532a2ef6273b02ec330b6d324e326004d086d8ce6df2dd99ef351ef619beade2.png" />
 </div>
 </div>
 </section>
 <section id="id1">
-<h3>3D vectors<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>3D vectors<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p>Plotting 3D vectors is also relatively straightforward. First let’s create two 3D vectors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2046,7 +1134,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_23_0.png" src="../../_images/math_linear_algebra_23_0.png" />
+<img alt="../../_images/19b423ed080fec20d77f56ed46502770c57ad5da65d1a9b05afdc0926b6168bc.png" src="../../_images/19b423ed080fec20d77f56ed46502770c57ad5da65d1a9b05afdc0926b6168bc.png" />
 </div>
 </div>
 <p>It is a bit hard to visualize exactly where in space these two points are, so let’s add vertical lines. We’ll create a small convenience function to plot a list of 3d vectors with vertical lines attached:</p>
@@ -2067,13 +1155,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_25_0.png" src="../../_images/math_linear_algebra_25_0.png" />
+<img alt="../../_images/2f8313189517726fbfcfdc79add75649cb064fc32d2cfcac422f7482e718290b.png" src="../../_images/2f8313189517726fbfcfdc79add75649cb064fc32d2cfcac422f7482e718290b.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="norm">
-<h2>Norm<a class="headerlink" href="#norm" title="Permalink to this headline">#</a></h2>
+<h2>Norm<a class="headerlink" href="#norm" title="Permalink to this heading">#</a></h2>
 <p>The norm of a vector <span class="math notranslate nohighlight">\(\textbf{u}\)</span>, noted <span class="math notranslate nohighlight">\(\left \Vert \textbf{u} \right \|\)</span>, is a measure of the length (a.k.a. the magnitude) of <span class="math notranslate nohighlight">\(\textbf{u}\)</span>. There are multiple possible norms, but the most common one (and the only one we will discuss here) is the Euclidian norm, which is defined as:</p>
 <p><span class="math notranslate nohighlight">\(\left \Vert \textbf{u} \right \| = \sqrt{\sum_{i}{\textbf{u}_i}^2}\)</span></p>
 <p>We could implement this easily in pure python, recalling that <span class="math notranslate nohighlight">\(\sqrt x = x^{\frac{1}{2}}\)</span></p>
@@ -2124,13 +1212,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_31_0.png" src="../../_images/math_linear_algebra_31_0.png" />
+<img alt="../../_images/19e6c7e1814cedc78fc6691567999b957927aa01094d8fb432213e2dba0df164.png" src="../../_images/19e6c7e1814cedc78fc6691567999b957927aa01094d8fb432213e2dba0df164.png" />
 </div>
 </div>
 <p>Looks about right!</p>
 </section>
 <section id="addition">
-<h2>Addition<a class="headerlink" href="#addition" title="Permalink to this headline">#</a></h2>
+<h2>Addition<a class="headerlink" href="#addition" title="Permalink to this heading">#</a></h2>
 <p>Vectors of same size can be added together. Addition is performed <em>elementwise</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2172,7 +1260,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_36_0.png" src="../../_images/math_linear_algebra_36_0.png" />
+<img alt="../../_images/975c5724d6587685dd5fdd224a74b0ba918a833b4bd32408796741e049e652e8.png" src="../../_images/975c5724d6587685dd5fdd224a74b0ba918a833b4bd32408796741e049e652e8.png" />
 </div>
 </div>
 <p>Vector addition is <strong>commutative</strong>, meaning that <span class="math notranslate nohighlight">\(\textbf{u} + \textbf{v} = \textbf{v} + \textbf{u}\)</span>. You can see it on the previous image: following <span class="math notranslate nohighlight">\(\textbf{u}\)</span> <em>then</em> <span class="math notranslate nohighlight">\(\textbf{v}\)</span> leads to the same point as following <span class="math notranslate nohighlight">\(\textbf{v}\)</span> <em>then</em> <span class="math notranslate nohighlight">\(\textbf{u}\)</span>.</p>
@@ -2209,13 +1297,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_39_0.png" src="../../_images/math_linear_algebra_39_0.png" />
+<img alt="../../_images/e70d1235c5a4c9e32e0ebe46ea53be96c7ccaee209fd036c541eeedb09a5ece1.png" src="../../_images/e70d1235c5a4c9e32e0ebe46ea53be96c7ccaee209fd036c541eeedb09a5ece1.png" />
 </div>
 </div>
 <p>Finally, subtracting a vector is like adding the opposite vector.</p>
 </section>
 <section id="multiplication-by-a-scalar">
-<h2>Multiplication by a scalar<a class="headerlink" href="#multiplication-by-a-scalar" title="Permalink to this headline">#</a></h2>
+<h2>Multiplication by a scalar<a class="headerlink" href="#multiplication-by-a-scalar" title="Permalink to this heading">#</a></h2>
 <p>Vectors can be multiplied by scalars. All elements in the vector are multiplied by that number, for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2262,7 +1350,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_44_0.png" src="../../_images/math_linear_algebra_44_0.png" />
+<img alt="../../_images/e21a08eadf85e189660ca4687ac561f7617c4ffb879ff92d4dc64953b3fcc422.png" src="../../_images/e21a08eadf85e189660ca4687ac561f7617c4ffb879ff92d4dc64953b3fcc422.png" />
 </div>
 </div>
 <p>As you might guess, dividing a vector by a scalar is equivalent to multiplying by its multiplicative inverse (reciprocal):</p>
@@ -2272,7 +1360,7 @@ title="Print to PDF"
 <p>Finally, it is <strong>distributive</strong> over addition of vectors: <span class="math notranslate nohighlight">\(\lambda \times (\textbf{u} + \textbf{v}) = \lambda \times \textbf{u} + \lambda \times \textbf{v}\)</span>.</p>
 </section>
 <section id="zero-unit-and-normalized-vectors">
-<h2>Zero, unit and normalized vectors<a class="headerlink" href="#zero-unit-and-normalized-vectors" title="Permalink to this headline">#</a></h2>
+<h2>Zero, unit and normalized vectors<a class="headerlink" href="#zero-unit-and-normalized-vectors" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>A **zero-vector ** is a vector full of 0s.</p></li>
 <li><p>A <strong>unit vector</strong> is a vector with a norm equal to 1.</p></li>
@@ -2293,14 +1381,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_48_0.png" src="../../_images/math_linear_algebra_48_0.png" />
+<img alt="../../_images/3489c870bc52b9bf79e84f6b326bdd1e1193d370d4d930fc50cc83230694cbd9.png" src="../../_images/3489c870bc52b9bf79e84f6b326bdd1e1193d370d4d930fc50cc83230694cbd9.png" />
 </div>
 </div>
 </section>
 <section id="dot-product">
-<h2>Dot product<a class="headerlink" href="#dot-product" title="Permalink to this headline">#</a></h2>
+<h2>Dot product<a class="headerlink" href="#dot-product" title="Permalink to this heading">#</a></h2>
 <section id="id2">
-<h3>Definition<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>Definition<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>The dot product (also called <em>scalar product</em> or <em>inner product</em> in the context of the Euclidian space) of two vectors <span class="math notranslate nohighlight">\(\textbf{u}\)</span> and <span class="math notranslate nohighlight">\(\textbf{v}\)</span> is a useful operation that comes up fairly often in linear algebra. It is noted <span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v}\)</span>, or sometimes <span class="math notranslate nohighlight">\(⟨\textbf{u}|\textbf{v}⟩\)</span> or <span class="math notranslate nohighlight">\((\textbf{u}|\textbf{v})\)</span>, and it is defined as:</p>
 <p><span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v} = \left \Vert \textbf{u} \right \| \times \left \Vert \textbf{v} \right \| \times cos(\theta)\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\textbf{u}\)</span> and <span class="math notranslate nohighlight">\(\textbf{v}\)</span>.</p>
@@ -2308,7 +1396,7 @@ title="Print to PDF"
 <p><span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v} = \sum_i{\textbf{u}_i \times \textbf{v}_i}\)</span></p>
 </section>
 <section id="in-python">
-<h3>In python<a class="headerlink" href="#in-python" title="Permalink to this headline">#</a></h3>
+<h3>In python<a class="headerlink" href="#in-python" title="Permalink to this heading">#</a></h3>
 <p>The dot product is pretty simple to implement:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2375,7 +1463,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="main-properties">
-<h3>Main properties<a class="headerlink" href="#main-properties" title="Permalink to this headline">#</a></h3>
+<h3>Main properties<a class="headerlink" href="#main-properties" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>The dot product is <strong>commutative</strong>: <span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v} = \textbf{v} \cdot \textbf{u}\)</span>.</p></li>
 <li><p>The dot product is only defined between two vectors, not between a scalar and a vector. This means that we cannot chain dot products: for example, the expression <span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v} \cdot \textbf{w}\)</span> is not defined since <span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v}\)</span> is a scalar and <span class="math notranslate nohighlight">\(\textbf{w}\)</span> is a vector.</p></li>
@@ -2385,7 +1473,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="calculating-the-angle-between-vectors">
-<h3>Calculating the angle between vectors<a class="headerlink" href="#calculating-the-angle-between-vectors" title="Permalink to this headline">#</a></h3>
+<h3>Calculating the angle between vectors<a class="headerlink" href="#calculating-the-angle-between-vectors" title="Permalink to this heading">#</a></h3>
 <p>One of the many uses of the dot product is to calculate the angle between two non-zero vectors. Looking at the dot product definition, we can deduce the following formula:</p>
 <p><span class="math notranslate nohighlight">\(\theta = \arccos{\left ( \dfrac{\textbf{u} \cdot \textbf{v}}{\left \Vert \textbf{u} \right \| \times \left \Vert \textbf{v} \right \|} \right ) }\)</span></p>
 <p>Note that if <span class="math notranslate nohighlight">\(\textbf{u} \cdot \textbf{v} = 0\)</span>, it follows that <span class="math notranslate nohighlight">\(\theta = \dfrac{π}{2}\)</span>. In other words, if the dot product of two non-null vectors is zero, it means that they are orthogonal.</p>
@@ -2412,7 +1500,7 @@ title="Print to PDF"
 <p>Note: due to small floating point errors, <code class="docutils literal notranslate"><span class="pre">cos_theta</span></code> may be very slightly outside of the <span class="math notranslate nohighlight">\([-1, 1]\)</span> interval, which would make <code class="docutils literal notranslate"><span class="pre">arccos</span></code> fail. This is why we clipped the value within the range, using NumPy’s <code class="docutils literal notranslate"><span class="pre">clip</span></code> function.</p>
 </section>
 <section id="projecting-a-point-onto-an-axis">
-<h3>Projecting a point onto an axis<a class="headerlink" href="#projecting-a-point-onto-an-axis" title="Permalink to this headline">#</a></h3>
+<h3>Projecting a point onto an axis<a class="headerlink" href="#projecting-a-point-onto-an-axis" title="Permalink to this heading">#</a></h3>
 <p>The dot product is also very useful to project points onto an axis. The projection of vector <span class="math notranslate nohighlight">\(\textbf{v}\)</span> onto <span class="math notranslate nohighlight">\(\textbf{u}\)</span>’s axis is given by this formula:</p>
 <p><span class="math notranslate nohighlight">\(\textbf{proj}_{\textbf{u}}{\textbf{v}} = \dfrac{\textbf{u} \cdot \textbf{v}}{\left \Vert \textbf{u} \right \| ^2} \times \textbf{u}\)</span></p>
 <p>Which is equivalent to:</p>
@@ -2441,20 +1529,20 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_62_0.png" src="../../_images/math_linear_algebra_62_0.png" />
+<img alt="../../_images/bc5d15284369294036688ad42aae4a4d4b05155140595f8e876aecfeca667179.png" src="../../_images/bc5d15284369294036688ad42aae4a4d4b05155140595f8e876aecfeca667179.png" />
 </div>
 </div>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="matrices">
-<h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h1>
+<h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this heading">#</a></h1>
 <p>A matrix is a rectangular array of scalars (ie. any number: integer, real or complex) arranged in rows and columns, for example:</p>
 <p>\begin{bmatrix} 10 &amp; 20 &amp; 30 \ 40 &amp; 50 &amp; 60 \end{bmatrix}</p>
 <p>You can also think of a matrix as a list of vectors: the previous matrix contains either 2 horizontal 3D vectors or 3 vertical 2D vectors.</p>
 <p>Matrices are convenient and very efficient to run operations on many vectors at a time. We will also see that they are great at representing and performing linear transformations such rotations, translations and scaling.</p>
 <section id="matrices-in-python">
-<h2>Matrices in python<a class="headerlink" href="#matrices-in-python" title="Permalink to this headline">#</a></h2>
+<h2>Matrices in python<a class="headerlink" href="#matrices-in-python" title="Permalink to this heading">#</a></h2>
 <p>In python, a matrix can be represented in various ways. The simplest is just a list of python lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2493,7 +1581,7 @@ title="Print to PDF"
 <p>In the rest of this tutorial, we will assume that we are using NumPy arrays (type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) to represent matrices.</p>
 </section>
 <section id="size">
-<h2>Size<a class="headerlink" href="#size" title="Permalink to this headline">#</a></h2>
+<h2>Size<a class="headerlink" href="#size" title="Permalink to this heading">#</a></h2>
 <p>The size of a matrix is defined by its number of rows and number of columns. It is noted <span class="math notranslate nohighlight">\(rows \times columns\)</span>. For example, the matrix <span class="math notranslate nohighlight">\(A\)</span> above is an example of a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix: 2 rows, 3 columns. Caution: a <span class="math notranslate nohighlight">\(3 \times 2\)</span> matrix would have 3 rows and 2 columns.</p>
 <p>To get a matrix’s size in NumPy:</p>
 <div class="cell docutils container">
@@ -2523,7 +1611,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="element-indexing">
-<h2>Element indexing<a class="headerlink" href="#element-indexing" title="Permalink to this headline">#</a></h2>
+<h2>Element indexing<a class="headerlink" href="#element-indexing" title="Permalink to this heading">#</a></h2>
 <p>The number located in the <span class="math notranslate nohighlight">\(i^{th}\)</span> row, and <span class="math notranslate nohighlight">\(j^{th}\)</span> column of a matrix <span class="math notranslate nohighlight">\(X\)</span> is sometimes noted <span class="math notranslate nohighlight">\(X_{i,j}\)</span> or <span class="math notranslate nohighlight">\(X_{ij}\)</span>, but there is no standard notation, so people often prefer to explicitely name the elements, like this: “<em>let <span class="math notranslate nohighlight">\(X = (x_{i,j})_{1 ≤ i ≤ m, 1 ≤ j ≤ n}\)</span></em>”. This means that <span class="math notranslate nohighlight">\(X\)</span> is equal to:</p>
 <p><span class="math notranslate nohighlight">\(X = \begin{bmatrix}
   x_{1,1} &amp; x_{1,2} &amp; x_{1,3} &amp; \cdots &amp; x_{1,n}\\
@@ -2599,7 +1687,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="square-triangular-diagonal-and-identity-matrices">
-<h2>Square, triangular, diagonal and identity matrices<a class="headerlink" href="#square-triangular-diagonal-and-identity-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Square, triangular, diagonal and identity matrices<a class="headerlink" href="#square-triangular-diagonal-and-identity-matrices" title="Permalink to this heading">#</a></h2>
 <p>A <strong>square matrix</strong> is a matrix that has the same number of rows and columns, for example a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix:</p>
 <p>\begin{bmatrix}
 4 &amp; 9 &amp; 2 \
@@ -2682,7 +1770,7 @@ title="Print to PDF"
 <p>The identity matrix is often noted simply <span class="math notranslate nohighlight">\(I\)</span> (instead of <span class="math notranslate nohighlight">\(I_n\)</span>) when its size is clear given the context. It is called the <em>identity</em> matrix because multiplying a matrix with it leaves the matrix unchanged as we will see below.</p>
 </section>
 <section id="adding-matrices">
-<h2>Adding matrices<a class="headerlink" href="#adding-matrices" title="Permalink to this headline">#</a></h2>
+<h2>Adding matrices<a class="headerlink" href="#adding-matrices" title="Permalink to this heading">#</a></h2>
 <p>If two matrices <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(R\)</span> have the same size <span class="math notranslate nohighlight">\(m \times n\)</span>, they can be added together. Addition is performed <em>elementwise</em>: the result is also a <span class="math notranslate nohighlight">\(m \times n\)</span> matrix <span class="math notranslate nohighlight">\(S\)</span> where each element is the sum of the elements at the corresponding position: <span class="math notranslate nohighlight">\(S_{i,j} = Q_{i,j} + R_{i,j}\)</span></p>
 <p><span class="math notranslate nohighlight">\(S =
 \begin{bmatrix}
@@ -2778,7 +1866,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="scalar-multiplication">
-<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Permalink to this headline">#</a></h2>
+<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Permalink to this heading">#</a></h2>
 <p>A matrix <span class="math notranslate nohighlight">\(M\)</span> can be multiplied by a scalar <span class="math notranslate nohighlight">\(\lambda\)</span>. The result is noted <span class="math notranslate nohighlight">\(\lambda M\)</span>, and it is a matrix of the same size as <span class="math notranslate nohighlight">\(M\)</span> with all elements multiplied by <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
 <p><span class="math notranslate nohighlight">\(\lambda M =
 \begin{bmatrix}
@@ -2875,7 +1963,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="matrix-multiplication">
-<h2>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
+<h2>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this heading">#</a></h2>
 <p>So far, matrix operations have been rather intuitive. But multiplying matrices is a bit more involved.</p>
 <p>A matrix <span class="math notranslate nohighlight">\(Q\)</span> of size <span class="math notranslate nohighlight">\(m \times n\)</span> can be multiplied by a matrix <span class="math notranslate nohighlight">\(R\)</span> of size <span class="math notranslate nohighlight">\(n \times q\)</span>. It is noted simply <span class="math notranslate nohighlight">\(QR\)</span> without multiplication sign or dot. The result <span class="math notranslate nohighlight">\(P\)</span> is an <span class="math notranslate nohighlight">\(m \times q\)</span> matrix where each element is computed as a sum of products:</p>
 <p><span class="math notranslate nohighlight">\(P_{i,j} = \sum_{k=1}^n{Q_{i,k} \times R_{k,j}}\)</span></p>
@@ -3144,7 +2232,7 @@ Numpy version: 1.12.1
 <p>Note: <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">&#64;</span> <span class="pre">R</span></code> is actually equivalent to <code class="docutils literal notranslate"><span class="pre">Q.__matmul__(R)</span></code> which is implemented by NumPy as <code class="docutils literal notranslate"><span class="pre">np.matmul(Q,</span> <span class="pre">R)</span></code>, not as <code class="docutils literal notranslate"><span class="pre">Q.dot(R)</span></code>. The main difference is that <code class="docutils literal notranslate"><span class="pre">matmul</span></code> does not support scalar multiplication, while <code class="docutils literal notranslate"><span class="pre">dot</span></code> does, so you can write <code class="docutils literal notranslate"><span class="pre">Q.dot(3)</span></code>, which is equivalent to <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">*</span> <span class="pre">3</span></code>, but you cannot write <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">&#64;</span> <span class="pre">3</span></code> (<a class="reference external" href="http://stackoverflow.com/a/34142617/38626">more details</a>).</p>
 </section>
 <section id="matrix-transpose">
-<h2>Matrix transpose<a class="headerlink" href="#matrix-transpose" title="Permalink to this headline">#</a></h2>
+<h2>Matrix transpose<a class="headerlink" href="#matrix-transpose" title="Permalink to this heading">#</a></h2>
 <p>The transpose of a matrix <span class="math notranslate nohighlight">\(M\)</span> is a matrix noted <span class="math notranslate nohighlight">\(M^T\)</span> such that the <span class="math notranslate nohighlight">\(i^{th}\)</span> row in <span class="math notranslate nohighlight">\(M^T\)</span> is equal to the <span class="math notranslate nohighlight">\(i^{th}\)</span> column in <span class="math notranslate nohighlight">\(M\)</span>:</p>
 <p><span class="math notranslate nohighlight">\( A^T =
 \begin{bmatrix}
@@ -3285,7 +2373,7 @@ Numpy version: 1.12.1
 </div>
 </section>
 <section id="converting-1d-arrays-to-2d-arrays-in-numpy">
-<h2>Converting 1D arrays to 2D arrays in NumPy<a class="headerlink" href="#converting-1d-arrays-to-2d-arrays-in-numpy" title="Permalink to this headline">#</a></h2>
+<h2>Converting 1D arrays to 2D arrays in NumPy<a class="headerlink" href="#converting-1d-arrays-to-2d-arrays-in-numpy" title="Permalink to this heading">#</a></h2>
 <p>As we mentionned earlier, in NumPy (as opposed to Matlab, for example), 1D really means 1D: there is no such thing as a vertical 1D-array or a horizontal 1D-array. So you should not be surprised to see that transposing a 1D array does not do anything:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3396,7 +2484,7 @@ Numpy version: 1.12.1
 </div>
 </section>
 <section id="plotting-a-matrix">
-<h2>Plotting a matrix<a class="headerlink" href="#plotting-a-matrix" title="Permalink to this headline">#</a></h2>
+<h2>Plotting a matrix<a class="headerlink" href="#plotting-a-matrix" title="Permalink to this heading">#</a></h2>
 <p>We have already seen that vectors can be represented as points or arrows in N-dimensional space. Is there a good graphical representation of matrices? Well you can simply see a matrix as a list of vectors, so plotting a matrix results in many points or arrows. For example, let’s create a <span class="math notranslate nohighlight">\(2 \times 4\)</span> matrix <code class="docutils literal notranslate"><span class="pre">P</span></code> and plot it as points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3412,7 +2500,7 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_166_0.png" src="../../_images/math_linear_algebra_166_0.png" />
+<img alt="../../_images/ead5a2cb816fd1a8aaf64d15fcb3169e0b414fb672f74905f5b86f5b97ad29f2.png" src="../../_images/ead5a2cb816fd1a8aaf64d15fcb3169e0b414fb672f74905f5b86f5b97ad29f2.png" />
 </div>
 </div>
 <p>Of course we could also have stored the same 4 vectors as row vectors instead of column vectors, resulting in a <span class="math notranslate nohighlight">\(4 \times 2\)</span> matrix (the transpose of <span class="math notranslate nohighlight">\(P\)</span>, in fact). It is really an arbitrary choice.</p>
@@ -3428,7 +2516,7 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_168_0.png" src="../../_images/math_linear_algebra_168_0.png" />
+<img alt="../../_images/1ce1d6fa4d4f2ba313377f5eb96a49c83535e0677982d224d28b82bf210466b8.png" src="../../_images/1ce1d6fa4d4f2ba313377f5eb96a49c83535e0677982d224d28b82bf210466b8.png" />
 </div>
 </div>
 <p>Or you can represent it as a polygon: matplotlib’s <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> class expects an <span class="math notranslate nohighlight">\(n \times 2\)</span> NumPy array, not a <span class="math notranslate nohighlight">\(2 \times n\)</span> array, so we just need to give it <span class="math notranslate nohighlight">\(P^T\)</span>:</p>
@@ -3443,16 +2531,16 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_170_0.png" src="../../_images/math_linear_algebra_170_0.png" />
+<img alt="../../_images/0293a3dd64f49f4e879c1db79f7e76e2a196c3677de7849d401e0166303253e2.png" src="../../_images/0293a3dd64f49f4e879c1db79f7e76e2a196c3677de7849d401e0166303253e2.png" />
 </div>
 </div>
 </section>
 <section id="geometric-applications-of-matrix-operations">
-<h2>Geometric applications of matrix operations<a class="headerlink" href="#geometric-applications-of-matrix-operations" title="Permalink to this headline">#</a></h2>
+<h2>Geometric applications of matrix operations<a class="headerlink" href="#geometric-applications-of-matrix-operations" title="Permalink to this heading">#</a></h2>
 <p>We saw earlier that vector addition results in a geometric translation, vector multiplication by a scalar results in rescaling (zooming in or out, centered on the origin), and vector dot product results in projecting a vector onto another vector, rescaling and measuring the resulting coordinate.</p>
 <p>Similarly, matrix operations have very useful geometric applications.</p>
 <section id="addition-multiple-geometric-translations">
-<h3>Addition = multiple geometric translations<a class="headerlink" href="#addition-multiple-geometric-translations" title="Permalink to this headline">#</a></h3>
+<h3>Addition = multiple geometric translations<a class="headerlink" href="#addition-multiple-geometric-translations" title="Permalink to this heading">#</a></h3>
 <p>First, adding two matrices together is equivalent to adding all their vectors together. For example, let’s create a <span class="math notranslate nohighlight">\(2 \times 4\)</span> matrix <span class="math notranslate nohighlight">\(H\)</span> and add it to <span class="math notranslate nohighlight">\(P\)</span>, and look at the result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3481,7 +2569,7 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_173_0.png" src="../../_images/math_linear_algebra_173_0.png" />
+<img alt="../../_images/f75be3daa08cd9051508750ff736b266b8fcb4020c66794f53aa8197c7250d45.png" src="../../_images/f75be3daa08cd9051508750ff736b266b8fcb4020c66794f53aa8197c7250d45.png" />
 </div>
 </div>
 <p>If we add a matrix full of identical vectors, we get a simple geometric translation:</p>
@@ -3505,7 +2593,7 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_175_0.png" src="../../_images/math_linear_algebra_175_0.png" />
+<img alt="../../_images/a76e32b3235053f52e52328fabb583c8f20132f7fbb0cb3cca8c1037be8e176d.png" src="../../_images/a76e32b3235053f52e52328fabb583c8f20132f7fbb0cb3cca8c1037be8e176d.png" />
 </div>
 </div>
 <p>Although matrices can only be added together if they have the same size, NumPy allows adding a row vector or a column vector to a matrix: this is called <em>broadcasting</em> and is explained in further details in the <span class="xref myst">NumPy tutorial</span>. We could have obtained the same result as above with:</p>
@@ -3524,7 +2612,7 @@ Numpy version: 1.12.1
 </div>
 </section>
 <section id="id3">
-<h3>Scalar multiplication<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>Scalar multiplication<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>Multiplying a matrix by a scalar results in all its vectors being multiplied by that scalar, so unsurprisingly, the geometric result is a rescaling of the entire figure. For example, let’s rescale our polygon by a factor of 60% (zooming out, centered on the origin):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3547,12 +2635,12 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_179_0.png" src="../../_images/math_linear_algebra_179_0.png" />
+<img alt="../../_images/b3354376cccd37365f3247cf8a780e2ce6b32cf546d73cc66ecd78bd62764310.png" src="../../_images/b3354376cccd37365f3247cf8a780e2ce6b32cf546d73cc66ecd78bd62764310.png" />
 </div>
 </div>
 </section>
 <section id="matrix-multiplication-projection-onto-an-axis">
-<h3>Matrix multiplication – Projection onto an axis<a class="headerlink" href="#matrix-multiplication-projection-onto-an-axis" title="Permalink to this headline">#</a></h3>
+<h3>Matrix multiplication – Projection onto an axis<a class="headerlink" href="#matrix-multiplication-projection-onto-an-axis" title="Permalink to this heading">#</a></h3>
 <p>Matrix multiplication is more complex to visualize, but it is also the most powerful tool in the box.</p>
 <p>Let’s start simple, by defining a <span class="math notranslate nohighlight">\(1 \times 2\)</span> matrix <span class="math notranslate nohighlight">\(U = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\)</span>. This row vector is just the horizontal unit vector.</p>
 <div class="cell docutils container">
@@ -3599,7 +2687,7 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_185_0.png" src="../../_images/math_linear_algebra_185_0.png" />
+<img alt="../../_images/d77970d3835a148eae591329927be5458c2105e82d5b43f4952db9c75321c8d0.png" src="../../_images/d77970d3835a148eae591329927be5458c2105e82d5b43f4952db9c75321c8d0.png" />
 </div>
 </div>
 <p>We can actually project on any other axis by just replacing <span class="math notranslate nohighlight">\(U\)</span> with any other unit vector. For example, let’s project on the axis that is at a 30° angle above the horizontal axis:</p>
@@ -3613,13 +2701,13 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_187_0.png" src="../../_images/math_linear_algebra_187_0.png" />
+<img alt="../../_images/4043af2dee173523cc58e8dd4dfb336e6e8649efde57e8a03e5d6b9ad82fc807.png" src="../../_images/4043af2dee173523cc58e8dd4dfb336e6e8649efde57e8a03e5d6b9ad82fc807.png" />
 </div>
 </div>
 <p>Good! Remember that the dot product of a unit vector and a matrix basically performs a projection on an axis and gives us the coordinates of the resulting points on that axis.</p>
 </section>
 <section id="matrix-multiplication-rotation">
-<h3>Matrix multiplication – Rotation<a class="headerlink" href="#matrix-multiplication-rotation" title="Permalink to this headline">#</a></h3>
+<h3>Matrix multiplication – Rotation<a class="headerlink" href="#matrix-multiplication-rotation" title="Permalink to this heading">#</a></h3>
 <p>Now let’s create a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix <span class="math notranslate nohighlight">\(V\)</span> containing two unit vectors that make 30° and 120° angles with the horizontal axis:</p>
 <p><span class="math notranslate nohighlight">\(V = \begin{bmatrix} \cos(30°) &amp; \sin(30°) \\ \cos(120°) &amp; \sin(120°) \end{bmatrix}\)</span></p>
 <div class="cell docutils container">
@@ -3664,13 +2752,13 @@ Numpy version: 1.12.1
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_194_0.png" src="../../_images/math_linear_algebra_194_0.png" />
+<img alt="../../_images/0a0846c7fe38056d80922d2b85c264711b991132b182c61acedff8865f4a3394.png" src="../../_images/0a0846c7fe38056d80922d2b85c264711b991132b182c61acedff8865f4a3394.png" />
 </div>
 </div>
 <p>Matrix <span class="math notranslate nohighlight">\(V\)</span> is called a <strong>rotation matrix</strong>.</p>
 </section>
 <section id="matrix-multiplication-other-linear-transformations">
-<h3>Matrix multiplication – Other linear transformations<a class="headerlink" href="#matrix-multiplication-other-linear-transformations" title="Permalink to this headline">#</a></h3>
+<h3>Matrix multiplication – Other linear transformations<a class="headerlink" href="#matrix-multiplication-other-linear-transformations" title="Permalink to this heading">#</a></h3>
 <p>More generally, any linear transformation <span class="math notranslate nohighlight">\(f\)</span> that maps n-dimensional vectors to m-dimensional vectors can be represented as an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix. For example, say <span class="math notranslate nohighlight">\(\textbf{u}\)</span> is a 3-dimensional vector:</p>
 <p><span class="math notranslate nohighlight">\(\textbf{u} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\)</span></p>
 <p>and <span class="math notranslate nohighlight">\(f\)</span> is defined as:</p>
@@ -3701,7 +2789,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_197_0.png" src="../../_images/math_linear_algebra_197_0.png" />
+<img alt="../../_images/517f5778a3fda6ed25ff38b942280382c3534fbe70186d434e502bb4d3894826.png" src="../../_images/517f5778a3fda6ed25ff38b942280382c3534fbe70186d434e502bb4d3894826.png" />
 </div>
 </div>
 <p>Let’s look at how this transformation affects the <strong>unit square</strong>:</p>
@@ -3718,7 +2806,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_199_0.png" src="../../_images/math_linear_algebra_199_0.png" />
+<img alt="../../_images/f274f4c8f0202ddc5ef25858c2fe855f966c173be7534358a03f4bbab72952b1.png" src="../../_images/f274f4c8f0202ddc5ef25858c2fe855f966c173be7534358a03f4bbab72952b1.png" />
 </div>
 </div>
 <p>Now let’s look at a <strong>squeeze mapping</strong>:</p>
@@ -3735,7 +2823,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_201_0.png" src="../../_images/math_linear_algebra_201_0.png" />
+<img alt="../../_images/7e270b03fe735a716f2d3992eac812d6807fd9906926cf1efd0447029cae3158.png" src="../../_images/7e270b03fe735a716f2d3992eac812d6807fd9906926cf1efd0447029cae3158.png" />
 </div>
 </div>
 <p>The effect on the unit square is:</p>
@@ -3748,7 +2836,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_203_0.png" src="../../_images/math_linear_algebra_203_0.png" />
+<img alt="../../_images/63c3928287dcb423d09947d396b88f2105f1e00b69723f4ef251320975342c98.png" src="../../_images/63c3928287dcb423d09947d396b88f2105f1e00b69723f4ef251320975342c98.png" />
 </div>
 </div>
 <p>Let’s show a last one: reflection through the horizontal axis:</p>
@@ -3765,13 +2853,13 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_205_0.png" src="../../_images/math_linear_algebra_205_0.png" />
+<img alt="../../_images/5ca13d76cac5c11fbbc1626f7e906213aa422c844ea8d289ff762ee6db01b1c1.png" src="../../_images/5ca13d76cac5c11fbbc1626f7e906213aa422c844ea8d289ff762ee6db01b1c1.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="matrix-inverse">
-<h2>Matrix inverse<a class="headerlink" href="#matrix-inverse" title="Permalink to this headline">#</a></h2>
+<h2>Matrix inverse<a class="headerlink" href="#matrix-inverse" title="Permalink to this heading">#</a></h2>
 <p>Now that we understand that a matrix can represent any linear transformation, a natural question is: can we find a transformation matrix that reverses the effect of a given transformation matrix <span class="math notranslate nohighlight">\(F\)</span>? The answer is yes… sometimes! When it exists, such a matrix is called the <strong>inverse</strong> of <span class="math notranslate nohighlight">\(F\)</span>, and it is noted <span class="math notranslate nohighlight">\(F^{-1}\)</span>.</p>
 <p>For example, the rotation, the shear mapping and the squeeze mapping above all have inverse transformations. Let’s demonstrate this on the shear mapping:</p>
 <div class="cell docutils container">
@@ -3790,7 +2878,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_207_0.png" src="../../_images/math_linear_algebra_207_0.png" />
+<img alt="../../_images/dfc7f275e280567dc23d9c0a92b702a042604ae356a60bf5efdf43cfeb4b1064.png" src="../../_images/dfc7f275e280567dc23d9c0a92b702a042604ae356a60bf5efdf43cfeb4b1064.png" />
 </div>
 </div>
 <p>We applied a shear mapping on <span class="math notranslate nohighlight">\(P\)</span>, just like we did before, but then we applied a second transformation to the result, and <em>lo and behold</em> this had the effect of coming back to the original <span class="math notranslate nohighlight">\(P\)</span> (we plotted the original <span class="math notranslate nohighlight">\(P\)</span>’s outline to double check). The second transformation is the inverse of the first one.</p>
@@ -3821,7 +2909,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_211_0.png" src="../../_images/math_linear_algebra_211_0.png" />
+<img alt="../../_images/ceee9a68771d61593f6b72015fc0dab4827e8c869d489899f9faea03fb2d423e.png" src="../../_images/ceee9a68771d61593f6b72015fc0dab4827e8c869d489899f9faea03fb2d423e.png" />
 </div>
 </div>
 <p>Looking at this image, it is impossible to tell whether this is the projection of a cube or the projection of a narrow rectangular object. Some information has been lost in the projection.</p>
@@ -3839,7 +2927,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_213_0.png" src="../../_images/math_linear_algebra_213_0.png" />
+<img alt="../../_images/b4a34a69ca2dc6bedc038e87b545fce597d9d9ee260bb6298fae05c3537545ae.png" src="../../_images/b4a34a69ca2dc6bedc038e87b545fce597d9d9ee260bb6298fae05c3537545ae.png" />
 </div>
 </div>
 <p>This transformation matrix performs a projection onto the horizontal axis. Our polygon gets entirely flattened out so some information is entirely lost and it is impossible to go back to the original polygon using a linear transformation. In other words, <span class="math notranslate nohighlight">\(F_{project}\)</span> has no inverse. Such a square matrix that cannot be inversed is called a <strong>singular matrix</strong> (aka degenerate matrix). If we ask NumPy to calculate its inverse, it raises an exception:</p>
@@ -3873,7 +2961,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_217_0.png" src="../../_images/math_linear_algebra_217_0.png" />
+<img alt="../../_images/24a7326b5c3dda718a968363dab8f5fabe09f352a01a2ec9b11cbea6a9838ff0.png" src="../../_images/24a7326b5c3dda718a968363dab8f5fabe09f352a01a2ec9b11cbea6a9838ff0.png" />
 </div>
 </div>
 <p>But this time, due to floating point rounding errors, NumPy manages to calculate an inverse (notice how large the elements are, though):</p>
@@ -3938,7 +3026,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_225_0.png" src="../../_images/math_linear_algebra_225_0.png" />
+<img alt="../../_images/32e58e7a8ef75b7bd0c0d0822272f985dcc93e9348006ba15fb61c8433170c4d.png" src="../../_images/32e58e7a8ef75b7bd0c0d0822272f985dcc93e9348006ba15fb61c8433170c4d.png" />
 </div>
 </div>
 <p>Finally, a square matrix <span class="math notranslate nohighlight">\(H\)</span> whose inverse is its own transpose is an <strong>orthogonal matrix</strong>:</p>
@@ -3961,7 +3049,7 @@ d &amp; e &amp; f
 </div>
 </section>
 <section id="determinant">
-<h2>Determinant<a class="headerlink" href="#determinant" title="Permalink to this headline">#</a></h2>
+<h2>Determinant<a class="headerlink" href="#determinant" title="Permalink to this heading">#</a></h2>
 <p>The determinant of a square matrix <span class="math notranslate nohighlight">\(M\)</span>, noted <span class="math notranslate nohighlight">\(\det(M)\)</span> or <span class="math notranslate nohighlight">\(\det M\)</span> or <span class="math notranslate nohighlight">\(|M|\)</span> is a value that can be calculated from its elements <span class="math notranslate nohighlight">\((M_{i,j})\)</span> using various equivalent methods. One of the simplest methods is this recursive approach:</p>
 <p><span class="math notranslate nohighlight">\(|M| = M_{1,1}\times|M^{(1,1)}| - M_{2,1}\times|M^{(2,1)}| + M_{3,1}\times|M^{(3,1)}| - M_{4,1}\times|M^{(4,1)}| + \cdots ± M_{n,1}\times|M^{(n,1)}|\)</span></p>
 <ul class="simple">
@@ -4056,7 +3144,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_239_0.png" src="../../_images/math_linear_algebra_239_0.png" />
+<img alt="../../_images/4471c92a6616f49ec901806117676647f6f2cae024a27481f702f00c01a3f665.png" src="../../_images/4471c92a6616f49ec901806117676647f6f2cae024a27481f702f00c01a3f665.png" />
 </div>
 </div>
 <p>We rescaled the polygon by a factor of 1/2 on both vertical and horizontal axes so the surface area of the resulting polygon is 1/4<span class="math notranslate nohighlight">\(^{th}\)</span> of the original polygon. Let’s compute the determinant and check that:</p>
@@ -4088,7 +3176,7 @@ d &amp; e &amp; f
 </div>
 </section>
 <section id="composing-linear-transformations">
-<h2>Composing linear transformations<a class="headerlink" href="#composing-linear-transformations" title="Permalink to this headline">#</a></h2>
+<h2>Composing linear transformations<a class="headerlink" href="#composing-linear-transformations" title="Permalink to this heading">#</a></h2>
 <p>Several linear transformations can be chained simply by performing multiple dot products in a row. For example, to perform a squeeze mapping followed by a shear mapping, just write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4134,7 +3222,7 @@ d &amp; e &amp; f
 </div>
 </section>
 <section id="singular-value-decomposition">
-<h2>Singular Value Decomposition<a class="headerlink" href="#singular-value-decomposition" title="Permalink to this headline">#</a></h2>
+<h2>Singular Value Decomposition<a class="headerlink" href="#singular-value-decomposition" title="Permalink to this heading">#</a></h2>
 <p>It turns out that any <span class="math notranslate nohighlight">\(m \times n\)</span> matrix <span class="math notranslate nohighlight">\(M\)</span> can be decomposed into the dot product of three simple matrices:</p>
 <ul class="simple">
 <li><p>a rotation matrix <span class="math notranslate nohighlight">\(U\)</span> (an <span class="math notranslate nohighlight">\(m \times m\)</span> orthogonal matrix)</p></li>
@@ -4221,7 +3309,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_262_0.png" src="../../_images/math_linear_algebra_262_0.png" />
+<img alt="../../_images/69fae87e7005d6704ecd88812577ccf38189c47b83fc8e6047790a59b0ae2ebd.png" src="../../_images/69fae87e7005d6704ecd88812577ccf38189c47b83fc8e6047790a59b0ae2ebd.png" />
 </div>
 </div>
 <p>Now let’s rescale along the vertical and horizontal axes using <span class="math notranslate nohighlight">\(\Sigma\)</span>:</p>
@@ -4234,7 +3322,7 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_264_0.png" src="../../_images/math_linear_algebra_264_0.png" />
+<img alt="../../_images/3028d503eb2142495cd6d476a80d80c6deeda44f2d80f233579bd7f1ba81df41.png" src="../../_images/3028d503eb2142495cd6d476a80d80c6deeda44f2d80f233579bd7f1ba81df41.png" />
 </div>
 </div>
 <p>Finally, we apply the second rotation <span class="math notranslate nohighlight">\(U\)</span>:</p>
@@ -4247,13 +3335,13 @@ d &amp; e &amp; f
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_linear_algebra_266_0.png" src="../../_images/math_linear_algebra_266_0.png" />
+<img alt="../../_images/002d0bca4aff38658a2deb5fd330567dad3fc7db1362a0902ab41243cd225516.png" src="../../_images/002d0bca4aff38658a2deb5fd330567dad3fc7db1362a0902ab41243cd225516.png" />
 </div>
 </div>
 <p>And we can see that the result is indeed a shear mapping of the original unit square.</p>
 </section>
 <section id="eigenvectors-and-eigenvalues">
-<h2>Eigenvectors and eigenvalues<a class="headerlink" href="#eigenvectors-and-eigenvalues" title="Permalink to this headline">#</a></h2>
+<h2>Eigenvectors and eigenvalues<a class="headerlink" href="#eigenvectors-and-eigenvalues" title="Permalink to this heading">#</a></h2>
 <p>An <strong>eigenvector</strong> of a square matrix <span class="math notranslate nohighlight">\(M\)</span> (also called a <strong>characteristic vector</strong>) is a non-zero vector that remains on the same line after transformation by the linear transformation associated with <span class="math notranslate nohighlight">\(M\)</span>. A more formal definition is any vector <span class="math notranslate nohighlight">\(v\)</span> such that:</p>
 <p><span class="math notranslate nohighlight">\(M \cdot v = \lambda \times v\)</span></p>
 <p>Where <span class="math notranslate nohighlight">\(\lambda\)</span> is a scalar value called the <strong>eigenvalue</strong> associated to the vector <span class="math notranslate nohighlight">\(v\)</span>.</p>
@@ -4317,7 +3405,7 @@ d &amp; e &amp; f
 <p>Wait, what!? We expected just one unit eigenvector, not two. The second vector is almost equal to <span class="math notranslate nohighlight">\(\begin{pmatrix}-1 \\ 0 \end{pmatrix}\)</span>, which is on the same line as the first vector <span class="math notranslate nohighlight">\(\begin{pmatrix}1 \\ 0 \end{pmatrix}\)</span>. This is due to floating point errors. We can safely ignore vectors that are (almost) colinear (ie. on the same line).</p>
 </section>
 <section id="trace">
-<h2>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">#</a></h2>
+<h2>Trace<a class="headerlink" href="#trace" title="Permalink to this heading">#</a></h2>
 <p>The trace of a square matrix <span class="math notranslate nohighlight">\(M\)</span>, noted <span class="math notranslate nohighlight">\(tr(M)\)</span> is the sum of the values on its main diagonal. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4360,7 +3448,7 @@ d &amp; e &amp; f
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="what-next">
-<h1>What next?<a class="headerlink" href="#what-next" title="Permalink to this headline">#</a></h1>
+<h1>What next?<a class="headerlink" href="#what-next" title="Permalink to this heading">#</a></h1>
 <p>This concludes this introduction to Linear Algebra. Although these basics cover most of what you will need to know for Machine Learning, if you wish to go deeper into this topic there are many options available: Linear Algebra <a class="reference external" href="http://linear.axler.net/">books</a>, <a class="reference external" href="https://www.khanacademy.org/math/linear-algebra">Khan Academy</a> lessons, or just <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_algebra">Wikipedia</a> pages.</p>
 </section>
 
@@ -4376,7 +3464,7 @@ d &amp; e &amp; f
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./handson-ml2/original"
         },
         predefinedOutput: true
@@ -4384,50 +3472,153 @@ d &amp; e &amp; f
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../extra.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Miscellaneous tips &amp; tricks</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../extra.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Miscellaneous tips &amp; tricks</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="math_differential_calculus.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="math_differential_calculus.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Math primer - Differential Calculus</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Math primer - Linear Algebra</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-python">Vectors in python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-vectors">Plotting vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-vectors">2D vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3D vectors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#norm">Norm</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition">Addition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication-by-a-scalar">Multiplication by a scalar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-unit-and-normalized-vectors">Zero, unit and normalized vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dot-product">Dot product</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Definition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-python">In python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-properties">Main properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-angle-between-vectors">Calculating the angle between vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projecting-a-point-onto-an-axis">Projecting a point onto an axis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices-in-python">Matrices in python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#size">Size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#element-indexing">Element indexing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#square-triangular-diagonal-and-identity-matrices">Square, triangular, diagonal and identity matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-matrices">Adding matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-transpose">Matrix transpose</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-1d-arrays-to-2d-arrays-in-numpy">Converting 1D arrays to 2D arrays in NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-a-matrix">Plotting a matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-applications-of-matrix-operations">Geometric applications of matrix operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiple-geometric-translations">Addition = multiple geometric translations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-projection-onto-an-axis">Matrix multiplication – Projection onto an axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-rotation">Matrix multiplication – Rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication-other-linear-transformations">Matrix multiplication – Other linear transformations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-inverse">Matrix inverse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinant">Determinant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composing-linear-transformations">Composing linear transformations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-value-decomposition">Singular Value Decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenvectors-and-eigenvalues">Eigenvectors and eigenvalues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace">Trace</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#what-next">What next?</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Math primer - Differential Calculus &#8212; Data Science Foundation Curriculum</title>
-    
+    <title>Math primer - Differential Calculus &#8212; Data Science Foundation in Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,63 +64,99 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'handson-ml2/original/math_differential_calculus';</script>
     <link rel="canonical" href="https://jads-nl.github.io/data-science-foundation-curriculum/handson-ml2/original/math_differential_calculus.html" />
     <link rel="shortcut icon" href="../../_static/favicon-32x32.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Implementation of autodiff techniques" href="extra_autodiff.html" />
     <link rel="prev" title="Math primer - Linear Algebra" href="math_linear_algebra.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
-      
-      
-      <img src="../../_static/jads-logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Data Science Foundation Curriculum</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Data Science Foundation in Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -117,1706 +165,785 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction to Statistical Learning
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction to Statistical Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../islr/introduction.html">
-   Introduction to ISLRv2
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/labs.html">
-   Labs
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">
-     Lab 2.3: Introduction to Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">
-     Lab 3.6: Linear Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">
-     Lab 4.7: Classification Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">
-     Lab 5.3: Cross-Validation and the Bootstrap
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">
-     Lab 6.5.1: Subset Selection Methods
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">
-     Lab 6.5.2: Ridge Regression and the Lasso
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">
-     Lab 6.5.3: PCR and PLS Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">
-     Lab 7.8: Non-linear Modeling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">
-     Lab 8.3: Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">
-     Lab 9.6: Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">
-     Lab 10.9.2: A Multilayer Network on the MNIST Digit Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">
-     Lab 10.9.3: Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">
-     Lab 10.9.5: IMDb Document Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">
-     Lab 10.9.6: Recurrent Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">
-     Lab 12.5: Unsupervised Learning
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../islr/exercises.html">
-   Exercises
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter2/index.html">
-     Chapter 2
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">
-       Exercise 2.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">
-       Exercise 2.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">
-       Exercise 2.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">
-       Exercise 2.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">
-       Exercise 2.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">
-       Exercise 2.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">
-       Exercise 2.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">
-       Exercise 2.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">
-       Exercise 2.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">
-       Exercise 2.10
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter3/index.html">
-     Chapter 3
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-    <label for="toctree-checkbox-4">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">
-       Exercise 3.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">
-       Exercise 3.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">
-       Exercise 3.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">
-       Exercise 3.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">
-       Exercise 3.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">
-       Exercise 3.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">
-       Exercise 3.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">
-       Exercise 3.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">
-       Exercise 3.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">
-       Exercise 3.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">
-       Exercise 3.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">
-       Exercise 3.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">
-       Exercise 3.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">
-       Exercise 3.14
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">
-       Exercise 3.15
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter4/index.html">
-     Chapter 4
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-    <label for="toctree-checkbox-5">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">
-       Exercise 4.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">
-       Exercise 4.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">
-       Exercise 4.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">
-       Exercise 4.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">
-       Exercise 4.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">
-       Exercise 4.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">
-       Exercise 4.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">
-       Exercise 4.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">
-       Exercise 4.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">
-       Exercise 10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">
-       Exercise 11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">
-       Exercise 12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">
-       Exercise 4.13
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">
-       Exercise 4.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">
-       Exercise 4.12
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">
-       Exercise 4.16
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter5/index.html">
-     Chapter 5
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">
-       Exercise 5.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">
-       Exercise 5.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">
-       Problem 5.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">
-       Exercise 5.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">
-       Exercise 5.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">
-       Exercise 5.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">
-       Exercise 5.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">
-       Exercise 5.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">
-       Exercise 5.9
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter6/index.html">
-     Chapter 6
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-    <label for="toctree-checkbox-7">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">
-       Exercise 6.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">
-       Exercise 6.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">
-       Exercise 6.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">
-       Exercise 6.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">
-       Exercise 6.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">
-       Exercise 6.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">
-       Exercise 6.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">
-       Exercise 6.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">
-       Exercise 6.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">
-       Exercise 6.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">
-       Exercise 6.11
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter7/index.html">
-     Chapter 7
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-    <label for="toctree-checkbox-8">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">
-       Exercise 7.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">
-       Exercise 7.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">
-       Exercise 7.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">
-       Exercise 7.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">
-       Exercise 7.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">
-       Exercise 7.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">
-       Exercise 7.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">
-       Exercise 7.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">
-       Exercise 7.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">
-       Exercise 7.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">
-       Exercise 7.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">
-       Exercise 7.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter8/index.html">
-     Chapter 8
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-    <label for="toctree-checkbox-9">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">
-       Exercise 8.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">
-       Exercise 8.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">
-       Exercise 8.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">
-       Exercise 8.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">
-       Exercise 8.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">
-       Exercise 8.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">
-       Exercise 8.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">
-       Exercise 8.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">
-       Exercise 8.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">
-       Exercise 8.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">
-       Exercise 8.11
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">
-       Exercise 8.12
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter9/index.html">
-     Chapter 9
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-    <label for="toctree-checkbox-10">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">
-       Exercise 9.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">
-       Exercise 9.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">
-       Exercise 9.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">
-       Exercise 9.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">
-       Exercise 9.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">
-       Exercise 9.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">
-       Exercise 9.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">
-       Exercise 9.8
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../../islr/exercises/chapter12/index.html">
-     Chapter 12
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-    <label for="toctree-checkbox-11">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">
-       Exercise 12.1
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">
-       Exercise 12.2
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">
-       Exercise 12.3
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">
-       Exercise 12.4
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">
-       Exercise 12.5
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">
-       Exercise 12.6
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">
-       Exercise 12.7
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">
-       Exercise 10.8
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">
-       Exercise 12.9
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">
-       Exercise 12.10
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">
-       Exercise 12.11
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../islr/introduction.html">Introduction to ISLRv2</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/labs.html">Labs</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_02.3_introduction.html">Lab 2.3: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_03.6_linear_regression.html">Lab 3.6: Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_04.7_classification_methods.html">Lab 4.7: Classification Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_05.3_cross_validation_and_the_bootstrap.html">Lab 5.3: Cross-Validation and the Bootstrap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.1_subset_selection_methods.html">Lab 6.5.1: Subset Selection Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.2_ridge_regression_and_the_lasso.html">Lab 6.5.2: Ridge Regression and the Lasso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_06.5.3_pcr_and_pls_regression.html">Lab 6.5.3: PCR and PLS Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_07.8_non_linear_modelling.html">Lab 7.8: Non-linear Modeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_08.3_decision_trees.html">Lab 8.3: Decision Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_09.6_support_vector_machines.html">Lab 9.6: Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.2_multilayer_network_on_mnist_digit_data.html">Lab 10.9.2: A Multilayer Network on the MNIST Digit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.3_convolutional_neural_networks.html">Lab 10.9.3: Convolutional Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.5_imdb_document_classification.html">Lab 10.9.5: IMDb Document Classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_10.9.6_recurrent_neural_networks.html">Lab 10.9.6: Recurrent Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../islr/labs/lab_12.5_unsupervised_learning.html">Lab 12.5: Unsupervised Learning</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Hands-on Machine Learning in Python
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../islr/exercises.html">Exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter2/index.html">Chapter 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise1.html">Exercise 2.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise2.html">Exercise 2.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise3.html">Exercise 2.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise4.html">Exercise 2.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise5.html">Exercise 2.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise6.html">Exercise 2.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise7.html">Exercise 2.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise8.html">Exercise 2.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise9.html">Exercise 2.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter2/exercise10.html">Exercise 2.10</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter3/index.html">Chapter 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise1.html">Exercise 3.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise2.html">Exercise 3.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise3.html">Exercise 3.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise4.html">Exercise 3.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise5.html">Exercise 3.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise6.html">Exercise 3.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise7.html">Exercise 3.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise8.html">Exercise 3.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise9.html">Exercise 3.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise10.html">Exercise 3.10</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise11.html">Exercise 3.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise12.html">Exercise 3.12</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise13.html">Exercise 3.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise14.html">Exercise 3.14</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter3/exercise15.html">Exercise 3.15</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter4/index.html">Chapter 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise1.html">Exercise 4.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise2.html">Exercise 4.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise3.html">Exercise 4.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise4.html">Exercise 4.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise5.html">Exercise 4.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise6.html">Exercise 4.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise7.html">Exercise 4.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise8.html">Exercise 4.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise9.html">Exercise 4.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise10.html">Exercise 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise11.html">Exercise 11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise12.html">Exercise 12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise13.html">Exercise 4.13</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise14.html">Exercise 4.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise15.html">Exercise 4.12</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter4/exercise16.html">Exercise 4.16</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter5/index.html">Chapter 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise1.html">Exercise 5.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise2.html">Exercise 5.2</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise3.html">Problem 5.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise4.html">Exercise 5.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise5.html">Exercise 5.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise6.html">Exercise 5.6</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise7.html">Exercise 5.7</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise8.html">Exercise 5.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter5/exercise9.html">Exercise 5.9</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter6/index.html">Chapter 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise1.html">Exercise 6.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise2.html">Exercise 6.2</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise3.html">Exercise 6.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise4.html">Exercise 6.4</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise5.html">Exercise 6.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise6.html">Exercise 6.6</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise7.html">Exercise 6.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise8.html">Exercise 6.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise9.html">Exercise 6.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise10.html">Exercise 6.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter6/exercise11.html">Exercise 6.11</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter7/index.html">Chapter 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise1.html">Exercise 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise2.html">Exercise 7.2</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise3.html">Exercise 7.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise4.html">Exercise 7.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise5.html">Exercise 7.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise6.html">Exercise 7.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise7.html">Exercise 7.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise8.html">Exercise 7.8</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise9.html">Exercise 7.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise10.html">Exercise 7.10</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise11.html">Exercise 7.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter7/exercise12.html">Exercise 7.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter8/index.html">Chapter 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise1.html">Exercise 8.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise2.html">Exercise 8.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise3.html">Exercise 8.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise4.html">Exercise 8.4</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise5.html">Exercise 8.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise6.html">Exercise 8.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise7.html">Exercise 8.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise8.html">Exercise 8.8</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise9.html">Exercise 8.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise10.html">Exercise 8.10</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise11.html">Exercise 8.11</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter8/exercise12.html">Exercise 8.12</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter9/index.html">Chapter 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise1.html">Exercise 9.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise2.html">Exercise 9.2</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise3.html">Exercise 9.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise4.html">Exercise 9.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise5.html">Exercise 9.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise6.html">Exercise 9.6</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise7.html">Exercise 9.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter9/exercise8.html">Exercise 9.8</a></li>
+
+
+
+
+
+
+
+
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../islr/exercises/chapter12/index.html">Chapter 12</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise1.html">Exercise 12.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise2.html">Exercise 12.2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise3.html">Exercise 12.3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise4.html">Exercise 12.4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise5.html">Exercise 12.5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise6.html">Exercise 12.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise7.html">Exercise 12.7</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise8.html">Exercise 10.8</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise9.html">Exercise 12.9</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise10.html">Exercise 12.10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../islr/exercises/chapter12/exercise11.html">Exercise 12.11</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hands-on Machine Learning in Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../introduction.html">
-   Hands-on Machine Learning with Aurélien Géron
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_the_machine_learning_landscape.html">
-     Chapter 1 – The Machine Learning landscape
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_end_to_end_machine_learning_project.html">
-     Chapter 2 – End-to-end Machine Learning project
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_classification.html">
-     Chapter 3 – Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_training_linear_models.html">
-     Chapter 4 – Training Models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_support_vector_machines.html">
-     Chapter 5 – Support Vector Machines
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_decision_trees.html">
-     Chapter 6 – Decision Trees
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="07_ensemble_learning_and_random_forests.html">
-     Chapter 7 – Ensemble Learning and Random Forests
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="08_dimensionality_reduction.html">
-     Chapter 8 – Dimensionality Reduction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="09_unsupervised_learning.html">
-     Chapter 9 – Unsupervised Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="10_neural_nets_with_keras.html">
-     Chapter 10 – Introduction to Artificial Neural Networks with Keras
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="11_training_deep_neural_networks.html">
-     Chapter 11 – Training Deep Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">
-     Chapter 12 – Custom Models and Training with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="13_loading_and_preprocessing_data.html">
-     Chapter 13 – Loading and Preprocessing Data with TensorFlow
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="14_deep_computer_vision_with_cnns.html">
-     Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">
-     Chapter 15 – Processing Sequences Using RNNs and CNNs
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="16_nlp_with_rnns_and_attention.html">
-     Chapter 16 – Natural Language Processing with RNNs and Attention**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="17_autoencoders_and_gans.html">
-     Chapter 17 – Autoencoders and GANs**
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="18_reinforcement_learning.html">
-     Chapter 18 – Reinforcement Learning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="19_training_and_deploying_at_scale.html">
-     Chapter 19 – Training and Deploying TensorFlow Models at Scale
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../extra.html">
-   Miscellaneous tips &amp; tricks
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="math_linear_algebra.html">
-     Math primer - Linear Algebra
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Math primer - Differential Calculus
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_autodiff.html">
-     Implementation of autodiff techniques
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="extra_gradient_descent_comparison.html">
-     Comparison of Batch, Mini-Batch and Stochastic Gradient Descent
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../introduction.html">Hands-on Machine Learning with Aurélien Géron</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_the_machine_learning_landscape.html">Chapter 1 – The Machine Learning landscape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_end_to_end_machine_learning_project.html">Chapter 2 – End-to-end Machine Learning project</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="03_classification.html">Chapter 3 – Classification</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="04_training_linear_models.html">Chapter 4 – Training Models</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="05_support_vector_machines.html">Chapter 5 – Support Vector Machines</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="06_decision_trees.html">Chapter 6 – Decision Trees</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="07_ensemble_learning_and_random_forests.html">Chapter 7 – Ensemble Learning and Random Forests</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="08_dimensionality_reduction.html">Chapter 8 – Dimensionality Reduction</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="09_unsupervised_learning.html">Chapter 9 – Unsupervised Learning</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="10_neural_nets_with_keras.html">Chapter 10 – Introduction to Artificial Neural Networks with Keras</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="11_training_deep_neural_networks.html">Chapter 11 – Training Deep Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="12_custom_models_and_training_with_tensorflow.html">Chapter 12 – Custom Models and Training with TensorFlow</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="13_loading_and_preprocessing_data.html">Chapter 13 – Loading and Preprocessing Data with TensorFlow</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="14_deep_computer_vision_with_cnns.html">Chapter 14 – Deep Computer Vision Using Convolutional Neural Networks</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="15_processing_sequences_using_rnns_and_cnns.html">Chapter 15 – Processing Sequences Using RNNs and CNNs</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="16_nlp_with_rnns_and_attention.html">Chapter 16 – Natural Language Processing with RNNs and Attention**</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="17_autoencoders_and_gans.html">Chapter 17 – Autoencoders and GANs**</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="18_reinforcement_learning.html">Chapter 18 – Reinforcement Learning</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="19_training_and_deploying_at_scale.html">Chapter 19 – Training and Deploying TensorFlow Models at Scale</a></li>
+
+
+
+
+
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data visualization with Altair
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">
-   Introduction to data visualization with Python
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../visualization/altair_get_started.html">
-   Getting Started with Altair
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_introduction.html">
-     Introduction to Altair
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_marks_encoding.html">
-     Data Types, Graphical Marks, and Visual Encoding Channels
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_data_transformation.html">
-     Data Transformation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">
-     Scales, Axes, and Legends
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_view_composition.html">
-     Multi-View Composition
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_interaction.html">
-     Interaction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_cartographic.html">
-     Cartographic Visualization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../visualization/altair_debugging.html">
-     Altair Debugging Guide
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../extra.html">Miscellaneous tips &amp; tricks</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="math_linear_algebra.html">Math primer - Linear Algebra</a></li>
+
+
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Math primer - Differential Calculus</a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_autodiff.html">Implementation of autodiff techniques</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="extra_gradient_descent_comparison.html">Comparison of Batch, Mini-Batch and Stochastic Gradient Descent</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Interpretable Machine Learning
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../iml/introduction.html">
-   Introduction to IML
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_partial_dependence.html">
-     Partial Dependence and Individual Conditional Expectation Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance.html">
-     Permutation Importance vs Random Forest Feature Importance (MDI)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">
-     Permutation Importance with Multicollinear or Correlated Features
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">
-     IML with Pima Indians and the Titanic datasets
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Principles of time-series forecasting
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data visualization with Altair</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/introduction.html">
-   Introduction to FPP3
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">
-   Examples of time-series forecasting with Python
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction.html">Data visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../visualization/introduction-to-interactive-data-visualization.html">Introduction to data visualization with Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../visualization/altair_get_started.html">Getting Started with Altair</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_introduction.html">Introduction to Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_marks_encoding.html">Data Types, Graphical Marks, and Visual Encoding Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_data_transformation.html">Data Transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_scales_axes_legends.html">Scales, Axes, and Legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_view_composition.html">Multi-View Composition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_interaction.html">Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_cartographic.html">Cartographic Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../visualization/altair_debugging.html">Altair Debugging Guide</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Natural language processing with spaCy
- </span>
-</p>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Interpretable Machine Learning</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../nlp/introduction.html">
-   Introduction to NLP with spaCy
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">
-   Dutch restaurant reviews
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">
-     Analyzing Dutch restaurant reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">
-     Fetch and prepare reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-pipeline-example.html">
-     Predict detractors from reviews
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">
-     Extra: language detection with character quadgrams
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../nlp/nlp-model-sizes.html">
-     Extra: plot of transformer model sizes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../iml/introduction.html">Introduction to IML</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_partial_dependence.html">Partial Dependence and Individual Conditional Expectation Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance.html">Permutation Importance vs Random Forest Feature Importance (MDI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/plot_permutation_importance_multicollinear.html">Permutation Importance with Multicollinear or Correlated Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../iml/interpreting-machine-learning-models.html">IML with Pima Indians and the Titanic datasets</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Principles of time-series forecasting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/introduction.html">Introduction to FPP3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fpp/examples-time-series-forecasting-with-python.html">Examples of time-series forecasting with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Natural language processing with spaCy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../nlp/introduction.html">Introduction to NLP with spaCy</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../nlp/dutch-restaurant-reviews.html">Dutch restaurant reviews</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-dutch-restaurant-reviews.html">Analyzing Dutch restaurant reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/prepare-restoreviews-dataset.html">Fetch and prepare reviews</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-pipeline-example.html">Objective</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/language-detection-with-character-quadgrams.html">Extra: language detection with character quadgrams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../nlp/nlp-model-sizes.html">Extra: plot of transformer model sizes</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jads-nl/data-science-foundation-curriculum/main?urlpath=tree/data_science_foundation_curriculum/handson-ml2/original/math_differential_calculus.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-curriculum/blob/main/data_science_foundation_curriculum/handson-ml2/original/math_differential_calculus.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jads-nl/data-science-foundation-in-python/blob/main/data_science_foundation_in_python/handson-ml2/original/math_differential_calculus.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jads-nl/data-science-foundation-in-python/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/math_differential_calculus.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/handson-ml2/original/math_differential_calculus.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/jads-nl/data-science-foundation-curriculum/issues/new?title=Issue%20on%20page%20%2Fhandson-ml2/original/math_differential_calculus.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/handson-ml2/original/math_differential_calculus.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Math primer - Differential Calculus
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#slope-of-a-straight-line">
-   Slope of a straight line
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#defining-the-slope-of-a-curve">
-   Defining the slope of a curve
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiability">
-   Differentiability
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiating-a-function">
-   Differentiating a function
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-finding-the-derivative-of-x-2">
-     Example: finding the derivative of
-     <span class="math notranslate nohighlight">
-      \(x^2\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notations">
-     Notations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-tangent-to-a-curve">
-     Plotting the tangent to a curve
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiation-rules">
-   Differentiation rules
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-chain-rule">
-     The chain rule
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#derivatives-and-optimization">
-   Derivatives and optimization
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#higher-order-derivatives">
-   Higher order derivatives
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#partial-derivatives">
-   Partial derivatives
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradients">
-   Gradients
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-descent-revisited">
-     Gradient Descent, revisited
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jacobians">
-   Jacobians
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hessians">
-   Hessians
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-few-proofs">
-     A few proofs
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constant-f-x-c">
-     Constant:
-     <span class="math notranslate nohighlight">
-      \(f(x)=c\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#product-rule-f-x-g-x-h-x">
-     Product rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=g(x)h(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#chain-rule-f-x-g-h-x">
-     Chain rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=g(h(x))\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-f-x-exp-x-e-x">
-     Exponential:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\exp(x)=e^x\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#logarithm-f-x-ln-x">
-     Logarithm:
-     <span class="math notranslate nohighlight">
-      \(f(x) = \ln(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#power-rule-f-x-x-r-with-r-neq-0">
-     Power rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=x^r\)
-     </span>
-     , with
-     <span class="math notranslate nohighlight">
-      \(r \neq 0\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiplicative-inverse-f-x-dfrac-1-h-x">
-     Multiplicative inverse:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\dfrac{1}{h(x)}\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quotient-rule-f-x-dfrac-g-x-h-x">
-     Quotient rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\dfrac{g(x)}{h(x)}\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sin-f-x-sin-x">
-     Sin:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\sin(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cosine-f-x-cos-x">
-     Cosine:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\cos(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tangent-f-x-tan-x">
-     Tangent:
-     <span class="math notranslate nohighlight">
-      \(f(x) = \tan(x)\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Math primer - Differential Calculus</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Math primer - Differential Calculus
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#slope-of-a-straight-line">
-   Slope of a straight line
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#defining-the-slope-of-a-curve">
-   Defining the slope of a curve
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiability">
-   Differentiability
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiating-a-function">
-   Differentiating a function
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-finding-the-derivative-of-x-2">
-     Example: finding the derivative of
-     <span class="math notranslate nohighlight">
-      \(x^2\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notations">
-     Notations
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-the-tangent-to-a-curve">
-     Plotting the tangent to a curve
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differentiation-rules">
-   Differentiation rules
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-chain-rule">
-     The chain rule
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#derivatives-and-optimization">
-   Derivatives and optimization
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#higher-order-derivatives">
-   Higher order derivatives
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#partial-derivatives">
-   Partial derivatives
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gradients">
-   Gradients
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#gradient-descent-revisited">
-     Gradient Descent, revisited
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jacobians">
-   Jacobians
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hessians">
-   Hessians
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-few-proofs">
-     A few proofs
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constant-f-x-c">
-     Constant:
-     <span class="math notranslate nohighlight">
-      \(f(x)=c\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#product-rule-f-x-g-x-h-x">
-     Product rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=g(x)h(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#chain-rule-f-x-g-h-x">
-     Chain rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=g(h(x))\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exponential-f-x-exp-x-e-x">
-     Exponential:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\exp(x)=e^x\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#logarithm-f-x-ln-x">
-     Logarithm:
-     <span class="math notranslate nohighlight">
-      \(f(x) = \ln(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#power-rule-f-x-x-r-with-r-neq-0">
-     Power rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=x^r\)
-     </span>
-     , with
-     <span class="math notranslate nohighlight">
-      \(r \neq 0\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#multiplicative-inverse-f-x-dfrac-1-h-x">
-     Multiplicative inverse:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\dfrac{1}{h(x)}\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#quotient-rule-f-x-dfrac-g-x-h-x">
-     Quotient rule:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\dfrac{g(x)}{h(x)}\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sin-f-x-sin-x">
-     Sin:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\sin(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#cosine-f-x-cos-x">
-     Cosine:
-     <span class="math notranslate nohighlight">
-      \(f(x)=\cos(x)\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tangent-f-x-tan-x">
-     Tangent:
-     <span class="math notranslate nohighlight">
-      \(f(x) = \tan(x)\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Math primer - Differential Calculus</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Math primer - Differential Calculus</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-straight-line">Slope of a straight line</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-slope-of-a-curve">Defining the slope of a curve</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiability">Differentiability</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiating-a-function">Differentiating a function</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-the-derivative-of-x-2">Example: finding the derivative of <span class="math notranslate nohighlight">\(x^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-tangent-to-a-curve">Plotting the tangent to a curve</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiation-rules">Differentiation rules</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chain-rule">The chain rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-and-optimization">Derivatives and optimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">Higher order derivatives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-derivatives">Partial derivatives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">Gradients</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-revisited">Gradient Descent, revisited</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobians">Jacobians</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hessians">Hessians</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-proofs">A few proofs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-f-x-c">Constant: <span class="math notranslate nohighlight">\(f(x)=c\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#product-rule-f-x-g-x-h-x">Product rule: <span class="math notranslate nohighlight">\(f(x)=g(x)h(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-rule-f-x-g-h-x">Chain rule: <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-f-x-exp-x-e-x">Exponential: <span class="math notranslate nohighlight">\(f(x)=\exp(x)=e^x\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-f-x-ln-x">Logarithm: <span class="math notranslate nohighlight">\(f(x) = \ln(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-rule-f-x-x-r-with-r-neq-0">Power rule: <span class="math notranslate nohighlight">\(f(x)=x^r\)</span>, with <span class="math notranslate nohighlight">\(r \neq 0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-inverse-f-x-dfrac-1-h-x">Multiplicative inverse: <span class="math notranslate nohighlight">\(f(x)=\dfrac{1}{h(x)}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quotient-rule-f-x-dfrac-g-x-h-x">Quotient rule: <span class="math notranslate nohighlight">\(f(x)=\dfrac{g(x)}{h(x)}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-f-x-sin-x">Sin: <span class="math notranslate nohighlight">\(f(x)=\sin(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-f-x-cos-x">Cosine: <span class="math notranslate nohighlight">\(f(x)=\cos(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-f-x-tan-x">Tangent: <span class="math notranslate nohighlight">\(f(x) = \tan(x)\)</span></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="math-primer-differential-calculus">
-<h1>Math primer - Differential Calculus<a class="headerlink" href="#math-primer-differential-calculus" title="Permalink to this headline">#</a></h1>
+<h1>Math primer - Differential Calculus<a class="headerlink" href="#math-primer-differential-calculus" title="Permalink to this heading">#</a></h1>
 <p>Calculus is the study of continuous change. It has two major subfields: <em>differential calculus</em>, which studies the rate of change of functions, and <em>integral calculus</em>, which studies the area under the curve. In this notebook, we will discuss the former.</p>
 <p><em>Differential calculus is at the core of Deep Learning, so it is important to understand what derivatives and gradients are, how they are used in Deep Learning, and understand what their limitations are.</em></p>
 <p><strong>Note:</strong> the code in this notebook is only used to create figures and animations. You do not need to understand how it works (although I did my best to make it clear, in case you are interested).</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="slope-of-a-straight-line">
-<h1>Slope of a straight line<a class="headerlink" href="#slope-of-a-straight-line" title="Permalink to this headline">#</a></h1>
+<h1>Slope of a straight line<a class="headerlink" href="#slope-of-a-straight-line" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title</span>
@@ -1875,7 +1002,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_4_0.png" src="../../_images/math_differential_calculus_4_0.png" />
+<img alt="../../_images/a9feb2aacc57c653fb5f7d33958534ddbc22213c55c04860e2a45e75b2a3cbf1.png" src="../../_images/a9feb2aacc57c653fb5f7d33958534ddbc22213c55c04860e2a45e75b2a3cbf1.png" />
 </div>
 </div>
 <p>As you probably know, the slope of a (non-vertical) straight line can be calculated by taking any two points <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{B}\)</span> on the line, and computing the “rise over run”:</p>
@@ -1883,7 +1010,7 @@ title="Print to PDF"
 <p>In this example, the rise is 3, and the run is 6, so the slope is 3/6 = 0.5.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="defining-the-slope-of-a-curve">
-<h1>Defining the slope of a curve<a class="headerlink" href="#defining-the-slope-of-a-curve" title="Permalink to this headline">#</a></h1>
+<h1>Defining the slope of a curve<a class="headerlink" href="#defining-the-slope-of-a-curve" title="Permalink to this heading">#</a></h1>
 <p>But what if you want to know the slope of something else than a straight line? For example, let’s consider the curve defined by <span class="math notranslate nohighlight">\(y = f(x) = x^2\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1900,7 +1027,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_8_0.png" src="../../_images/math_differential_calculus_8_0.png" />
+<img alt="../../_images/6603bd9b0993f7150d9fe217b945a8e3c5b986d6ac2e45751c8fb2f157100983.png" src="../../_images/6603bd9b0993f7150d9fe217b945a8e3c5b986d6ac2e45751c8fb2f157100983.png" />
 </div>
 </div>
 <p>Obviously, the slope varies: on the left (i.e., when <span class="math notranslate nohighlight">\(x&lt;0\)</span>), the slope is negative (i.e., when we move from left to right, the curve goes down), while on the right (i.e., when <span class="math notranslate nohighlight">\(x&gt;0\)</span>) the slope is positive (i.e., when we move from left to right, the curve goes up). At the point <span class="math notranslate nohighlight">\(x=0\)</span>, the slope is equal to 0 (i.e., the curve is locally flat). The fact that the slope is 0 when we reach a minimum (or indeed a maximum) is crucially important, and we will come back to it later.</p>
@@ -2202,7 +1329,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_sliderb009e807ff7f4da6bfedc9c8e64865bd";
     var loop_select_id = "_anim_loop_selectb009e807ff7f4da6bfedc9c8e64865bd";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nOzdd1QUVxsG8Gd2l6X33osg0lEUUEHs\
@@ -2600,7 +1727,7 @@ IYQQVun/AUrgnKx9Gj5qAAAAAElFTkSuQmCC\
 <p>So it makes sense to define the slope of the curve at point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> as the slope that the <span class="math notranslate nohighlight">\(\mathrm{(AB)}\)</span> line approaches when <span class="math notranslate nohighlight">\(\mathrm{B}\)</span> gets infinitely close to <span class="math notranslate nohighlight">\(\mathrm{A}\)</span>. This slope is called the <strong>derivative</strong> of the function <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x=x_\mathrm{A}\)</span>. For example, the derivative of the function <span class="math notranslate nohighlight">\(f(x)=x^2\)</span> at <span class="math notranslate nohighlight">\(x=x_\mathrm{A}\)</span> is equal to <span class="math notranslate nohighlight">\(2x_\mathrm{A}\)</span> (we will see how to get this result shortly), so on the graph above, since the point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> is located at <span class="math notranslate nohighlight">\(x_\mathrm{A}=-1\)</span>, the tangent line to the curve at that point has a slope of <span class="math notranslate nohighlight">\(-2\)</span>.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="differentiability">
-<h1>Differentiability<a class="headerlink" href="#differentiability" title="Permalink to this headline">#</a></h1>
+<h1>Differentiability<a class="headerlink" href="#differentiability" title="Permalink to this heading">#</a></h1>
 <p>Note that some functions are not quite as well-behaved as <span class="math notranslate nohighlight">\(x^2\)</span>: for example, consider the function <span class="math notranslate nohighlight">\(f(x)=|x|\)</span>, the absolute value of <span class="math notranslate nohighlight">\(x\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2842,7 +1969,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider5ca2016451b14f3d80e7bc061349915a";
     var loop_select_id = "_anim_loop_select5ca2016451b14f3d80e7bc061349915a";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nO3dd1hTZ/8G8DuDgGwEURAFEUWGgKIM\
@@ -3392,7 +2519,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_sliderea3d9a997ba2429fbd1b76f5e6f09474";
     var loop_select_id = "_anim_loop_selectea3d9a997ba2429fbd1b76f5e6f09474";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAEgCAYAAADVKCZpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nOzdd1zVdf//8Qd7yBQcTBFxgSKKmhvN\
@@ -3731,14 +2858,14 @@ lDjAiIjIlH4BXpOt+i9OH4gAAAAASUVORK5CYII=\
 <p>Now let’s see how to actually differentiate a function (i.e., find its derivative).</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="differentiating-a-function">
-<h1>Differentiating a function<a class="headerlink" href="#differentiating-a-function" title="Permalink to this headline">#</a></h1>
+<h1>Differentiating a function<a class="headerlink" href="#differentiating-a-function" title="Permalink to this heading">#</a></h1>
 <p>The previous discussion leads to the following definition:</p>
 <hr />
 <p>The <strong>derivative</strong> of a function <span class="math notranslate nohighlight">\(f(x)\)</span> at <span class="math notranslate nohighlight">\(x = x_\mathrm{A}\)</span> is noted <span class="math notranslate nohighlight">\(f'(x_\mathrm{A})\)</span>, and it is defined as:</p>
 <p><span class="math notranslate nohighlight">\(f'(x_\mathrm{A}) = \underset{x_\mathrm{B} \to x_\mathrm{A}}\lim\dfrac{f(x_\mathrm{B}) - f(x_\mathrm{A})}{x_\mathrm{B} - x_\mathrm{A}}\)</span></p>
 <hr /><p>Don’t be scared, this is simpler than it looks! You may recognize the <em>rise over run</em> equation <span class="math notranslate nohighlight">\(\dfrac{y_\mathrm{B} - y_\mathrm{A}}{x_\mathrm{B} - x_\mathrm{A}}\)</span> that we discussed earlier. That’s just the slope of the <span class="math notranslate nohighlight">\(\mathrm{(AB)}\)</span> line. And the notation <span class="math notranslate nohighlight">\(\underset{x_\mathrm{B} \to x_\mathrm{A}}\lim\)</span> means that we are making <span class="math notranslate nohighlight">\(x_\mathrm{B}\)</span> approach infinitely close to <span class="math notranslate nohighlight">\(x_\mathrm{A}\)</span>. So in plain English, <span class="math notranslate nohighlight">\(f'(x_\mathrm{A})\)</span> is the value that the slope of the <span class="math notranslate nohighlight">\(\mathrm{(AB)}\)</span> line approaches when <span class="math notranslate nohighlight">\(\mathrm{B}\)</span> gets infinitely close to <span class="math notranslate nohighlight">\(\mathrm{A}\)</span>. This is just a formal way of saying exactly the same thing as earlier.</p>
 <section id="example-finding-the-derivative-of-x-2">
-<h2>Example: finding the derivative of <span class="math notranslate nohighlight">\(x^2\)</span><a class="headerlink" href="#example-finding-the-derivative-of-x-2" title="Permalink to this headline">#</a></h2>
+<h2>Example: finding the derivative of <span class="math notranslate nohighlight">\(x^2\)</span><a class="headerlink" href="#example-finding-the-derivative-of-x-2" title="Permalink to this heading">#</a></h2>
 <p>Let’s look at a concrete example. Let’s see if we can determine what the slope of the <span class="math notranslate nohighlight">\(y=x^2\)</span> curve is, at any point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> (try to understand each line, I promise it’s not that hard):</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
@@ -3780,7 +2907,7 @@ f'(x) \, &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x + \epsilon) - f(x)}{\ep
 <p>Yep! It works out.</p>
 </section>
 <section id="notations">
-<h2>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">#</a></h2>
+<h2>Notations<a class="headerlink" href="#notations" title="Permalink to this heading">#</a></h2>
 <p>A word about notations: there are several other notations for the derivative that you will find in the literature:</p>
 <p><span class="math notranslate nohighlight">\(f'(x) = \dfrac{\mathrm{d}f(x)}{\mathrm{d}x} = \dfrac{\mathrm{d}}{\mathrm{d}x}f(x)\)</span></p>
 <p>This notation is also handy when a function is not named. For example <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}}{\mathrm{d}x}[x^2]\)</span> refers to the derivative of the function <span class="math notranslate nohighlight">\(x \mapsto x^2\)</span>.</p>
@@ -3790,7 +2917,7 @@ f'(x) \, &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x + \epsilon) - f(x)}{\ep
 <p>There are also other less common notations, such as Newton’s notation <span class="math notranslate nohighlight">\(\dot y\)</span> (assuming <span class="math notranslate nohighlight">\(y = f(x)\)</span>) or Euler’s notation <span class="math notranslate nohighlight">\(\mathrm{D}f\)</span>.</p>
 </section>
 <section id="plotting-the-tangent-to-a-curve">
-<h2>Plotting the tangent to a curve<a class="headerlink" href="#plotting-the-tangent-to-a-curve" title="Permalink to this headline">#</a></h2>
+<h2>Plotting the tangent to a curve<a class="headerlink" href="#plotting-the-tangent-to-a-curve" title="Permalink to this heading">#</a></h2>
 <p>Let’s use the equation <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span> to plot the tangent to the <span class="math notranslate nohighlight">\(y=x^2\)</span> curve at various values of <span class="math notranslate nohighlight">\(x\)</span> (you can click on the play button under the graphs to play the animation):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4085,7 +3212,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider4069ab61593447c6a60b34327518ba24";
     var loop_select_id = "_anim_loop_select4069ab61593447c6a60b34327518ba24";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAJACAYAAACg8vwTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nOzdd1wUZ/4H8M/C0qv0piggUgUhIFbU\
@@ -4575,7 +3702,7 @@ Ak1EpCkWaCIiTbFAExFpigWaiEhT/weYoMpI7HJYCAAAAABJRU5ErkJggg==\
 <hr /></section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="differentiation-rules">
-<h1>Differentiation rules<a class="headerlink" href="#differentiation-rules" title="Permalink to this headline">#</a></h1>
+<h1>Differentiation rules<a class="headerlink" href="#differentiation-rules" title="Permalink to this heading">#</a></h1>
 <p>One very important rule is that <strong>the derivative of a sum is the sum of the derivatives</strong>. More precisely, if we define <span class="math notranslate nohighlight">\(f(x) = g(x) + h(x)\)</span>, then <span class="math notranslate nohighlight">\(f'(x) = g'(x) + h'(x)\)</span>. This is quite easy to prove:</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
@@ -4587,7 +3714,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 \end{align*}
 \)</span></p>
 <p>Similarly, it is possible to show the following important rules (I’ve included the proofs at the end of this notebook, in case you’re curious):</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p>Function <span class="math notranslate nohighlight">\(f\)</span>                            </p></th>
@@ -4886,7 +4013,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider169490c4c4664f3c8432d3b5400bdd27";
     var loop_select_id = "_anim_loop_select169490c4c4664f3c8432d3b5400bdd27";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAJACAYAAACg8vwTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nOzdd3xUVfo/8M+U1Jlk0nsjCQFSSCAk\
@@ -5507,7 +4634,7 @@ P4//i9gxDgAAAABJRU5ErkJggg==\
 </div></div>
 </div>
 <section id="the-chain-rule">
-<h2>The chain rule<a class="headerlink" href="#the-chain-rule" title="Permalink to this headline">#</a></h2>
+<h2>The chain rule<a class="headerlink" href="#the-chain-rule" title="Permalink to this heading">#</a></h2>
 <p>The chain rule is easier to remember using Leibniz’s notation:</p>
 <p>If <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span> and <span class="math notranslate nohighlight">\(y=h(x)\)</span>, then: <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}f}{\mathrm{d}x} = \dfrac{\mathrm{d}f}{\mathrm{d}y} \dfrac{\mathrm{d}y}{\mathrm{d}x}\)</span></p>
 <p>Indeed, <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}f}{\mathrm{d}y} = f'(y) = f'(h(x))\)</span> and <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}y}{\mathrm{d}x}=h'(x)\)</span>.</p>
@@ -5516,7 +4643,7 @@ P4//i9gxDgAAAABJRU5ErkJggg==\
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="derivatives-and-optimization">
-<h1>Derivatives and optimization<a class="headerlink" href="#derivatives-and-optimization" title="Permalink to this headline">#</a></h1>
+<h1>Derivatives and optimization<a class="headerlink" href="#derivatives-and-optimization" title="Permalink to this heading">#</a></h1>
 <p>When trying to optimize a function <span class="math notranslate nohighlight">\(f(x)\)</span>, we look for the values of <span class="math notranslate nohighlight">\(x\)</span> that minimize (or maximize) the function.</p>
 <p>It is important to note that when a function reaches a minimum or maximum, assuming it is differentiable at that point, the derivative will necessarily be equal to 0. For example, you can check the above animation, and notice that whenever the function <span class="math notranslate nohighlight">\(f\)</span> (in the upper graph) reaches a maximum or minimum, then the derivative <span class="math notranslate nohighlight">\(f'\)</span> (in the lower graph) is equal to 0.</p>
 <p>So one way to optimize a function is to differentiate it and analytically find all the values for which the derivative is 0, then determine which of these values optimize the function (if any). For example, consider the function <span class="math notranslate nohighlight">\(f(x)=\dfrac{1}{4}x^4 - x^2 + \dfrac{1}{2}\)</span>. Using the derivative rules (specifically, the sum rule, the product rule, the power rule and the constant rule), we find that <span class="math notranslate nohighlight">\(f'(x)=x^3 - 2x\)</span>. We look for the values of <span class="math notranslate nohighlight">\(x\)</span> for which <span class="math notranslate nohighlight">\(f'(x)=0\)</span>, so <span class="math notranslate nohighlight">\(x^3-2x=0\)</span>, and therefore <span class="math notranslate nohighlight">\(x(x^2-2)=0\)</span>. So <span class="math notranslate nohighlight">\(x=0\)</span>, or <span class="math notranslate nohighlight">\(x=\sqrt2\)</span> or <span class="math notranslate nohighlight">\(x=-\sqrt2\)</span>. As you can see on the following graph of <span class="math notranslate nohighlight">\(f(x)\)</span>, these 3 values correspond to local extrema. Two global minima <span class="math notranslate nohighlight">\(f\left(\sqrt2\right)=f\left(-\sqrt2\right)=-\dfrac{1}{2}\)</span> and one local maximum <span class="math notranslate nohighlight">\(f(0)=\dfrac{1}{2}\)</span>.</p>
@@ -5540,7 +4667,7 @@ P4//i9gxDgAAAABJRU5ErkJggg==\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_43_0.png" src="../../_images/math_differential_calculus_43_0.png" />
+<img alt="../../_images/21db9968d6d8dac7756c2e41c25732428691f8c1e320081a2352565c404709be.png" src="../../_images/21db9968d6d8dac7756c2e41c25732428691f8c1e320081a2352565c404709be.png" />
 </div>
 </div>
 <p>If a function has a local extremum at a point <span class="math notranslate nohighlight">\(x_\mathrm{A}\)</span> and is differentiable at that point, then <span class="math notranslate nohighlight">\(f'(x_\mathrm{A})=0\)</span>. However, the reverse is not always true. For example, consider <span class="math notranslate nohighlight">\(f(x)=x^3\)</span>. Its derivative is <span class="math notranslate nohighlight">\(f'(x)=x^2\)</span>, which is equal to 0 at <span class="math notranslate nohighlight">\(x_\mathrm{A}=0\)</span>. Yet, this point is <em>not</em> an extremum, as you can see on the following diagram. It’s just a single point where the slope is 0.</p>
@@ -5558,7 +4685,7 @@ P4//i9gxDgAAAABJRU5ErkJggg==\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_45_0.png" src="../../_images/math_differential_calculus_45_0.png" />
+<img alt="../../_images/bbd6dfa10dbcceee918e6e4c70ecc0419ba918554e0620d02cce3919cbd7cf75.png" src="../../_images/bbd6dfa10dbcceee918e6e4c70ecc0419ba918554e0620d02cce3919cbd7cf75.png" />
 </div>
 </div>
 <p>So in short, you can optimize a function by analytically working out the points at which the derivative is 0, and then investigating only these points. It’s a beautifully elegant solution, but it requires a lot of work, and it’s not always easy, or even possible. For neural networks, it’s practically impossible.</p>
@@ -5867,7 +4994,7 @@ input[type=range].anim-slider {
     var slider_id = "_anim_slider1ec1960c5a024fac9a7ad4b17405fd20";
     var loop_select_id = "_anim_loop_select1ec1960c5a024fac9a7ad4b17405fd20";
     var frames = new Array(1);
-
+    
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAAJACAYAAACg8vwTAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz\
 AAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0\
 dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nOzdeVxU9f7H8dcM+yICsgguKOCOoiGI\
@@ -6424,13 +5551,13 @@ gg==\
 <p>There are many variants of the Gradient Descent algorithm, discussed in Chapter 11 of the book. These are the ones we care about in Deep Learning. They all rely on the derivative of the cost function with regards to the model parameters (we will discuss functions with multiple parameters later in this notebook).</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="higher-order-derivatives">
-<h1>Higher order derivatives<a class="headerlink" href="#higher-order-derivatives" title="Permalink to this headline">#</a></h1>
+<h1>Higher order derivatives<a class="headerlink" href="#higher-order-derivatives" title="Permalink to this heading">#</a></h1>
 <p>What happens if we try to differentiate the function <span class="math notranslate nohighlight">\(f'(x)\)</span>? Well, we get the so-called second order derivative, noted <span class="math notranslate nohighlight">\(f''(x)\)</span>, or <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}^2f}{\mathrm{d}x^2}\)</span>. If we repeat the process by differentiating <span class="math notranslate nohighlight">\(f''(x)\)</span>, we get the third-order derivative <span class="math notranslate nohighlight">\(f'''(x)\)</span>, or <span class="math notranslate nohighlight">\(\dfrac{\mathrm{d}^3f}{\mathrm{d}x^3}\)</span>. And we could go on to get higher order derivatives.</p>
 <p>What’s the intuition behind second order derivatives? Well, since the (first order) derivative represents the instantaneous rate of change of <span class="math notranslate nohighlight">\(f\)</span> at each point, the second order derivative represents the instantaneous rate of change of the rate of change itself, in other words, you can think of it as the <strong>acceleration</strong> of the curve: if <span class="math notranslate nohighlight">\(f''(x) &lt; 0\)</span>, then the curve is accelerating “downwards”, if <span class="math notranslate nohighlight">\(f''(x) &gt; 0\)</span> then the curve is accelerating “upwards”, and if <span class="math notranslate nohighlight">\(f''(x) = 0\)</span>, then the curve is locally a straight line. Note that a curve could be going upwards (i.e., <span class="math notranslate nohighlight">\(f'(x)&gt;0\)</span>) but also be accelerating downwards (i.e., <span class="math notranslate nohighlight">\(f''(x) &lt; 0\)</span>): for example, imagine the path of a stone thrown upwards, as it is being slowed down by gravity (which constantly accelerates the stone downwards).</p>
 <p>Deep Learning generally only uses first order derivatives, but you will sometimes run into some optimization algorithms or cost functions based on second order derivatives.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="partial-derivatives">
-<h1>Partial derivatives<a class="headerlink" href="#partial-derivatives" title="Permalink to this headline">#</a></h1>
+<h1>Partial derivatives<a class="headerlink" href="#partial-derivatives" title="Permalink to this heading">#</a></h1>
 <p>Up to now, we have only considered functions with a single variable <span class="math notranslate nohighlight">\(x\)</span>. What happens when there are multiple variables? For example, let’s start with a simple function with 2 variables: <span class="math notranslate nohighlight">\(f(x,y)=\sin(xy)\)</span>. If we plot this function, using <span class="math notranslate nohighlight">\(z=f(x,y)\)</span>, we get the following 3D graph. I also plotted some point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> on the surface, along with two lines I will describe shortly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6488,7 +5615,7 @@ gg==\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_53_0.png" src="../../_images/math_differential_calculus_53_0.png" />
+<img alt="../../_images/4efe72c3b424c43a42cfd2e6d34745f726ce7c3d607b5d28aa48f7529038ca1f.png" src="../../_images/4efe72c3b424c43a42cfd2e6d34745f726ce7c3d607b5d28aa48f7529038ca1f.png" />
 </div>
 </div>
 <p>If you were to stand on this surface at point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> and walk along the <span class="math notranslate nohighlight">\(x\)</span> axis towards the right (increasing <span class="math notranslate nohighlight">\(x\)</span>), your path would go down quite steeply (along the dashed blue line). The slope along this axis would be negative. However, if you were to walk along the <span class="math notranslate nohighlight">\(y\)</span> axis, towards the back (increasing <span class="math notranslate nohighlight">\(y\)</span>), then your path would almost be flat (along the solid red line), at least locally: the slope along that axis, at point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span>, would be very slightly positive.</p>
@@ -6508,7 +5635,7 @@ gg==\
 <p>At the origin (i.e., at <span class="math notranslate nohighlight">\((x,y)=(0,0)\)</span>), the partial derivatives of the function <span class="math notranslate nohighlight">\(h\)</span> with respect to <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> are both perfectly defined: they are equal to 0. Yet the function can clearly not be approximated by a plane at that point. It is not totally differentiable at that point (but it is totally differentiable at any point off the axes).</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="gradients">
-<h1>Gradients<a class="headerlink" href="#gradients" title="Permalink to this headline">#</a></h1>
+<h1>Gradients<a class="headerlink" href="#gradients" title="Permalink to this heading">#</a></h1>
 <p>So far we have considered only functions with a single variable <span class="math notranslate nohighlight">\(x\)</span>, or with 2 variables, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, but the previous paragraph also applies to functions with more variables. So let’s consider a function <span class="math notranslate nohighlight">\(f\)</span> with <span class="math notranslate nohighlight">\(n\)</span> variables: <span class="math notranslate nohighlight">\(f(x_1, x_2, \dots, x_n)\)</span>. For convenience, we will define a vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> whose components are these variables:</p>
 <p><span class="math notranslate nohighlight">\(\mathbf{x}=\begin{pmatrix}
 x_1\\
@@ -6526,14 +5653,14 @@ x_n
 \end{pmatrix}\)</span></p>
 <p>Assuming the function is totally differentiable at the point <span class="math notranslate nohighlight">\(\mathbf{x}_\mathbf{A}\)</span>, then the surface it describes can be approximated by a plane at that point (as discussed in the previous section), and the gradient vector is the one that points towards the steepest slope on that plane.</p>
 <section id="gradient-descent-revisited">
-<h2>Gradient Descent, revisited<a class="headerlink" href="#gradient-descent-revisited" title="Permalink to this headline">#</a></h2>
+<h2>Gradient Descent, revisited<a class="headerlink" href="#gradient-descent-revisited" title="Permalink to this heading">#</a></h2>
 <p>In Deep Learning, the Gradient Descent algorithm we discussed earlier is based on gradients instead of derivatives (hence its name). It works in much the same way, but using vectors instead of scalars: simply start with a random vector <span class="math notranslate nohighlight">\(\mathbf{x}_0\)</span>, then compute the gradient of <span class="math notranslate nohighlight">\(f\)</span> at that point, and perform a small step in the opposite direction, then repeat until convergence. More precisely, at each step <span class="math notranslate nohighlight">\(t\)</span>, compute <span class="math notranslate nohighlight">\(\mathbf{x}_t = \mathbf{x}_{t-1} - \eta \nabla f(\mathbf{x}_{t-1})\)</span>. The constant <span class="math notranslate nohighlight">\(\eta\)</span> is the learning rate, typically a small value such as <span class="math notranslate nohighlight">\(10^{-3}\)</span>. In practice, we generally use more efficient variants of this algorithm, but the general idea remains the same.</p>
 <p>In Deep Learning, the letter <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is generally used to represent the input data. When you <em>use</em> a neural network to make predictions, you feed the neural network the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, and you get back a prediction <span class="math notranslate nohighlight">\(\hat{y} = f(\mathbf{x})\)</span>. The function <span class="math notranslate nohighlight">\(f\)</span> treats the model parameters as constants. We can use more explicit notation by writing <span class="math notranslate nohighlight">\(\hat{y} = f_\mathbf{w}(\mathbf{x})\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> represents the model parameters and indicates that the function relies on them, but treats them as constants.</p>
 <p>However, when <em>training</em> a neural network, we do quite the opposite: all the training examples are grouped in a matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>, all the labels are grouped in a vector <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, and both <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> are treated as constants, while <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> is treated as variable: specifically, we try to minimize the cost function <span class="math notranslate nohighlight">\(\mathcal L_{\mathbf{X}, \mathbf{y}}(\mathbf{w}) = g(f_{\mathbf{X}}(\mathbf{w}), \mathbf{y})\)</span>, where <span class="math notranslate nohighlight">\(g\)</span> is a function that measures the “discrepancy” between the predictions <span class="math notranslate nohighlight">\(f_{\mathbf{X}}(\mathbf{w})\)</span> and the labels <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, where <span class="math notranslate nohighlight">\(f_{\mathbf{X}}(\mathbf{w})\)</span> represents the vector containing the predictions for each training example. Minimizing the loss function is usually performed using Gradient Descent (or a variant of GD): we start with random model parameters <span class="math notranslate nohighlight">\(\mathbf{w}_0\)</span>, then we compute <span class="math notranslate nohighlight">\(\nabla \mathcal L(\mathbf{w}_0)\)</span> and we use this gradient vector to perform a Gradient Descent step, then we repeat the process until convergence. It is crucial to understand that the gradient of the loss function is with regards to the model parameters <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> (<em>not</em> the inputs <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>).</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="jacobians">
-<h1>Jacobians<a class="headerlink" href="#jacobians" title="Permalink to this headline">#</a></h1>
+<h1>Jacobians<a class="headerlink" href="#jacobians" title="Permalink to this heading">#</a></h1>
 <p>Until now we have only considered functions that output a scalar, but it is possible to output vectors instead. For example, a classification neural network typically outputs one probability for each class, so if there are <span class="math notranslate nohighlight">\(m\)</span> classes, the neural network will output an <span class="math notranslate nohighlight">\(d\)</span>-dimensional vector for each input.</p>
 <p>In Deep Learning we generally only need to differentiate the loss function, which almost always outputs a single scalar number. But suppose for a second that you want to differentiate a function <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x})\)</span> which outputs <span class="math notranslate nohighlight">\(d\)</span>-dimensional vectors. The good news is that you can treat each <em>output</em> dimension independently of the others. This will give you a partial derivative for each input dimension and each output dimension. If you put them all in a single matrix, with one column per input dimension and one row per output dimension, you get the so-called <strong>Jacobian matrix</strong>.</p>
 <p><span class="math notranslate nohighlight">\(
@@ -6556,7 +5683,7 @@ x_n
 <p>The partial derivatives themselves are often called the <strong>Jacobians</strong>. It’s just the first order partial derivatives of the function <span class="math notranslate nohighlight">\(\mathbf{f}\)</span>.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="hessians">
-<h1>Hessians<a class="headerlink" href="#hessians" title="Permalink to this headline">#</a></h1>
+<h1>Hessians<a class="headerlink" href="#hessians" title="Permalink to this heading">#</a></h1>
 <p>Let’s come back to a function <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> which takes an <span class="math notranslate nohighlight">\(n\)</span>-dimensional vector as input and outputs a scalar. If you determine the equation of the partial derivative of <span class="math notranslate nohighlight">\(f\)</span> with regards to <span class="math notranslate nohighlight">\(x_i\)</span> (the <span class="math notranslate nohighlight">\(i^\text{th}\)</span> component of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>), you will get a new function of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>: <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x_i}\)</span>. You can then compute the partial derivative of this function with regards to <span class="math notranslate nohighlight">\(x_j\)</span> (the <span class="math notranslate nohighlight">\(j^\text{th}\)</span> component of <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>). The result is a partial derivative of a partial derivative: in other words, it is a <strong>second order partial derivatives</strong>, also called a <strong>Hessian</strong>. It is noted <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>: <span class="math notranslate nohighlight">\(\dfrac{\partial^2 f}{\partial x_jx_i}\)</span>. If <span class="math notranslate nohighlight">\(i\neq j\)</span> then it is called a <strong>mixed second order partial derivative</strong>.
 Or else, if <span class="math notranslate nohighlight">\(j=i\)</span>, it is noted <span class="math notranslate nohighlight">\(\dfrac{\partial^2 f}{\partial {x_i}^2}\)</span></p>
 <p>Let’s look at an example: <span class="math notranslate nohighlight">\(f(x, y)=\sin(xy)\)</span>. As we showed earlier, the first order partial derivatives of <span class="math notranslate nohighlight">\(f\)</span> are: <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial x}=y\cos(xy)\)</span> and <span class="math notranslate nohighlight">\(\dfrac{\partial f}{\partial y}=x\cos(xy)\)</span>. So we can now compute all the Hessians (using the derivative rules we discussed earlier):</p>
@@ -6587,11 +5714,11 @@ Or else, if <span class="math notranslate nohighlight">\(j=i\)</span>, it is not
 \)</span></p>
 <p>There are great optimization algorithms which take advantage of the Hessians, but in practice Deep Learning almost never uses them. Indeed, if a function has <span class="math notranslate nohighlight">\(n\)</span> variables, there are <span class="math notranslate nohighlight">\(n^2\)</span> Hessians: since neural networks typically have several millions of parameters, the number of Hessians would exceed thousands of billions. Even if we had the necessary amount of RAM, the computations would be prohibitively slow.</p>
 <section id="a-few-proofs">
-<h2>A few proofs<a class="headerlink" href="#a-few-proofs" title="Permalink to this headline">#</a></h2>
+<h2>A few proofs<a class="headerlink" href="#a-few-proofs" title="Permalink to this heading">#</a></h2>
 <p>Let’s finish by proving all the derivative rules we listed earlier. You don’t have to go through all these proofs to be a good Deep Learning practitioner, but it may help you get a deeper understanding of derivatives.</p>
 </section>
 <section id="constant-f-x-c">
-<h2>Constant: <span class="math notranslate nohighlight">\(f(x)=c\)</span><a class="headerlink" href="#constant-f-x-c" title="Permalink to this headline">#</a></h2>
+<h2>Constant: <span class="math notranslate nohighlight">\(f(x)=c\)</span><a class="headerlink" href="#constant-f-x-c" title="Permalink to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
 f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon} &amp;&amp; \quad\text{by definition}\\
@@ -6602,7 +5729,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 \)</span></p>
 </section>
 <section id="product-rule-f-x-g-x-h-x">
-<h2>Product rule: <span class="math notranslate nohighlight">\(f(x)=g(x)h(x)\)</span><a class="headerlink" href="#product-rule-f-x-g-x-h-x" title="Permalink to this headline">#</a></h2>
+<h2>Product rule: <span class="math notranslate nohighlight">\(f(x)=g(x)h(x)\)</span><a class="headerlink" href="#product-rule-f-x-g-x-h-x" title="Permalink to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
 f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon} &amp;&amp; \quad\text{by definition}\\
@@ -6621,7 +5748,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 <p><span class="math notranslate nohighlight">\(f'(x)=c \, h'(x)\)</span></p>
 </section>
 <section id="chain-rule-f-x-g-h-x">
-<h2>Chain rule: <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span><a class="headerlink" href="#chain-rule-f-x-g-h-x" title="Permalink to this headline">#</a></h2>
+<h2>Chain rule: <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span><a class="headerlink" href="#chain-rule-f-x-g-h-x" title="Permalink to this heading">#</a></h2>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
 f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon} &amp;&amp; \quad\text{by definition}\\
@@ -6638,7 +5765,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 \)</span></p>
 </section>
 <section id="exponential-f-x-exp-x-e-x">
-<h2>Exponential: <span class="math notranslate nohighlight">\(f(x)=\exp(x)=e^x\)</span><a class="headerlink" href="#exponential-f-x-exp-x-e-x" title="Permalink to this headline">#</a></h2>
+<h2>Exponential: <span class="math notranslate nohighlight">\(f(x)=\exp(x)=e^x\)</span><a class="headerlink" href="#exponential-f-x-exp-x-e-x" title="Permalink to this heading">#</a></h2>
 <p>There are several equivalent definitions of the number <span class="math notranslate nohighlight">\(e\)</span>. One of them states that <span class="math notranslate nohighlight">\(e\)</span> is the unique positive number for which <span class="math notranslate nohighlight">\(\underset{\epsilon \to 0}\lim{\dfrac{e^\epsilon - 1}{\epsilon}}=1\)</span>. We will use this in this proof:</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
@@ -6653,7 +5780,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 \)</span></p>
 </section>
 <section id="logarithm-f-x-ln-x">
-<h2>Logarithm: <span class="math notranslate nohighlight">\(f(x) = \ln(x)\)</span><a class="headerlink" href="#logarithm-f-x-ln-x" title="Permalink to this headline">#</a></h2>
+<h2>Logarithm: <span class="math notranslate nohighlight">\(f(x) = \ln(x)\)</span><a class="headerlink" href="#logarithm-f-x-ln-x" title="Permalink to this heading">#</a></h2>
 <p>Another definition of the number <span class="math notranslate nohighlight">\(e\)</span> is:</p>
 <p><span class="math notranslate nohighlight">\(e = \underset{n \to \infty}\lim\left(1+\dfrac{1}{n}\right)^n\)</span></p>
 <p>By defining <span class="math notranslate nohighlight">\(\epsilon = \dfrac{1}{n}\)</span>, we can rewrite the previous definition as:</p>
@@ -6676,7 +5803,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 \)</span></p>
 </section>
 <section id="power-rule-f-x-x-r-with-r-neq-0">
-<h2>Power rule: <span class="math notranslate nohighlight">\(f(x)=x^r\)</span>, with <span class="math notranslate nohighlight">\(r \neq 0\)</span><a class="headerlink" href="#power-rule-f-x-x-r-with-r-neq-0" title="Permalink to this headline">#</a></h2>
+<h2>Power rule: <span class="math notranslate nohighlight">\(f(x)=x^r\)</span>, with <span class="math notranslate nohighlight">\(r \neq 0\)</span><a class="headerlink" href="#power-rule-f-x-x-r-with-r-neq-0" title="Permalink to this heading">#</a></h2>
 <p>Let’s define <span class="math notranslate nohighlight">\(g(x)=e^x\)</span> and <span class="math notranslate nohighlight">\(h(x)=\ln(x^r)\)</span>. Since <span class="math notranslate nohighlight">\(a = e^{\ln(a)}\)</span>, we can rewrite <span class="math notranslate nohighlight">\(f\)</span> as <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span>, which allows us to use the chain rule:</p>
 <p><span class="math notranslate nohighlight">\(f'(x) = h'(x)g'(h(x))\)</span></p>
 <p>We know the derivative of the exponential: <span class="math notranslate nohighlight">\(g'(x)=e^x\)</span>. We also know the derivative of the natural logarithm: <span class="math notranslate nohighlight">\(\ln'(x)=\dfrac{1}{x}\)</span> so <span class="math notranslate nohighlight">\(h'(x)=\dfrac{r}{x}\)</span>. Therefore:</p>
@@ -6692,7 +5819,7 @@ f'(x) &amp; = \underset{\epsilon \to 0}\lim\dfrac{f(x+\epsilon) - f(x)}{\epsilon
 </ul>
 </section>
 <section id="multiplicative-inverse-f-x-dfrac-1-h-x">
-<h2>Multiplicative inverse: <span class="math notranslate nohighlight">\(f(x)=\dfrac{1}{h(x)}\)</span><a class="headerlink" href="#multiplicative-inverse-f-x-dfrac-1-h-x" title="Permalink to this headline">#</a></h2>
+<h2>Multiplicative inverse: <span class="math notranslate nohighlight">\(f(x)=\dfrac{1}{h(x)}\)</span><a class="headerlink" href="#multiplicative-inverse-f-x-dfrac-1-h-x" title="Permalink to this heading">#</a></h2>
 <p>First, let’s define <span class="math notranslate nohighlight">\(g(x) = \dfrac{1}{x}\)</span>. This leads to <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span>.
 Now we can use the chain rule:</p>
 <p><span class="math notranslate nohighlight">\(f'(x) = h'(x)g'(h(x))\)</span></p>
@@ -6701,7 +5828,7 @@ Now we can use the chain rule:</p>
 <p><span class="math notranslate nohighlight">\(f'(x) = -\dfrac{h'(x)}{h^2(x)}\)</span></p>
 </section>
 <section id="quotient-rule-f-x-dfrac-g-x-h-x">
-<h2>Quotient rule: <span class="math notranslate nohighlight">\(f(x)=\dfrac{g(x)}{h(x)}\)</span><a class="headerlink" href="#quotient-rule-f-x-dfrac-g-x-h-x" title="Permalink to this headline">#</a></h2>
+<h2>Quotient rule: <span class="math notranslate nohighlight">\(f(x)=\dfrac{g(x)}{h(x)}\)</span><a class="headerlink" href="#quotient-rule-f-x-dfrac-g-x-h-x" title="Permalink to this heading">#</a></h2>
 <p>Let’s rewrite <span class="math notranslate nohighlight">\(f(x)\)</span> as a product: <span class="math notranslate nohighlight">\(f(x)=g(x)u(x)\)</span> with <span class="math notranslate nohighlight">\(u(x)=\dfrac{1}{h(x)}\)</span></p>
 <p>We can now use the product rule to get:</p>
 <p><span class="math notranslate nohighlight">\(f(x) = g'(x)u(x) + g(x)u'(x)\)</span></p>
@@ -6713,7 +5840,7 @@ Now we can use the chain rule:</p>
 <p><span class="math notranslate nohighlight">\(f(x) = \dfrac{g'(x)h(x) - g(x)h'(x)}{h^2(x)}\)</span></p>
 </section>
 <section id="sin-f-x-sin-x">
-<h2>Sin: <span class="math notranslate nohighlight">\(f(x)=\sin(x)\)</span><a class="headerlink" href="#sin-f-x-sin-x" title="Permalink to this headline">#</a></h2>
+<h2>Sin: <span class="math notranslate nohighlight">\(f(x)=\sin(x)\)</span><a class="headerlink" href="#sin-f-x-sin-x" title="Permalink to this heading">#</a></h2>
 <p>For this proof we will first need to prove that <span class="math notranslate nohighlight">\(\underset{\theta \to 0}\lim\dfrac{\sin(\theta)}{\theta}=1\)</span>. One way to do that is to consider the following diagram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6761,7 +5888,7 @@ Now we can use the chain rule:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/math_differential_calculus_71_0.png" src="../../_images/math_differential_calculus_71_0.png" />
+<img alt="../../_images/e4dd735554afe7455676fb3c88fef2e6462bd9ac29ba1d8ad04087b3c90cbdb0.png" src="../../_images/e4dd735554afe7455676fb3c88fef2e6462bd9ac29ba1d8ad04087b3c90cbdb0.png" />
 </div>
 </div>
 <p>The circle is the unit circle (radius=1).</p>
@@ -6824,7 +5951,7 @@ f'(x) &amp; = \underset{\theta \to 0}\lim\dfrac{f(x+\theta) - f(x)}{\theta} &amp
 \)</span></p>
 </section>
 <section id="cosine-f-x-cos-x">
-<h2>Cosine: <span class="math notranslate nohighlight">\(f(x)=\cos(x)\)</span><a class="headerlink" href="#cosine-f-x-cos-x" title="Permalink to this headline">#</a></h2>
+<h2>Cosine: <span class="math notranslate nohighlight">\(f(x)=\cos(x)\)</span><a class="headerlink" href="#cosine-f-x-cos-x" title="Permalink to this heading">#</a></h2>
 <p>Since we have proven that <span class="math notranslate nohighlight">\(\sin'(x)=\cos(x)\)</span>, proving that <span class="math notranslate nohighlight">\(\cos'(x)=-\sin(x)\)</span> will be much easier.</p>
 <p><span class="math notranslate nohighlight">\(
 \begin{align*}
@@ -6840,7 +5967,7 @@ f'(x) &amp; = \underset{\theta \to 0}\lim\dfrac{f(x+\theta) - f(x)}{\theta} &amp
 \)</span></p>
 </section>
 <section id="tangent-f-x-tan-x">
-<h2>Tangent: <span class="math notranslate nohighlight">\(f(x) = \tan(x)\)</span><a class="headerlink" href="#tangent-f-x-tan-x" title="Permalink to this headline">#</a></h2>
+<h2>Tangent: <span class="math notranslate nohighlight">\(f(x) = \tan(x)\)</span><a class="headerlink" href="#tangent-f-x-tan-x" title="Permalink to this heading">#</a></h2>
 <p>Since <span class="math notranslate nohighlight">\(\tan(x)=\dfrac{\sin(x)}{\cos(x)}\)</span>, we can use the quotient rule to get:</p>
 <p><span class="math notranslate nohighlight">\(f'(x) = \dfrac{\sin'(x)\cos(x) - \sin(x)\cos'(x)}{\cos^2(x)}\)</span></p>
 <p>Since <span class="math notranslate nohighlight">\(\sin'(x)=\cos(x)\)</span> and <span class="math notranslate nohighlight">\(\cos'(x)=-\sin(x)\)</span>, we get:</p>
@@ -6862,7 +5989,7 @@ f'(x) &amp; = \underset{\theta \to 0}\lim\dfrac{f(x+\theta) - f(x)}{\theta} &amp
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./handson-ml2/original"
         },
         predefinedOutput: true
@@ -6870,50 +5997,138 @@ f'(x) &amp; = \underset{\theta \to 0}\lim\dfrac{f(x+\theta) - f(x)}{\theta} &amp
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="math_linear_algebra.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Math primer - Linear Algebra</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="math_linear_algebra.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Math primer - Linear Algebra</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="extra_autodiff.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="extra_autodiff.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Implementation of autodiff techniques</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Math primer - Differential Calculus</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#slope-of-a-straight-line">Slope of a straight line</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-slope-of-a-curve">Defining the slope of a curve</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiability">Differentiability</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiating-a-function">Differentiating a function</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-finding-the-derivative-of-x-2">Example: finding the derivative of <span class="math notranslate nohighlight">\(x^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notations">Notations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-tangent-to-a-curve">Plotting the tangent to a curve</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#differentiation-rules">Differentiation rules</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chain-rule">The chain rule</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-and-optimization">Derivatives and optimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">Higher order derivatives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-derivatives">Partial derivatives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients">Gradients</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-descent-revisited">Gradient Descent, revisited</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobians">Jacobians</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hessians">Hessians</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-few-proofs">A few proofs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-f-x-c">Constant: <span class="math notranslate nohighlight">\(f(x)=c\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#product-rule-f-x-g-x-h-x">Product rule: <span class="math notranslate nohighlight">\(f(x)=g(x)h(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-rule-f-x-g-h-x">Chain rule: <span class="math notranslate nohighlight">\(f(x)=g(h(x))\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-f-x-exp-x-e-x">Exponential: <span class="math notranslate nohighlight">\(f(x)=\exp(x)=e^x\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-f-x-ln-x">Logarithm: <span class="math notranslate nohighlight">\(f(x) = \ln(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-rule-f-x-x-r-with-r-neq-0">Power rule: <span class="math notranslate nohighlight">\(f(x)=x^r\)</span>, with <span class="math notranslate nohighlight">\(r \neq 0\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplicative-inverse-f-x-dfrac-1-h-x">Multiplicative inverse: <span class="math notranslate nohighlight">\(f(x)=\dfrac{1}{h(x)}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quotient-rule-f-x-dfrac-g-x-h-x">Quotient rule: <span class="math notranslate nohighlight">\(f(x)=\dfrac{g(x)}{h(x)}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-f-x-sin-x">Sin: <span class="math notranslate nohighlight">\(f(x)=\sin(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-f-x-cos-x">Cosine: <span class="math notranslate nohighlight">\(f(x)=\cos(x)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tangent-f-x-tan-x">Tangent: <span class="math notranslate nohighlight">\(f(x) = \tan(x)\)</span></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Daniel Kapitan<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By Daniel Kapitan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
